@@ -1,0 +1,8 @@
+topology_defaults:
+  ospf_weight: 1.0
+  bandwidth: 100.0
+  capacity: 100.0
+  queue_length: 100
+  loss_rate: 0.0
+  propagation_delay: 1.0
+  use_link_speed_as_capacity: false

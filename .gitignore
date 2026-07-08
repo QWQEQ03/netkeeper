@@ -1,0 +1,40 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Build and packaging output
+build/
+dist/
+*.egg-info/
+
+# Local editor and OS files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Large archives (extracted content already tracked)
+sources.tar.gz
+
+# Model checkpoints and generated training artifacts
+netkeeper_sim/checkpoints/
+*.pt
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak

@@ -1,0 +1,355 @@
+你是一名熟悉计算机网络、路由协议和 Python 工程开发的高级工程师。
+
+我正在复现论文 NetKeeper。目前已经把 Internet Topology Zoo 项目克隆到本地：
+
+Topology Zoo 路径：
+/home/dministrator/projects/netkeeper/InternetTopologyZoo
+
+请在当前工作目录中创建一个独立的 Python 项目，用于实现一个轻量级网络仿真环境。这个阶段不要实现强化学习、LLM、DSL 或真实路由器部署，只实现可靠、可测试的网络仿真内核。
+
+项目目标：
+
+在 Topology Zoo 的真实网络拓扑上，实现：
+
+1. Topology Zoo 拓扑文件加载
+2. OSPF 最短路径计算
+3. ECMP 等价多路径转发
+4. 简化 BGP 路径选择
+5. 流量矩阵输入
+6. 根据转发表传播流量
+7. 计算链路负载和链路利用率
+8. 输出可供后续强化学习环境使用的统一状态
+
+一、开发要求
+
+使用：
+
+- Python 3.10 或 3.11
+- NetworkX
+- NumPy
+- Pandas
+- Pytest
+- 类型注解
+- dataclass 或 Pydantic 表示数据结构
+
+代码必须模块化，不能把所有逻辑写在一个文件里。
+
+建议创建如下目录结构：
+
+netkeeper_sim/
+├── README.md
+├── requirements.txt
+├── pyproject.toml
+├── configs/
+│   └── default.yaml
+├── data/
+│   └── samples/
+├── netkeeper_sim/
+│   ├── __init__.py
+│   ├── topology/
+│   │   ├── __init__.py
+│   │   ├── loader.py
+│   │   ├── model.py
+│   │   └── normalizer.py
+│   ├── routing/
+│   │   ├── __init__.py
+│   │   ├── ospf.py
+│   │   ├── ecmp.py
+│   │   ├── bgp.py
+│   │   └── forwarding.py
+│   ├── traffic/
+│   │   ├── __init__.py
+│   │   ├── matrix.py
+│   │   └── propagation.py
+│   ├── metrics/
+│   │   ├── __init__.py
+│   │   └── load.py
+│   ├── simulator/
+│   │   ├── __init__.py
+│   │   └── environment.py
+│   └── cli.py
+└── tests/
+    ├── test_topology_loader.py
+    ├── test_ospf.py
+    ├── test_ecmp.py
+    ├── test_bgp.py
+    └── test_traffic_propagation.py
+
+如果你认为目录需要调整，可以调整，但必须保持清晰的模块边界。
+
+二、Topology Zoo 加载
+
+请先检查我本地的 InternetTopologyZoo 仓库，确认其中拓扑文件的真实格式和目录结构，不要凭空假设。
+
+需要支持仓库中实际存在的主要拓扑格式，例如 GraphML 或 GML。
+
+加载后统一转换为 NetworkX 图，并规范化为以下内部模型：
+
+节点至少包含：
+
+- node_id
+- name
+- latitude，可为空
+- longitude，可为空
+- node_type，默认 router
+- as_number，可为空
+
+链路至少包含：
+
+- source
+- target
+- ospf_weight
+- bandwidth
+- capacity
+- queue_length
+- loss_rate
+- propagation_delay
+
+Topology Zoo 原始数据中没有的属性，不要伪造为所谓真实值。请使用可配置的默认值，并在 README 中明确说明这些值是仿真默认值。
+
+默认值可以先设置为：
+
+- ospf_weight = 1
+- bandwidth = 100.0
+- capacity = 100.0
+- queue_length = 100
+- loss_rate = 0.0
+- propagation_delay = 1.0
+
+默认值必须能够通过配置文件修改。
+
+三、OSPF
+
+实现基于链路 ospf_weight 的 OSPF 路由计算。
+
+要求：
+
+1. 使用 Dijkstra 算法或 NetworkX 等价实现
+2. 对每个源节点和目的节点计算：
+   - 最短路径代价
+   - 所有满足最短代价的下一跳
+3. 返回统一的转发表，例如：
+
+forwarding_table[source][destination] = {
+    "cost": 10,
+    "next_hops": ["R2", "R3"]
+}
+
+4. 不要只返回一条 shortest_path，必须保留所有 ECMP 下一跳
+5. 对不可达节点要有明确表示
+6. 支持无向拓扑，内部允许扩展为双向链路
+7. 支持链路故障后重新计算路由
+
+四、ECMP
+
+实现 Equal-Cost Multi-Path。
+
+要求：
+
+1. 当存在多个等价下一跳时，流量默认平均分配
+2. 例如某源到目的有两个等价下一跳，100 单位流量应各分配 50
+3. 分流过程需要递归或按拓扑顺序传播，直到到达目的节点
+4. 必须防止路由环路和无限递归
+5. 对浮点误差设置合理容差
+6. 保存每个源宿流量经过的边以及对应流量
+
+输出示例：
+
+flow_paths[(src, dst)] = {
+    (u1, v1): traffic_amount,
+    (u2, v2): traffic_amount
+}
+
+五、简化 BGP
+
+这一阶段不实现完整 RFC BGP，只实现明确、可测试的简化路径选择模型。
+
+定义 BGPRoute 数据结构，至少包括：
+
+- prefix
+- next_hop
+- local_preference
+- as_path
+- med
+- origin_router
+- learned_from
+- igp_cost_to_next_hop
+
+路径选择顺序：
+
+1. Local Preference 越大越优
+2. AS Path 越短越优
+3. MED 越小越优
+4. 到 next hop 的 IGP cost 越小越优
+5. 最后使用稳定、确定性的 router ID 或字符串排序打破平局
+
+要求：
+
+- 为每个路由器和 prefix 选择最佳 BGP 路由
+- BGP 选出的 next hop 应通过 OSPF/IGP 转发表继续转发
+- 提供少量人工构造的测试拓扑验证 BGP 选择顺序
+- 在 README 中明确说明这是简化 BGP，而不是完整协议实现
+
+六、流量矩阵
+
+实现 TrafficMatrix 类。
+
+支持至少两种输入：
+
+1. CSV 文件
+2. Python/NumPy 矩阵
+
+CSV 可以采用长表格式：
+
+source,destination,demand
+R1,R5,100
+R2,R6,50
+
+要求：
+
+- 验证源和目的节点是否存在
+- 不允许负数流量
+- source == destination 时可忽略或明确处理
+- 支持随机生成流量矩阵
+- 随机种子必须可配置，保证实验可复现
+
+七、流量传播和指标
+
+根据 OSPF、BGP 和 ECMP 转发表传播流量。
+
+计算每条链路：
+
+- total_load
+- utilization = total_load / capacity
+
+同时计算：
+
+- maximum_link_utilization
+- average_link_utilization
+- overloaded_links
+- unreachable_demands
+- dropped_traffic，可先只处理链路不可达导致的流量丢失
+
+第一阶段暂时不要实现复杂队列模型，但数据结构应保留 queue_length、loss_rate 等字段，方便以后扩展。
+
+八、统一仿真环境
+
+实现 NetworkSimulationEnvironment，至少提供：
+
+- load_topology(path)
+- set_traffic_matrix(matrix)
+- compute_ospf_routes()
+- compute_bgp_routes()
+- build_forwarding_plane()
+- propagate_traffic()
+- calculate_metrics()
+- fail_link(u, v)
+- restore_link(u, v)
+- update_ospf_weight(u, v, weight)
+- reset()
+
+step 暂时不用遵循 Gymnasium，但接口设计要方便以后封装成强化学习环境。
+
+仿真输出至少包含：
+
+{
+    "forwarding_table": ...,
+    "link_loads": ...,
+    "link_utilization": ...,
+    "maximum_link_utilization": ...,
+    "unreachable_demands": ...,
+    "topology_state": ...
+}
+
+九、测试要求
+
+必须先使用人工小拓扑写测试，不要只在 Topology Zoo 大拓扑上验证。
+
+至少包含以下测试：
+
+1. 单一路径拓扑：
+   R1 -- R2 -- R3
+   验证最短路径和流量传播
+
+2. ECMP 菱形拓扑：
+       R2
+      /  \
+   R1     R4
+      \  /
+       R3
+   所有链路权重相同，验证 R1 到 R4 的流量平均分配
+
+3. 非等价路径：
+   修改其中一条链路权重，验证不再分流
+
+4. 链路故障：
+   删除或禁用一条链路，验证重新选路或不可达
+
+5. BGP：
+   构造多个候选路由，分别验证 Local Preference、AS Path、MED 和 IGP cost 的优先级
+
+6. 流量守恒：
+   无丢包且目的可达时，进入网络的总流量应与到达目的的总流量一致
+
+7. 最大链路利用率：
+   使用人工计算结果与程序结果进行比较
+
+十、命令行示例
+
+提供一个可以直接运行的命令，例如：
+
+python -m netkeeper_sim.cli \
+    --topology /path/to/topology.graphml \
+    --traffic data/samples/traffic.csv
+
+输出：
+
+- 节点数
+- 链路数
+- 流量需求数
+- 最大链路利用率
+- 平均链路利用率
+- 拥塞链路
+- 不可达需求
+
+十一、工作流程
+
+请按以下顺序工作：
+
+1. 首先检查当前目录和 InternetTopologyZoo 仓库结构
+2. 告诉我你发现了哪些拓扑文件格式和目录
+3. 给出简短实施计划
+4. 再开始创建项目和代码
+5. 每完成一个核心模块就运行对应测试
+6. 最后运行完整 pytest
+7. 使用一个真实 Topology Zoo 拓扑完成演示
+8. 总结：
+   - 创建了哪些文件
+   - 如何安装依赖
+   - 如何运行测试
+   - 如何运行示例
+   - 当前有哪些简化假设
+   - 后续如何封装成强化学习环境
+
+十二、限制
+
+- 不要实现强化学习
+- 不要实现 LLM、LangChain 或 DSL
+- 不要依赖 Mininet、FRRouting、Containerlab
+- 不要实现完整 BGP 协议
+- 不要修改 InternetTopologyZoo 原仓库中的数据
+- 不要把未经验证的随机值描述成真实网络参数
+- 不要跳过单元测试
+- 不要在未查看本地仓库结构前假设文件路径
+- 遇到论文中没有说明的地方，应使用合理、简单、明确记录的假设
+
+验收标准：
+
+1. 至少能加载一个真实 Topology Zoo 拓扑
+2. 能为所有可达节点对计算 OSPF 和 ECMP 下一跳
+3. 能读取流量矩阵并传播流量
+4. 能正确计算链路负载和最大链路利用率
+5. 能模拟链路故障并重新计算
+6. 简化 BGP 的路径选择测试全部通过
+7. pytest 全部通过
+8. README 中写明运行步骤和所有简化假设

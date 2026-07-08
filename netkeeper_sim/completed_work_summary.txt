@@ -1,0 +1,902 @@
+NetKeeper Sim 已完成内容记录
+============================
+
+记录目的
+--------
+本文档用于记录当前 NetKeeper Sim 项目已经完成的内容，方便后续继续复现 NetKeeper 论文时快速了解当前进度。
+
+
+一、项目定位
+------------
+当前项目：
+
+  netkeeper_sim/
+
+项目定位是 NetKeeper 论文复现所需的轻量级网络仿真与多智能体强化学习原型。当前已经包含：
+
+  1. 确定性网络仿真内核
+  2. Topology Zoo GraphML/GML 加载
+  3. OSPF/ECMP 路由
+  4. 简化 BGP 路径选择
+  5. 流量矩阵和流量传播
+  6. Policy Consistency、Maximum Link Utilization、Traffic Shift 三个指标
+  7. 多智能体 RL 环境适配层
+  8. 共享 Graph Transformer encoder
+  9. OSPF/BGP/Performance decentralized actors
+  10. Centralized critic
+  11. COMA baseline、actor loss、critic TD loss
+  12. Replay buffer、epsilon-greedy、target critic、debug trainer、checkpoint
+
+当前仍明确不实现：
+
+  1. 完整 BGP 协议
+  2. BGP 会话、报文、withdraw、route reflection、community、真实策略语言
+  3. Mininet、FRRouting、Containerlab 或真实设备部署
+  4. LLM、LangChain、DSL 或意图翻译
+  5. 真实队列、真实丢包或时延仿真
+  6. 论文级大规模实验复现和完整训练结果复现
+
+
+二、Topology Zoo 数据情况
+------------------------
+本地 Topology Zoo 路径：
+
+  /home/dministrator/projects/netkeeper/InternetTopologyZoo
+
+已确认可使用目录：
+
+  InternetTopologyZoo/graphml/
+  InternetTopologyZoo/gml/
+
+已确认：
+
+  1. graphml/ 中有 276 个 .graphml 文件
+  2. gml/ 中有 276 个 .gml 文件
+  3. GraphML 拓扑均为 undirected
+  4. 部分拓扑存在平行链路
+
+典型节点字段：
+
+  label
+  Latitude
+  Longitude
+  Country
+  Internal
+  id
+  type
+
+典型链路字段：
+
+  source
+  target
+  LinkLabel
+  LinkType
+  LinkNote
+  LinkSpeed
+  LinkSpeedRaw
+  LinkSpeedUnits
+
+
+三、确定性仿真内核已完成模块
+----------------------------
+
+1. topology 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/topology/
+
+主要文件：
+
+  model.py
+  loader.py
+  normalizer.py
+
+已完成能力：
+
+  1. 加载 GraphML 拓扑
+  2. 加载 GML 拓扑
+  3. 规范化节点属性
+  4. 规范化链路属性
+  5. 保留 raw_attributes
+  6. 使用配置默认值补齐缺失仿真属性
+  7. 支持链路故障
+  8. 支持链路恢复
+  9. 支持 OSPF 权重更新
+  10. 支持 MultiGraph 转 OSPF 路由计算图
+
+核心数据结构：
+
+  Node
+  Link
+  Topology
+  TopologyDefaults
+
+
+2. routing/ospf 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/routing/ospf.py
+
+已完成能力：
+
+  1. 基于 ospf_weight 计算最短路径代价
+  2. 为每个 source-destination 生成 ForwardingEntry
+  3. 保留所有 ECMP 下一跳
+  4. 对不可达目的返回 reachable=False
+  5. 支持链路故障、恢复和权重修改后重新计算
+
+
+3. routing/ecmp 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/routing/ecmp.py
+
+已完成能力：
+
+  1. 查询 source-destination 的 ECMP 下一跳
+  2. 判断是否存在多下一跳 ECMP
+
+
+4. routing/bgp 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/routing/bgp.py
+
+已完成能力：
+
+  1. 定义 BGPRoute
+  2. 为 router-prefix 选择最佳路由
+  3. 支持根据 OSPF cost 补齐 igp_cost_to_next_hop
+  4. 使用确定性排序打破平局
+
+简化 BGP 路径选择优先级：
+
+  1. Local Preference 越大越优
+  2. AS Path 越短越优
+  3. MED 越小越优
+  4. 到 next hop 的 OSPF cost 越小越优
+  5. origin_router / next_hop / learned_from / prefix 字符串排序打破平局
+
+
+5. traffic/matrix 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/traffic/matrix.py
+
+已完成能力：
+
+  1. CSV 长表格式输入
+  2. NumPy 矩阵输入
+  3. 普通二维列表输入
+  4. 随机流量矩阵生成
+  5. 校验未知节点
+  6. 拒绝负数 demand
+  7. 默认忽略 source == destination
+  8. 默认忽略 demand == 0
+
+
+6. traffic/propagation 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/traffic/propagation.py
+
+已完成能力：
+
+  1. 基于 OSPF/ECMP 转发表逐跳传播流量
+  2. ECMP 按下一跳数量等比例分流
+  3. 统计每条 link_id 的负载
+  4. 记录 flow_paths
+  5. 检测不可达需求
+  6. 记录 dropped traffic
+  7. 验证流量守恒
+  8. 检测路径环路
+  9. 设置最大 hop 限制
+  10. 重复 demand 会聚合累加 flow_paths
+  11. 支持 BGP prefix traffic 先选出口再通过 OSPF/ECMP 转发
+
+
+7. policies 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/policies/
+
+主要文件：
+
+  model.py
+  evaluator.py
+
+已完成能力：
+
+  1. ForwardPolicy
+  2. ReachablePolicy
+  3. IsolationPolicy
+  4. 逐策略 PolicyEvaluationResult
+  5. PolicyConsistencyResult
+  6. ECMP any_path / all_paths 语义
+  7. 路径枚举去重、环路保护和 max_paths 限制
+
+Policy Consistency 定义：
+
+  satisfied_policy_count / total_policy_count
+
+空策略集合：
+
+  consistency = 1.0
+  total = 0
+
+
+8. metrics/load 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/metrics/load.py
+
+已完成能力：
+
+  1. 统计每条链路 total_load
+  2. 计算每条链路 utilization
+  3. 计算 maximum_link_utilization
+
+利用率定义：
+
+  utilization = total_load / capacity
+
+
+9. metrics/traffic_shift 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/metrics/traffic_shift.py
+
+已完成能力：
+
+  1. 捕获 OSPF node destination forwarding snapshot
+  2. 捕获 BGP prefix destination forwarding snapshot
+  3. 比较更新前后的 forwarding plane
+  4. 统计 unchanged、modified、added、removed、reachability_changed
+  5. 支持 union 和 intersection denominator 模式
+
+Traffic Shift 定义：
+
+  changed_forwarding_entries / compared_forwarding_entries
+
+默认 denominator：
+
+  union
+
+
+10. metrics/evaluation 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/metrics/evaluation.py
+
+已完成能力：
+
+  1. 统一 EvaluationResult
+  2. 封装 Policy Consistency
+  3. 复用 maximum_link_utilization
+  4. 计算 average_link_utilization
+  5. 保留 link_utilizations
+  6. 标记 overloaded_links
+  7. 可选计算 Traffic Shift
+
+
+11. simulator/environment 模块
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/simulator/environment.py
+
+已完成能力：
+
+  1. load_topology
+  2. set_traffic_matrix
+  3. set_policies
+  4. compute_ospf_routes
+  5. compute_bgp_routes
+  6. propagate_traffic
+  7. calculate_metrics
+  8. evaluate_policies
+  9. capture_forwarding_snapshot
+  10. calculate_traffic_shift
+  11. evaluate_metrics
+  12. fail_link
+  13. restore_link
+  14. update_ospf_weight
+  15. reset
+
+
+12. CLI
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/cli.py
+
+已完成能力：
+
+  1. 加载真实拓扑
+  2. 计算 OSPF 转发表
+  3. 统计可达节点对
+  4. 统计 ECMP 节点对
+  5. 支持 CSV 流量输入
+  6. 支持随机流量生成
+  7. 输出流量守恒、不可达需求、最大链路利用率等结果
+
+
+四、多智能体 RL 环境适配层
+--------------------------
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/rl/
+
+主要文件：
+
+  config.py
+  _tensor.py
+  graph_state.py
+  action_space.py
+  observations.py
+  rewards.py
+  multi_agent_env.py
+
+已完成能力：
+
+  1. 在 NetworkSimulationEnvironment 外封装 MultiAgentNetworkEnvironment
+  2. reset(topology=None, seed=None)
+  3. step(joint_action)
+  4. 输出 NetworkGraphState
+  5. 输出三个 Agent 的局部 observation
+  6. 生成 action masks
+  7. 接收 factorized joint action
+  8. 应用 OSPF/BGP/Performance 参数更新
+  9. 重新计算 OSPF、BGP、traffic、metrics
+  10. 返回三个 Agent 的 reward
+  11. 支持不同规模 Topology Zoo 拓扑
+  12. reset 会 deep copy 初始 topology 和 BGP candidates，恢复原始配置
+
+NetworkGraphState 字段：
+
+  node_features
+  edge_index
+  edge_features
+  node_mask
+  edge_mask
+  node_ids
+  edge_ids
+  parameter_masks
+  policy_observation
+  utilization_observation
+  link_ids
+  bgp_route_targets
+
+当前图特征维度：
+
+  node_features: [num_nodes, 17]
+  edge_index: [2, num_directed_edges]
+  edge_features: [num_directed_edges, 11]
+
+排序规则：
+
+  node_ids = sorted(topology.nodes)
+  link_ids = sorted(topology.links)
+
+无向物理链路转为双向 directed edge；平行链路保留现有物理 link 语义。
+
+三个 Agent observation：
+
+  OSPF Agent:
+    [逐策略满足 0/1, 按稳定 link_id 排序的链路利用率]
+
+  BGP Agent:
+    [逐策略满足 0/1]
+
+  Performance Agent:
+    [按稳定 link_id 排序的链路利用率]
+
+动作结构：
+
+  {
+      "ospf": {
+          "ospf_weight": [...]
+      },
+      "bgp": {
+          "local_preference": [...],
+          "as_path_length": [...],
+          "med": [...]
+      },
+      "performance": {
+          "bandwidth": [...],
+          "capacity": [...],
+          "queue_length": [...]
+      }
+  }
+
+参数范围：
+
+  ospf_weight: [1, 64]
+  local_preference: [1, 64]
+  as_path_length: [1, 64]
+  med: [1, 64]
+  bandwidth: [65, 128]
+  capacity: [65, 128]
+  queue_length: [65, 128]
+
+mask 字段：
+
+  ospf_weight_mask
+  local_preference_mask
+  as_path_length_mask
+  med_mask
+  bandwidth_mask
+  capacity_mask
+  queue_length_mask
+
+reward：
+
+  R_pol = K * policy_consistency + stationary_reward + dynamic_reward
+  R_res = K * ((1 - normalized_load) + (1 - traffic_shift))
+
+  R_OSPF = R_pol + R_res
+  R_BGP = R_pol
+  R_PERF = R_res
+
+已实现：
+
+  1. reward_mode = "paper"
+  2. reward_mode = "normalized"
+  3. repeated-action penalty：连续两步完全相同 joint action，-1
+  4. dynamic reward：逐策略从不满足到满足 +1，从满足到不满足 -1
+  5. normalized 模式下 maximum_link_utilization 可裁剪，避免 MLU > 1 造成奖励失控
+
+step 时序：
+
+  1. 保存更新前 forwarding snapshot
+  2. 生成并校验 action mask
+  3. 应用联合动作
+  4. 重新计算 OSPF
+  5. 重新计算 BGP
+  6. 传播流量
+  7. 计算策略一致性
+  8. 计算 maximum link utilization
+  9. 使用更新前 snapshot 与更新后 snapshot 计算 traffic shift
+  10. 构造新 state/observation
+  11. 计算 rewards
+  12. 判断 terminated/truncated
+
+
+五、共享 Graph Transformer 与 Decentralized Actors
+-------------------------------------------------
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/rl/networks/
+
+主要文件：
+
+  graph_encoder.py
+  embeddings.py
+  actor_head.py
+  multi_agent_actor.py
+
+已完成模块：
+
+  SharedGraphTransformerEncoder
+  ParameterIDEmbedding
+  OSPFActor
+  BGPActor
+  PerformanceActor
+  MultiAgentActor
+
+依赖：
+
+  PyTorch
+  PyTorch Geometric
+
+本地 .venv 检查结果：
+
+  Python: 3.12.3
+  torch: 2.6.0+cu124
+  CUDA available: False
+  torch_geometric: 2.8.0
+
+SharedGraphTransformerEncoder 输入：
+
+  node_features
+  edge_index
+  edge_features
+  batch
+  node_mask
+
+输出：
+
+  node_embeddings: [num_nodes, hidden_dim]
+  graph_embedding: [batch_size, hidden_dim]
+
+debug 配置：
+
+  hidden_dim = 64
+  GCN/GINE layers = 2
+  Transformer layers = 2
+  Transformer heads = 4
+
+paper 配置：
+
+  hidden_dim = 128
+  GCN/GINE layers = 8
+  Transformer layers = 8
+  Transformer heads = 8
+
+说明：
+
+  1. 当前实现使用 PyG GINEConv 做 edge-aware GCN-like message passing
+  2. 使用 PyG TransformerConv 做 edge-aware transformer message passing
+  3. graph pooling 使用 masked mean pooling
+  4. 这是工程版 GraphTrans 近似，不声称是论文源码级复刻
+  5. 论文没有完整公开 Network Sketch 20 维特征和 GraphTrans 细节
+
+7 种 parameter ID embedding：
+
+  ospf_weight
+  bandwidth
+  capacity
+  queue_length
+  local_preference
+  as_path_length
+  med
+
+Actor 输出：
+
+  OSPFActor:
+    ospf_weight logits: [num_links, 64]
+
+  BGPActor:
+    local_preference logits: [num_bgp_routes, 64]
+    as_path_length logits: [num_bgp_routes, 64]
+    med logits: [num_bgp_routes, 64]
+
+  PerformanceActor:
+    bandwidth logits: [num_links, 64]
+    capacity logits: [num_links, 64]
+    queue_length logits: [num_links, 64]
+
+重要审查结论：
+
+  1. 三个 Actor 持有同一个 encoder 对象，真正共享 encoder 参数
+  2. 三个 actor head 参数彼此独立
+  3. forward 只输出 logits，不在网络内 argmax
+  4. 无效实体 logits 被 mask 为极小值
+  5. 采样和 deterministic argmax 由工具函数或 trainer 完成
+
+debug 参数量：
+
+  Actor params: 249,568
+
+
+六、Centralized Critic 与 COMA
+-----------------------------
+
+位置：
+
+  netkeeper_sim/netkeeper_sim/rl/networks/centralized_critic.py
+  netkeeper_sim/netkeeper_sim/rl/networks/target_network.py
+  netkeeper_sim/netkeeper_sim/rl/algorithms/
+  netkeeper_sim/netkeeper_sim/rl/replay_buffer.py
+  netkeeper_sim/netkeeper_sim/rl/trainer.py
+  netkeeper_sim/netkeeper_sim/rl/checkpoints.py
+  netkeeper_sim/netkeeper_sim/rl/train.py
+
+已完成模块：
+
+  CentralizedCritic
+  target critic clone
+  hard_update
+  soft_update
+  COMA counterfactual baseline
+  actor_loss
+  critic_loss
+  td_target
+  ReplayBuffer
+  EpsilonGreedyExplorer
+  COMATrainer
+  checkpoint save/load
+  debug train CLI
+
+Critic 设计：
+
+  1. Critic 使用独立 SharedGraphTransformerEncoder
+  2. Critic 不与 actor 共享参数
+  3. 对指定 agent、parameter、entity 输出所有候选动作 Q-values
+
+输出形状：
+
+  Q_i,k: [num_entities, 64]
+
+debug 参数量：
+
+  Critic params: 90,944
+
+COMA baseline：
+
+  baseline = sum_a pi_i,k(a | o_i) * Q_i,k(s, a)
+  advantage = Q_i,k(s, selected_action) - baseline
+  advantage = advantage * entity_mask
+
+已确认：
+
+  1. baseline 对所有候选动作求期望
+  2. 无效 entity 不进入 baseline
+  3. actor 概率来自 masked logits
+  4. selected Q 使用 gather
+  5. advantage 默认 detach，避免 actor loss 反向更新 critic
+  6. selected action 越界或 valid entity 上为 -1 时会显式报错，避免 silent clamp bug
+
+Actor loss：
+
+  -mean(log pi(selected_action) * advantage.detach())
+
+Critic target：
+
+  target = reward + gamma * (1 - done) * target_Q_next
+
+说明：
+
+  论文对 critic target 和 loss 的完整公式描述有限，当前实现使用标准一阶 TD 目标作为工程假设。
+
+Critic loss：
+
+  默认 Huber loss
+  支持 MSE
+
+Target critic：
+
+  1. target_critic 参数 requires_grad=False
+  2. target critic forward 在 no_grad 中执行
+  3. 默认每 16 step hard update
+  4. 支持可配置 tau soft update
+  5. tau 不声称来自论文原值
+
+Replay Buffer：
+
+  capacity = 100
+  batch_size 默认 = 16
+  debug batch_size = 2
+  使用 list batch 支持不同规模图
+  不强行 padding 到固定最大拓扑
+  支持 seed
+
+Epsilon-greedy：
+
+  initial epsilon = 1.0
+  final epsilon = 0.01
+  decay = 0.99 per timestep
+
+规则：
+
+  1. 训练阶段以 epsilon 概率从合法动作随机采样
+  2. 否则按 actor Categorical 分布采样
+  3. eval 阶段 deterministic argmax
+  4. 无效 entity 始终输出 -1，映射为 no-op，不会被环境执行
+
+
+七、训练配置与运行
+------------------
+
+配置文件：
+
+  netkeeper_sim/configs/rl_debug.yaml
+  netkeeper_sim/configs/rl_paper.yaml
+
+debug 配置：
+
+  episodes = 2
+  max_steps = 5
+  replay_buffer_size = 100
+  batch_size = 2
+  gamma = 0.85
+  epsilon_start = 1.0
+  epsilon_end = 0.01
+  epsilon_decay = 0.99
+  target_update_interval = 16
+  actor_lr = 0.0001
+  critic_lr = 0.0002
+  hidden_dim = 64
+  GCN/GINE layers = 2
+  Transformer layers = 2
+
+paper 配置保留论文表中主要参数：
+
+  episodes = 10
+  max_steps = 200
+  replay_buffer_size = 100
+  batch_size = 16
+  gamma = 0.85
+  epsilon_start = 1.0
+  epsilon_end = 0.01
+  epsilon_decay = 0.99
+  target_update_interval = 16
+  actor_lr = 0.0001
+  critic_lr = 0.0002
+  hidden_dim = 128
+  GCN/GINE layers = 8
+  Transformer layers = 8
+  decoder linear layers = 4
+
+debug 训练命令：
+
+  PYTHONPATH=.venv/lib/python3.12/site-packages:. \
+  python3 -m netkeeper_sim.rl.train \
+    --config configs/rl_debug.yaml \
+    --checkpoint checkpoints/rl_debug.pt
+
+最近一次专项审查训练输出：
+
+  episode=0 step=0 epsilon=1.0000 policy=0.000 mlu=1.176 shift=0.500 rewards=(4.000,-1.000,5.000) loss=(None,None) grad=None terminated=False truncated=False
+  episode=0 step=1 epsilon=0.9900 policy=1.000 mlu=0.909 shift=0.500 rewards=(16.909,11.000,5.909) loss=(0.031379710882902145,6.327394485473633) grad=0.5990901589393616 terminated=True truncated=False
+  episode=1 step=0 epsilon=0.9801 policy=1.000 mlu=1.220 shift=0.500 rewards=(15.000,10.000,5.000) loss=(-0.009602049365639687,7.587085723876953) grad=0.5962231159210205 terminated=True truncated=False
+
+checkpoint：
+
+  checkpoints/rl_debug_review.pt
+
+checkpoint load + deterministic evaluation 已验证：
+
+  metadata {'config': 'configs/rl_debug.yaml', 'steps': 3}
+  action_lengths {'ospf': {'ospf_weight': 4}, 'bgp': {'local_preference': 0, 'as_path_length': 0, 'med': 0}, 'performance': {'bandwidth': 4, 'capacity': 4, 'queue_length': 4}}
+  shapes {'ospf_weight': (4, 64), 'bandwidth': (4, 64)}
+
+
+八、真实拓扑演示
+----------------
+
+已使用真实 Topology Zoo 拓扑：
+
+  InternetTopologyZoo/graphml/Abilene.graphml
+
+拓扑规模：
+
+  nodes = 11
+  links = 14
+  directed_edges = 28
+
+确定性仿真示例：
+
+  reachable_node_pairs: 110
+  unreachable_node_pairs: 0
+  ecmp_node_pairs: 15
+  traffic_demands: 33
+  total_input_traffic: 286.079082
+  delivered_traffic: 286.079082
+  dropped_traffic: 0.000000
+  unreachable_demands: 0
+  flow_conserved: True
+  maximum_link_utilization: 0.913705
+
+RL 环境 Abilene state：
+
+  node_features: (11, 17)
+  edge_index: (2, 28)
+  edge_features: (28, 11)
+
+debug actor Abilene 输出：
+
+  node_embeddings: (11, 64)
+  graph_embedding: (1, 64)
+  ospf_weight: (14, 64)
+  local_preference: (0, 64)
+  as_path_length: (0, 64)
+  med: (0, 64)
+  bandwidth: (14, 64)
+  capacity: (14, 64)
+  queue_length: (14, 64)
+
+
+九、测试情况
+------------
+
+测试目录：
+
+  netkeeper_sim/tests/
+
+当前测试覆盖：
+
+  1. Topology Zoo GraphML/GML 加载
+  2. OSPF 最短路
+  3. ECMP
+  4. 链路故障和恢复
+  5. OSPF 权重更新
+  6. CSV/NumPy/列表流量矩阵
+  7. 流量传播和流量守恒
+  8. BGP 路径选择
+  9. BGP prefix forwarding
+  10. Policy Consistency
+  11. Traffic Shift
+  12. Evaluation metrics
+  13. NetworkSimulationEnvironment
+  14. RL graph state
+  15. RL action masks
+  16. RL rewards
+  17. MultiAgentNetworkEnvironment
+  18. Graph encoder
+  19. Actor heads
+  20. MultiAgentActor
+  21. CentralizedCritic
+  22. COMA baseline
+  23. COMA losses
+  24. ReplayBuffer
+  25. Training smoke
+
+带 torch/PyG 的完整测试：
+
+  106 passed
+
+系统 Python 未加载 torch/PyG 的测试：
+
+  82 passed, 8 skipped
+
+说明：
+
+  原有 65 个确定性仿真测试仍然包含在通过测试中。
+
+
+十、审查中发现并修复的问题
+--------------------------
+
+1. 重复 source-destination demand 覆盖 flow_paths
+
+修复：
+
+  改为对相同 flow_key 的边流量进行聚合累加。
+
+
+2. BGP 出口 IGP 不可达时丢失 prefix 上下文
+
+修复：
+
+  propagate_bgp_traffic 中将不可达记录恢复为原始 prefix。
+
+
+3. COMA selected action silent clamp bug
+
+问题：
+
+  selected action 为 -1 或越界时，gather 前使用 clamp_min(0) 可能导致 valid entity 上的非法动作被静默当成动作 0。
+
+修复：
+
+  在 COMA baseline、selected_log_probabilities、critic_loss 中增加 selected action 范围校验。
+
+
+4. TD target 无效 next entity bootstrap 表达不够明确
+
+修复：
+
+  改为显式使用 torch.where(mask, max_q, 0)，无效 next entity bootstrap 为 0。
+
+
+十一、当前设计假设与限制
+------------------------
+
+1. Topology Zoo 拓扑按无向图处理
+2. 无向链路可双向转发
+3. OSPF 使用静态 ospf_weight
+4. ECMP 按下一跳数量等比例分流
+5. 平行链路在 OSPF 路由计算中按最小权重折叠
+6. 等权平行链路在负载统计中平均分担
+7. Topology Zoo 缺失仿真属性用配置默认值补齐
+8. 默认 capacity、bandwidth 等不代表真实测量值
+9. BGP 是简化路径选择，不是完整协议
+10. Performance Agent 当前控制 bandwidth、capacity、queue_length，但真实队列和丢包模型尚未实现
+11. GraphTrans 是工程近似实现，不是论文源码级复刻
+12. Network Sketch 特征是可解释工程编码，不是论文未公开的 20 维原始编码
+13. Critic target 使用标准一阶 TD 目标，是工程假设
+14. 当前训练循环是 debug/smoke 级别，不代表论文实验结果
+15. 系统 Python 环境未安装 torch/PyG；网络和训练测试通过本地 .venv 的 torch/PyG 运行
