@@ -1,53 +1,29 @@
 from __future__ import annotations
-
 import random
 from collections import deque
 from dataclasses import dataclass
 from typing import Any
 
-
 @dataclass(frozen=True)
 class Transition:
-    state: Any
-    observations: Any
-    action: dict[str, dict[str, list[int]]]
-    action_indices: dict[str, dict[str, Any]]
-    previous_action: dict[str, dict[str, list[int]]] | None
-    previous_action_indices: dict[str, dict[str, Any]] | None
-    rewards: dict[str, float]
-    next_state: Any
-    next_observations: Any
+    graph: Any
+    masks: dict[str, Any]
+    actions: dict[str, int]
+    reward: float
+    next_graph: Any
+    next_masks: dict[str, Any]
     terminated: bool
     truncated: bool
-    action_masks: dict[str, Any]
-    next_action_masks: dict[str, Any]
-    topology_identifier: str
-
-    @property
-    def done(self) -> bool:
-        return self.terminated or self.truncated
-
+    snapshot_id: str
+    next_snapshot_id: str
 
 class ReplayBuffer:
-    def __init__(self, capacity: int = 100, seed: int | None = None) -> None:
-        if capacity <= 0:
-            raise ValueError("capacity must be positive")
-        self.capacity = capacity
-        self._items: deque[Transition] = deque(maxlen=capacity)
-        self._rng = random.Random(seed)
-
-    def add(self, transition: Transition) -> None:
-        self._items.append(transition)
-
-    def sample(self, batch_size: int) -> list[Transition]:
-        if batch_size <= 0:
-            raise ValueError("batch_size must be positive")
-        if batch_size > len(self._items):
-            raise ValueError("batch_size exceeds replay buffer size")
-        return self._rng.sample(list(self._items), batch_size)
-
-    def clear(self) -> None:
-        self._items.clear()
-
-    def __len__(self) -> int:
-        return len(self._items)
+    def __init__(self, capacity: int = 1000, seed: int | None = None) -> None:
+        self._items = deque(maxlen=capacity); self._rng = random.Random(seed)
+    def add(self, item: Transition) -> None:
+        if item.graph.snapshot_id != item.snapshot_id or item.next_graph.snapshot_id != item.next_snapshot_id: raise ValueError("transition snapshot mismatch")
+        self._items.append(item)
+    def sample(self, batch_size: int) -> list[Transition]: return self._rng.sample(list(self._items), batch_size)
+    def __len__(self) -> int: return len(self._items)
+    def state_dict(self) -> dict: return {"items": list(self._items), "rng": self._rng.getstate()}
+    def load_state_dict(self, state: dict) -> None: self._items.extend(state["items"]); self._rng.setstate(state["rng"])

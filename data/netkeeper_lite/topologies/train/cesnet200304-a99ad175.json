@@ -1,0 +1,1335 @@
+{
+  "defaults": {
+    "bandwidth_bps": 100000000,
+    "capacity_bps": 100000000,
+    "capacity_max_bps": 100000000,
+    "delay_ms": 1.0,
+    "loss_rate": 0.0,
+    "ospf_weight": 1,
+    "packet_size_bytes": 1500,
+    "physical_bandwidth_bps": 100000000,
+    "queue_packets": 1000,
+    "state": "up",
+    "value_source": "default"
+  },
+  "directed": false,
+  "links": [
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.276318385759302,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R1:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e24",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R0",
+      "target": "R1"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 2500000000,
+        "capacity_bps": 2500000000,
+        "capacity_max_bps": 2500000000,
+        "delay_ms": 0.41431926022229293,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 2500000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R0--R26:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "2.5G",
+        "LinkSpeed": "2.5",
+        "LinkSpeedRaw": 2500000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "2.5G",
+      "source": "R0",
+      "target": "R26"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.09578716892134015,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e21",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R0",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 2500000000,
+        "capacity_bps": 2500000000,
+        "capacity_max_bps": 2500000000,
+        "delay_ms": 0.8993035145289031,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 2500000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R0--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "2.5G",
+        "LinkSpeed": "2.5",
+        "LinkSpeedRaw": 2500000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "2.5G",
+      "source": "R0",
+      "target": "R9"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 10000000,
+        "capacity_bps": 10000000,
+        "capacity_max_bps": 10000000,
+        "delay_ms": 0.12404982561707188,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 10000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R10--R27:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "10M",
+        "LinkSpeed": "10",
+        "LinkSpeedRaw": 10000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "10M",
+      "source": "R10",
+      "target": "R27"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.10931312716286158,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R11--R28:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e20",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R11",
+      "target": "R28"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 12000000000,
+        "capacity_bps": 12000000000,
+        "capacity_max_bps": 12000000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 12000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R12--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "12G",
+        "LinkSpeed": "12",
+        "LinkSpeedRaw": 12000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "12G",
+      "source": "R12",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 34000000,
+        "capacity_bps": 34000000,
+        "capacity_max_bps": 34000000,
+        "delay_ms": 0.14772067972331263,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 34000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R13--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "34M",
+        "LinkSpeed": "34",
+        "LinkSpeedRaw": 34000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "34M",
+      "source": "R13",
+      "target": "R9"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 34000000,
+        "capacity_bps": 34000000,
+        "capacity_max_bps": 34000000,
+        "delay_ms": 0.07536234167601868,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 34000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R14--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "34M",
+        "LinkSpeed": "34",
+        "LinkSpeedRaw": 34000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "34M",
+      "source": "R14",
+      "target": "R9"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 10000000,
+        "capacity_bps": 10000000,
+        "capacity_max_bps": 10000000,
+        "delay_ms": 0.1888353550462899,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 10000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R15--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "10M",
+        "LinkSpeed": "10",
+        "LinkSpeedRaw": 10000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "10M",
+      "source": "R15",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.054552624534887094,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R16--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e14",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R16",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 10000000,
+        "capacity_bps": 10000000,
+        "capacity_max_bps": 10000000,
+        "delay_ms": 0.3840782493983623,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 10000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R17--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "10M",
+        "LinkSpeed": "10",
+        "LinkSpeedRaw": 10000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "10M",
+      "source": "R17",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 10000000,
+        "capacity_bps": 10000000,
+        "capacity_max_bps": 10000000,
+        "delay_ms": 0.22064073981724874,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 10000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R18--R28:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "10M",
+        "LinkSpeed": "10",
+        "LinkSpeedRaw": 10000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "10M",
+      "source": "R18",
+      "target": "R28"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R19--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1G",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1G",
+      "source": "R19",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 34000000,
+        "capacity_bps": 34000000,
+        "capacity_max_bps": 34000000,
+        "delay_ms": 0.21443904149342238,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 34000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R2--R28:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "34M",
+        "LinkSpeed": "34",
+        "LinkSpeedRaw": 34000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "34M",
+      "source": "R2",
+      "target": "R28"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 622000000,
+        "capacity_bps": 622000000,
+        "capacity_max_bps": 622000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 622000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R20--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "622M",
+        "LinkSpeed": "622",
+        "LinkSpeedRaw": 622000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "622M",
+      "source": "R20",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 34000000,
+        "capacity_bps": 34000000,
+        "capacity_max_bps": 34000000,
+        "delay_ms": 0.4040024451248878,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 34000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R21--R22:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "34M",
+        "LinkSpeed": "34",
+        "LinkSpeedRaw": 34000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "34M",
+      "source": "R21",
+      "target": "R22"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 34000000,
+        "capacity_bps": 34000000,
+        "capacity_max_bps": 34000000,
+        "delay_ms": 0.558624550237915,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 34000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R22--R24:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "34M",
+        "LinkSpeed": "34",
+        "LinkSpeedRaw": 34000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "34M",
+      "source": "R22",
+      "target": "R24"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 2500000000,
+        "capacity_bps": 2500000000,
+        "capacity_max_bps": 2500000000,
+        "delay_ms": 0.41869427569421264,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 2500000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R22--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "2.5G",
+        "LinkSpeed": "2.5",
+        "LinkSpeedRaw": 2500000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "2.5G",
+      "source": "R22",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 34000000,
+        "capacity_bps": 34000000,
+        "capacity_max_bps": 34000000,
+        "delay_ms": 0.09319971792865635,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 34000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R23--R24:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "34M",
+        "LinkSpeed": "34",
+        "LinkSpeedRaw": 34000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "34M",
+      "source": "R23",
+      "target": "R24"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.3469054225547392,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R24--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1G",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1G",
+      "source": "R24",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 2500000000,
+        "capacity_bps": 2500000000,
+        "capacity_max_bps": 2500000000,
+        "delay_ms": 0.43953299047176,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 2500000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R25--R26:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "2.5G",
+        "LinkSpeed": "2.5",
+        "LinkSpeedRaw": 2500000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "2.5G",
+      "source": "R25",
+      "target": "R26"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 10000000,
+        "capacity_bps": 10000000,
+        "capacity_max_bps": 10000000,
+        "delay_ms": 0.2506950584365325,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 10000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R25--R27:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "10M",
+        "LinkSpeed": "10",
+        "LinkSpeedRaw": 10000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "10M",
+      "source": "R25",
+      "target": "R27"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 2500000000,
+        "capacity_bps": 2500000000,
+        "capacity_max_bps": 2500000000,
+        "delay_ms": 0.6194184386345613,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 2500000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R25--R28:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "2.5G",
+        "LinkSpeed": "2.5",
+        "LinkSpeedRaw": 2500000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "2.5G",
+      "source": "R25",
+      "target": "R28"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.48459561200451373,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R25--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1G",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1G",
+      "source": "R25",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 2500000000,
+        "capacity_bps": 2500000000,
+        "capacity_max_bps": 2500000000,
+        "delay_ms": 0.9307959789536631,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 2500000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R25--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "2.5G",
+        "LinkSpeed": "2.5",
+        "LinkSpeedRaw": 2500000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "2.5G",
+      "source": "R25",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 2500000000,
+        "capacity_bps": 2500000000,
+        "capacity_max_bps": 2500000000,
+        "delay_ms": 0.7865226254217452,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 2500000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R28--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "2.5G",
+        "LinkSpeed": "2.5",
+        "LinkSpeedRaw": 2500000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "2.5G",
+      "source": "R28",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 34000000,
+        "capacity_bps": 34000000,
+        "capacity_max_bps": 34000000,
+        "delay_ms": 0.14912780438470452,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 34000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R4--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "34M",
+        "LinkSpeed": "34",
+        "LinkSpeedRaw": 34000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "34M",
+      "source": "R4",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.2586436057677797,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R5--R6:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1G",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1G",
+      "source": "R5",
+      "target": "R6"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 34000000,
+        "capacity_bps": 34000000,
+        "capacity_max_bps": 34000000,
+        "delay_ms": 0.3847492448773927,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 34000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R5--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "34M",
+        "LinkSpeed": "34",
+        "LinkSpeedRaw": 34000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "34M",
+      "source": "R5",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 2500000000,
+        "capacity_bps": 2500000000,
+        "capacity_max_bps": 2500000000,
+        "delay_ms": 0.3221764326054897,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 2500000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R6--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "2.5G",
+        "LinkSpeed": "2.5",
+        "LinkSpeedRaw": 2500000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "2.5G",
+      "source": "R6",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.3935109933240228,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R6--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1G",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1G",
+      "source": "R6",
+      "target": "R9"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 10000000,
+        "capacity_bps": 10000000,
+        "capacity_max_bps": 10000000,
+        "delay_ms": 0.2623547753966917,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 10000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R7--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "10M",
+        "LinkSpeed": "10",
+        "LinkSpeedRaw": 10000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "10M",
+      "source": "R7",
+      "target": "R8"
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "R0",
+      "node_type": "router",
+      "original_id": "0",
+      "original_label": "Hradec Kralove",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 50.20923,
+        "Longitude": 15.83277,
+        "id": 0,
+        "label": "Hradec Kralove"
+      }
+    },
+    {
+      "node_id": "R1",
+      "node_type": "router",
+      "original_id": "1",
+      "original_label": "Ceska Trebova",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.90436,
+        "Longitude": 16.44413,
+        "id": 1,
+        "label": "Ceska Trebova"
+      }
+    },
+    {
+      "node_id": "R2",
+      "node_type": "router",
+      "original_id": "2",
+      "original_label": "Jindrichuv Hradec",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.14404,
+        "Longitude": 15.00301,
+        "id": 2,
+        "label": "Jindrichuv Hradec"
+      }
+    },
+    {
+      "node_id": "R3",
+      "node_type": "router",
+      "original_id": "3",
+      "original_label": "Pardubice",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 50.04075,
+        "Longitude": 15.77659,
+        "id": 3,
+        "label": "Pardubice"
+      }
+    },
+    {
+      "node_id": "R4",
+      "node_type": "router",
+      "original_id": "4",
+      "original_label": "Vyskov",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.27747,
+        "Longitude": 16.99897,
+        "id": 4,
+        "label": "Vyskov"
+      }
+    },
+    {
+      "node_id": "R5",
+      "node_type": "router",
+      "original_id": "5",
+      "original_label": "Zlin",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.21667,
+        "Longitude": 17.66667,
+        "id": 5,
+        "label": "Zlin"
+      }
+    },
+    {
+      "node_id": "R6",
+      "node_type": "router",
+      "original_id": "6",
+      "original_label": "Olomouc",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.59552,
+        "Longitude": 17.25175,
+        "id": 6,
+        "label": "Olomouc"
+      }
+    },
+    {
+      "node_id": "R7",
+      "node_type": "router",
+      "original_id": "7",
+      "original_label": "Brno",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.19522,
+        "Longitude": 16.60796,
+        "id": 7,
+        "label": "Brno"
+      }
+    },
+    {
+      "node_id": "R8",
+      "node_type": "router",
+      "original_id": "8",
+      "original_label": "Breclav,Lednice",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 48.75897,
+        "Longitude": 16.88203,
+        "id": 8,
+        "label": "Breclav,Lednice"
+      }
+    },
+    {
+      "node_id": "R9",
+      "node_type": "router",
+      "original_id": "9",
+      "original_label": "Ostrava",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.83465,
+        "Longitude": 18.28204,
+        "id": 9,
+        "label": "Ostrava"
+      }
+    },
+    {
+      "node_id": "R10",
+      "node_type": "router",
+      "original_id": "10",
+      "original_label": "Kostelec n C.L",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.99403,
+        "Longitude": 14.85922,
+        "id": 10,
+        "label": "Kostelec n C.L"
+      }
+    },
+    {
+      "node_id": "R11",
+      "node_type": "router",
+      "original_id": "11",
+      "original_label": "Trebon",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.00364,
+        "Longitude": 14.77065,
+        "id": 11,
+        "label": "Trebon"
+      }
+    },
+    {
+      "node_id": "R12",
+      "node_type": "router",
+      "original_id": "12",
+      "original_label": "GEANT",
+      "raw_attributes": {
+        "Internal": 0,
+        "id": 12,
+        "label": "GEANT"
+      }
+    },
+    {
+      "node_id": "R13",
+      "node_type": "router",
+      "original_id": "13",
+      "original_label": "Opava",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.93866,
+        "Longitude": 17.90257,
+        "id": 13,
+        "label": "Opava"
+      }
+    },
+    {
+      "node_id": "R14",
+      "node_type": "router",
+      "original_id": "14",
+      "original_label": "Karvina",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.84452,
+        "Longitude": 18.49166,
+        "id": 14,
+        "label": "Karvina"
+      }
+    },
+    {
+      "node_id": "R15",
+      "node_type": "router",
+      "original_id": "15",
+      "original_label": "Kutna Hora",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.94839,
+        "Longitude": 15.26816,
+        "id": 15,
+        "label": "Kutna Hora"
+      }
+    },
+    {
+      "node_id": "R16",
+      "node_type": "router",
+      "original_id": "16",
+      "original_label": "Rez",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 50.17734,
+        "Longitude": 14.35733,
+        "id": 16,
+        "label": "Rez"
+      }
+    },
+    {
+      "node_id": "R17",
+      "node_type": "router",
+      "original_id": "17",
+      "original_label": "Tabor",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.41441,
+        "Longitude": 14.6578,
+        "id": 17,
+        "label": "Tabor"
+      }
+    },
+    {
+      "node_id": "R18",
+      "node_type": "router",
+      "original_id": "18",
+      "original_label": "Pisek",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.3088,
+        "Longitude": 14.1475,
+        "id": 18,
+        "label": "Pisek"
+      }
+    },
+    {
+      "node_id": "R19",
+      "node_type": "router",
+      "original_id": "19",
+      "original_label": "NIX",
+      "raw_attributes": {
+        "Internal": 0,
+        "id": 19,
+        "label": "NIX"
+      }
+    },
+    {
+      "node_id": "R20",
+      "node_type": "router",
+      "original_id": "20",
+      "original_label": "USA",
+      "raw_attributes": {
+        "Internal": 0,
+        "id": 20,
+        "label": "USA"
+      }
+    },
+    {
+      "node_id": "R21",
+      "node_type": "router",
+      "original_id": "21",
+      "original_label": "Cheb",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 50.07963,
+        "Longitude": 12.37392,
+        "id": 21,
+        "label": "Cheb"
+      }
+    },
+    {
+      "node_id": "R22",
+      "node_type": "router",
+      "original_id": "22",
+      "original_label": "Plzen",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 49.74747,
+        "Longitude": 13.37759,
+        "id": 22,
+        "label": "Plzen"
+      }
+    },
+    {
+      "node_id": "R23",
+      "node_type": "router",
+      "original_id": "23",
+      "original_label": "Decin",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 50.78215,
+        "Longitude": 14.21478,
+        "id": 23,
+        "label": "Decin"
+      }
+    },
+    {
+      "node_id": "R24",
+      "node_type": "router",
+      "original_id": "24",
+      "original_label": "Usti nad Labem",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 50.6607,
+        "Longitude": 14.03227,
+        "id": 24,
+        "label": "Usti nad Labem"
+      }
+    },
+    {
+      "node_id": "R25",
+      "node_type": "router",
+      "original_id": "25",
+      "original_label": "Praha",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 50.08804,
+        "Longitude": 14.42076,
+        "id": 25,
+        "label": "Praha"
+      }
+    },
+    {
+      "node_id": "R26",
+      "node_type": "router",
+      "original_id": "26",
+      "original_label": "Liberec",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 50.76711,
+        "Longitude": 15.05619,
+        "id": 26,
+        "label": "Liberec"
+      }
+    },
+    {
+      "node_id": "R27",
+      "node_type": "router",
+      "original_id": "27",
+      "original_label": "Podebrady",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 50.14242,
+        "Longitude": 15.11881,
+        "id": 27,
+        "label": "Podebrady"
+      }
+    },
+    {
+      "node_id": "R28",
+      "node_type": "router",
+      "original_id": "28",
+      "original_label": "Ceske Budejovice",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 48.97447,
+        "Longitude": 14.47434,
+        "id": 28,
+        "label": "Ceske Budejovice"
+      }
+    }
+  ],
+  "normalized_name": "Cesnet200304",
+  "raw_name": "CESNET",
+  "schema_version": "netkeeper-sim.schema.v1",
+  "source_format": "graphml",
+  "source_sha256": "0c88b52403b017907c34e9b9f94939611b1325bad4fdd4a172615f7b3dcc285f",
+  "topology_id": "zoo:cesnet200304:0c88b524"
+}

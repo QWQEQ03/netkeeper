@@ -23,6 +23,15 @@ from netkeeper_sim.topology.loader import load_topology
 from netkeeper_sim.topology.model import Topology, TopologyDefaults
 from netkeeper_sim.traffic.matrix import TrafficMatrix
 from netkeeper_sim.traffic.propagation import PropagationResult, propagate_traffic
+from netkeeper_sim.schemas.models import (
+    NetworkConfiguration as SchemaNetworkConfiguration,
+    Topology as SchemaTopology,
+    TrafficMatrix as SchemaTrafficMatrix,
+)
+from netkeeper_sim.simulator.deterministic import (
+    DeterministicSimulationResult,
+    simulate_deterministic,
+)
 
 
 class NetworkSimulationEnvironment:
@@ -53,6 +62,22 @@ class NetworkSimulationEnvironment:
 
     def set_policies(self, policies: Iterable[Policy]) -> None:
         self.policies = list(policies)
+
+    def simulate_schema(
+        self,
+        topology: SchemaTopology,
+        configuration: SchemaNetworkConfiguration,
+        traffic: SchemaTrafficMatrix,
+        *,
+        previous: DeterministicSimulationResult | None = None,
+    ) -> DeterministicSimulationResult:
+        """Run the immutable schema-driven deterministic simulation kernel.
+
+        This intentionally does not mutate the legacy environment fields.  It
+        is the migration boundary for callers that need configuration version
+        semantics, BGP prefix traffic, and directed performance accounting.
+        """
+        return simulate_deterministic(topology, configuration, traffic, previous=previous)
 
     def compute_ospf_routes(self) -> ForwardingTable:
         topology = self._require_topology()

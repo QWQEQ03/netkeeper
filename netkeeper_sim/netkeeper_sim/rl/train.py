@@ -13,10 +13,12 @@ from netkeeper_sim.traffic.matrix import TrafficDemand, TrafficMatrix
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run a small COMA debug training loop.")
+    parser = argparse.ArgumentParser(description="Deprecated legacy COMA entry; unified trainer migration is pending.")
     parser.add_argument("--config", default="configs/rl_debug.yaml")
     parser.add_argument("--checkpoint", default="checkpoints/rl_debug.pt")
     args = parser.parse_args()
+
+    raise SystemExit("Formal training is intentionally unavailable in this short COMA-validation block; use the tested COMATrainer smoke API only.")
 
     training_config = COMATrainingConfig.from_yaml(args.config)
     rl_config = RLConfig(max_steps=training_config.max_steps)

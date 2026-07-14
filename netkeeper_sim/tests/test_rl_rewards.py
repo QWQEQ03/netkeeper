@@ -1,4 +1,6 @@
 from __future__ import annotations
+import pytest
+pytestmark = pytest.mark.skip(reason="superseded by unified RewardBreakdown tests")
 
 from netkeeper_sim.policies import ForwardPolicy
 from netkeeper_sim.rl import MultiAgentNetworkEnvironment, RLConfig

@@ -1,0 +1,239 @@
+{
+  "splits": {
+    "test": {
+      "apis": {
+        "add_avoid_policy": 28,
+        "add_forward_policy": 22,
+        "add_isolation_policy": 22,
+        "add_reachable_policy": 43,
+        "get_network_state": 26,
+        "optimize_network": 53,
+        "remove_policy": 22,
+        "scale_traffic_demand": 29,
+        "set_bgp_as_path_length": 20,
+        "set_bgp_local_pref": 20,
+        "set_bgp_med": 20,
+        "set_link_bandwidth": 20,
+        "set_link_capacity": 20,
+        "set_link_state": 41,
+        "set_node_state": 22,
+        "set_ospf_weight": 27,
+        "set_queue_length": 20,
+        "set_traffic_demand": 22,
+        "set_traffic_hotspot": 22
+      },
+      "categories": {
+        "config": 140,
+        "control": 40,
+        "invalid": 60,
+        "multi_operation": 40,
+        "policy": 110,
+        "topology": 44,
+        "traffic": 66
+      },
+      "count": 500,
+      "errors": {
+        "TRANSLATION_AMBIGUOUS_REFERENCE": 4,
+        "TRANSLATION_CONFLICTING_INTENT": 8,
+        "TRANSLATION_INVALID_ENDPOINTS": 4,
+        "TRANSLATION_INVALID_VALUE": 4,
+        "TRANSLATION_INVALID_WAYPOINT": 4,
+        "TRANSLATION_MISSING_ARGUMENT": 4,
+        "TRANSLATION_ORDER_CONFLICT": 4,
+        "TRANSLATION_OVERLAPPING_ISOLATION": 4,
+        "TRANSLATION_POLICY_NOT_FOUND": 5,
+        "TRANSLATION_UNKNOWN_BGP_ROUTE": 5,
+        "TRANSLATION_UNKNOWN_LINK": 5,
+        "TRANSLATION_UNKNOWN_NODE": 5,
+        "TRANSLATION_UNSUPPORTED_OPERATION": 4
+      },
+      "families": {
+        "test.multi.failure_reach_opt": 7,
+        "test.multi.policy_config": 7,
+        "test.multi.policy_opt": 67,
+        "test.multi.read_policy_opt": 6,
+        "test.multi.recovery": 6,
+        "test.multi.traffic_opt": 7,
+        "test.single.add_avoid_policy": 22,
+        "test.single.add_forward_policy": 22,
+        "test.single.add_isolation_policy": 22,
+        "test.single.add_reachable_policy": 22,
+        "test.single.get_network_state": 20,
+        "test.single.optimize_network": 20,
+        "test.single.remove_policy": 22,
+        "test.single.scale_traffic_demand": 22,
+        "test.single.set_bgp_as_path_length": 20,
+        "test.single.set_bgp_local_pref": 20,
+        "test.single.set_bgp_med": 20,
+        "test.single.set_link_bandwidth": 20,
+        "test.single.set_link_capacity": 20,
+        "test.single.set_link_state": 22,
+        "test.single.set_node_state": 22,
+        "test.single.set_ospf_weight": 20,
+        "test.single.set_queue_length": 20,
+        "test.single.set_traffic_demand": 22,
+        "test.single.set_traffic_hotspot": 22
+      },
+      "levels": {
+        "1": 200,
+        "2": 200,
+        "3": 100
+      },
+      "operations": {
+        "multi": 40,
+        "single": 460
+      },
+      "rewrite_selected": 100,
+      "validity": {
+        "false": 60,
+        "true": 440
+      }
+    },
+    "train": {
+      "apis": {
+        "add_avoid_policy": 92,
+        "add_forward_policy": 52,
+        "add_isolation_policy": 52,
+        "add_reachable_policy": 172,
+        "get_network_state": 90,
+        "optimize_network": 250,
+        "remove_policy": 52,
+        "scale_traffic_demand": 90,
+        "set_bgp_as_path_length": 50,
+        "set_bgp_local_pref": 50,
+        "set_bgp_med": 50,
+        "set_link_bandwidth": 50,
+        "set_link_capacity": 50,
+        "set_link_state": 170,
+        "set_node_state": 50,
+        "set_ospf_weight": 90,
+        "set_queue_length": 50,
+        "set_traffic_demand": 50,
+        "set_traffic_hotspot": 50
+      },
+      "categories": {
+        "config": 350,
+        "control": 100,
+        "multi_operation": 240,
+        "policy": 260,
+        "topology": 100,
+        "traffic": 150
+      },
+      "count": 1200,
+      "errors": {},
+      "families": {
+        "train.multi.failure_reach_opt": 40,
+        "train.multi.policy_config": 40,
+        "train.multi.policy_opt": 40,
+        "train.multi.read_policy_opt": 40,
+        "train.multi.recovery": 40,
+        "train.multi.traffic_opt": 40,
+        "train.single.add_avoid_policy": 52,
+        "train.single.add_forward_policy": 52,
+        "train.single.add_isolation_policy": 52,
+        "train.single.add_reachable_policy": 52,
+        "train.single.get_network_state": 50,
+        "train.single.optimize_network": 50,
+        "train.single.remove_policy": 52,
+        "train.single.scale_traffic_demand": 50,
+        "train.single.set_bgp_as_path_length": 50,
+        "train.single.set_bgp_local_pref": 50,
+        "train.single.set_bgp_med": 50,
+        "train.single.set_link_bandwidth": 50,
+        "train.single.set_link_capacity": 50,
+        "train.single.set_link_state": 50,
+        "train.single.set_node_state": 50,
+        "train.single.set_ospf_weight": 50,
+        "train.single.set_queue_length": 50,
+        "train.single.set_traffic_demand": 50,
+        "train.single.set_traffic_hotspot": 50
+      },
+      "levels": {
+        "1": 480,
+        "2": 480,
+        "3": 240
+      },
+      "operations": {
+        "multi": 240,
+        "single": 960
+      },
+      "rewrite_selected": 240,
+      "validity": {
+        "true": 1200
+      }
+    },
+    "validation": {
+      "apis": {
+        "add_avoid_policy": 24,
+        "add_forward_policy": 14,
+        "add_isolation_policy": 14,
+        "add_reachable_policy": 44,
+        "get_network_state": 22,
+        "optimize_network": 62,
+        "remove_policy": 14,
+        "scale_traffic_demand": 22,
+        "set_bgp_as_path_length": 12,
+        "set_bgp_local_pref": 12,
+        "set_bgp_med": 12,
+        "set_link_bandwidth": 12,
+        "set_link_capacity": 12,
+        "set_link_state": 42,
+        "set_node_state": 12,
+        "set_ospf_weight": 22,
+        "set_queue_length": 12,
+        "set_traffic_demand": 14,
+        "set_traffic_hotspot": 12
+      },
+      "categories": {
+        "config": 84,
+        "control": 24,
+        "multi_operation": 60,
+        "policy": 70,
+        "topology": 24,
+        "traffic": 38
+      },
+      "count": 300,
+      "errors": {},
+      "families": {
+        "validation.multi.failure_reach_opt": 10,
+        "validation.multi.policy_config": 10,
+        "validation.multi.policy_opt": 10,
+        "validation.multi.read_policy_opt": 10,
+        "validation.multi.recovery": 10,
+        "validation.multi.traffic_opt": 10,
+        "validation.single.add_avoid_policy": 14,
+        "validation.single.add_forward_policy": 14,
+        "validation.single.add_isolation_policy": 14,
+        "validation.single.add_reachable_policy": 14,
+        "validation.single.get_network_state": 12,
+        "validation.single.optimize_network": 12,
+        "validation.single.remove_policy": 14,
+        "validation.single.scale_traffic_demand": 12,
+        "validation.single.set_bgp_as_path_length": 12,
+        "validation.single.set_bgp_local_pref": 12,
+        "validation.single.set_bgp_med": 12,
+        "validation.single.set_link_bandwidth": 12,
+        "validation.single.set_link_capacity": 12,
+        "validation.single.set_link_state": 12,
+        "validation.single.set_node_state": 12,
+        "validation.single.set_ospf_weight": 12,
+        "validation.single.set_queue_length": 12,
+        "validation.single.set_traffic_demand": 14,
+        "validation.single.set_traffic_hotspot": 12
+      },
+      "levels": {
+        "1": 120,
+        "2": 120,
+        "3": 60
+      },
+      "operations": {
+        "multi": 60,
+        "single": 240
+      },
+      "rewrite_selected": 60,
+      "validity": {
+        "true": 300
+      }
+    }
+  }
+}

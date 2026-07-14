@@ -1,0 +1,1594 @@
+{
+  "defaults": {
+    "bandwidth_bps": 100000000,
+    "capacity_bps": 100000000,
+    "capacity_max_bps": 100000000,
+    "delay_ms": 1.0,
+    "loss_rate": 0.0,
+    "ospf_weight": 1,
+    "packet_size_bytes": 1500,
+    "physical_bandwidth_bps": 100000000,
+    "queue_packets": 1000,
+    "state": "up",
+    "value_source": "default"
+  },
+  "directed": false,
+  "links": [
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R28:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R0",
+      "target": "R28"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R0",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R1",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R4:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "100 Mb/s",
+        "LinkSpeed": "100",
+        "LinkSpeedRaw": 100000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "100 Mb/s",
+      "source": "R1",
+      "target": "R4"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R6:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R1",
+      "target": "R6"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "100Mb/s",
+        "LinkSpeed": "100",
+        "LinkSpeedRaw": 100000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "100Mb/s",
+      "source": "R1",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.403605544434468,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R10--R11:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R10",
+      "target": "R11"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R10--R16:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R10",
+      "target": "R16"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.5031423739534704,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R10--R17:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R10",
+      "target": "R17"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R11--R12:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R11",
+      "target": "R12"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R11--R13:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R11",
+      "target": "R13"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 1.4235025547809474,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R11--R21:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R11",
+      "target": "R21"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R14--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "100 Mb/s",
+        "LinkSpeed": "100",
+        "LinkSpeedRaw": 100000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "100 Mb/s",
+      "source": "R14",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R14--R5:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "100 Mb/s",
+        "LinkSpeed": "100",
+        "LinkSpeedRaw": 100000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "100 Mb/s",
+      "source": "R14",
+      "target": "R5"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R15--R22:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "100Mb/s",
+        "LinkSpeed": "100",
+        "LinkSpeedRaw": 100000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "100Mb/s",
+      "source": "R15",
+      "target": "R22"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R15--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "100Mb/s",
+        "LinkSpeed": "100",
+        "LinkSpeedRaw": 100000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "100Mb/s",
+      "source": "R15",
+      "target": "R9"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.4524911569670907,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R17--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R17",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R18--R23:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "100Mb/s",
+        "LinkSpeed": "100",
+        "LinkSpeedRaw": 100000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "100Mb/s",
+      "source": "R18",
+      "target": "R23"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R19--R21:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R19",
+      "target": "R21"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R2--R34:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R2",
+      "target": "R34"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R2--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R2",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R20--R21:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R20",
+      "target": "R21"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.6596039730094262,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R21--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s ",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s ",
+      "source": "R21",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.45039101323408814,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R22--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R22",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.6599590469041889,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R22--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s Ethernet",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s Ethernet",
+      "source": "R22",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R23--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "100Mb/s",
+        "LinkSpeed": "100",
+        "LinkSpeedRaw": 100000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "100Mb/s",
+      "source": "R23",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R24--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R24",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 0.16604047897470875,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R25--R26:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s",
+      "source": "R25",
+      "target": "R26"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R27--R28:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R27",
+      "target": "R28"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R27--R35:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R27",
+      "target": "R35"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R29--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R29",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R3--R30:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R3",
+      "target": "R30"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R3--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1Gb/s Ethernet",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "1Gb/s Ethernet",
+      "source": "R3",
+      "target": "R8"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R31--R34:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R31",
+      "target": "R34"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R32--R34:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R32",
+      "target": "R34"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R33--R34:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R33",
+      "target": "R34"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R34--R35:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R34",
+      "target": "R35"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R35--R36:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Ethernet",
+        "LinkType": "Ethernet",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Ethernet",
+      "source": "R35",
+      "target": "R36"
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "R0",
+      "node_type": "router",
+      "original_id": "0",
+      "original_label": "Technical Uni",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 0,
+        "label": "Technical Uni",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R1",
+      "node_type": "router",
+      "original_id": "1",
+      "original_label": "None",
+      "raw_attributes": {
+        "Internal": 1,
+        "hyperedge": 1,
+        "id": 1,
+        "label": "None"
+      }
+    },
+    {
+      "node_id": "R2",
+      "node_type": "router",
+      "original_id": "2",
+      "original_label": "Todos Kableshkov Uni",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 2,
+        "label": "Todos Kableshkov Uni",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R3",
+      "node_type": "router",
+      "original_id": "3",
+      "original_label": "IPP-BAS",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 3,
+        "label": "IPP-BAS",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R4",
+      "node_type": "router",
+      "original_id": "4",
+      "original_label": "Telecom. and Post",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 4,
+        "label": "Telecom. and Post",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R5",
+      "node_type": "router",
+      "original_id": "5",
+      "original_label": "South-West Uni",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.01667,
+        "Longitude": 23.1,
+        "id": 5,
+        "label": "South-West Uni",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R6",
+      "node_type": "router",
+      "original_id": "6",
+      "original_label": "Civil Engineering",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 6,
+        "label": "Civil Engineering",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R7",
+      "node_type": "router",
+      "original_id": "7",
+      "original_label": "Higher Attestation Commission",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 7,
+        "label": "Higher Attestation Commission",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R8",
+      "node_type": "router",
+      "original_id": "8",
+      "original_label": "Academy of Sciences",
+      "raw_attributes": {
+        "Internal": 0,
+        "id": 8,
+        "label": "Academy of Sciences"
+      }
+    },
+    {
+      "node_id": "R9",
+      "node_type": "router",
+      "original_id": "9",
+      "original_label": "NMU",
+      "raw_attributes": {
+        "Internal": 1,
+        "id": 9,
+        "label": "NMU",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R10",
+      "node_type": "router",
+      "original_id": "10",
+      "original_label": "Vasil Levski Uni",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 43.27064,
+        "Longitude": 26.92286,
+        "id": 10,
+        "label": "Vasil Levski Uni",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R11",
+      "node_type": "router",
+      "original_id": "11",
+      "original_label": "Uni of Economics",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 43.21667,
+        "Longitude": 27.91667,
+        "id": 11,
+        "label": "Uni of Economics",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R12",
+      "node_type": "router",
+      "original_id": "12",
+      "original_label": "Varna Tech Uni",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 43.21667,
+        "Longitude": 27.91667,
+        "id": 12,
+        "label": "Varna Tech Uni",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R13",
+      "node_type": "router",
+      "original_id": "13",
+      "original_label": "Naval Academy",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 43.21667,
+        "Longitude": 27.91667,
+        "id": 13,
+        "label": "Naval Academy",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R14",
+      "node_type": "router",
+      "original_id": "14",
+      "original_label": "None",
+      "raw_attributes": {
+        "Internal": 1,
+        "hyperedge": 1,
+        "id": 14,
+        "label": "None"
+      }
+    },
+    {
+      "node_id": "R15",
+      "node_type": "router",
+      "original_id": "15",
+      "original_label": "None",
+      "raw_attributes": {
+        "Internal": 1,
+        "hyperedge": 1,
+        "id": 15,
+        "label": "None"
+      }
+    },
+    {
+      "node_id": "R16",
+      "node_type": "router",
+      "original_id": "16",
+      "original_label": "Shumen University",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 43.27064,
+        "Longitude": 26.92286,
+        "id": 16,
+        "label": "Shumen University",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R17",
+      "node_type": "router",
+      "original_id": "17",
+      "original_label": "Ruse Uni.",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 43.85639,
+        "Longitude": 25.97083,
+        "id": 17,
+        "label": "Ruse Uni.",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R18",
+      "node_type": "router",
+      "original_id": "18",
+      "original_label": "Academy of Economics",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 43.62306,
+        "Longitude": 25.35389,
+        "id": 18,
+        "label": "Academy of Economics",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R19",
+      "node_type": "router",
+      "original_id": "19",
+      "original_label": "Technical Uni.",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.15,
+        "Longitude": 24.75,
+        "id": 19,
+        "label": "Technical Uni.",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R20",
+      "node_type": "router",
+      "original_id": "20",
+      "original_label": "Agriculture",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.15,
+        "Longitude": 24.75,
+        "id": 20,
+        "label": "Agriculture",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R21",
+      "node_type": "router",
+      "original_id": "21",
+      "original_label": "Plovdiv Uni",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.15,
+        "Longitude": 24.75,
+        "id": 21,
+        "label": "Plovdiv Uni",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R22",
+      "node_type": "router",
+      "original_id": "22",
+      "original_label": "Pleven University",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 43.41667,
+        "Longitude": 24.61667,
+        "id": 22,
+        "label": "Pleven University",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R23",
+      "node_type": "router",
+      "original_id": "23",
+      "original_label": "None",
+      "raw_attributes": {
+        "Internal": 1,
+        "hyperedge": 1,
+        "id": 23,
+        "label": "None"
+      }
+    },
+    {
+      "node_id": "R24",
+      "node_type": "router",
+      "original_id": "24",
+      "original_label": "Veliko Uni",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 43.08124,
+        "Longitude": 25.62904,
+        "id": 24,
+        "label": "Veliko Uni",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R25",
+      "node_type": "router",
+      "original_id": "25",
+      "original_label": "Military Uni",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 43.08124,
+        "Longitude": 25.62904,
+        "id": 25,
+        "label": "Military Uni",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R26",
+      "node_type": "router",
+      "original_id": "26",
+      "original_label": "Gabrovo Uni",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.87472,
+        "Longitude": 25.33417,
+        "id": 26,
+        "label": "Gabrovo Uni",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R27",
+      "node_type": "router",
+      "original_id": "27",
+      "original_label": "Sofia University",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 27,
+        "label": "Sofia University",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R28",
+      "node_type": "router",
+      "original_id": "28",
+      "original_label": "Economy Uni.",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 28,
+        "label": "Economy Uni.",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R29",
+      "node_type": "router",
+      "original_id": "29",
+      "original_label": "GEANT",
+      "raw_attributes": {
+        "Internal": 0,
+        "id": 29,
+        "label": "GEANT"
+      }
+    },
+    {
+      "node_id": "R30",
+      "node_type": "router",
+      "original_id": "30",
+      "original_label": "BG Internet",
+      "raw_attributes": {
+        "Internal": 0,
+        "id": 30,
+        "label": "BG Internet"
+      }
+    },
+    {
+      "node_id": "R31",
+      "node_type": "router",
+      "original_id": "31",
+      "original_label": "Medical Uni. Pharmacy",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 31,
+        "label": "Medical Uni. Pharmacy",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R32",
+      "node_type": "router",
+      "original_id": "32",
+      "original_label": "Medical Uni Public Health",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 32,
+        "label": "Medical Uni Public Health",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R33",
+      "node_type": "router",
+      "original_id": "33",
+      "original_label": "Min. Education",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 33,
+        "label": "Min. Education",
+        "type": "End Customer"
+      }
+    },
+    {
+      "node_id": "R34",
+      "node_type": "router",
+      "original_id": "34",
+      "original_label": "Sofia Uni.",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 34,
+        "label": "Sofia Uni.",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R35",
+      "node_type": "router",
+      "original_id": "35",
+      "original_label": "Medical Uni Sofia",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 35,
+        "label": "Medical Uni Sofia",
+        "type": "Backbone Switch"
+      }
+    },
+    {
+      "node_id": "R36",
+      "node_type": "router",
+      "original_id": "36",
+      "original_label": "Medical college of Sofia",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 36,
+        "label": "Medical college of Sofia",
+        "type": "End Customer"
+      }
+    }
+  ],
+  "normalized_name": "Bren",
+  "raw_name": "BREN",
+  "schema_version": "netkeeper-sim.schema.v1",
+  "source_format": "graphml",
+  "source_sha256": "e13f23c8a3d3519a8987aca0247257219e59d1accbad2a50606115d25fdcd1b8",
+  "topology_id": "zoo:bren:e13f23c8"
+}

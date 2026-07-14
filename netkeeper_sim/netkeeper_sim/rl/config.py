@@ -80,7 +80,7 @@ class GraphNetworkConfig:
     gcn_layers: int = 2
     transformer_layers: int = 2
     transformer_heads: int = 4
-    dropout: float = 0.0
+    dropout: float = 0.1
     layer_norm: bool = True
     pooling: GraphPooling = "mean"
 
@@ -94,10 +94,10 @@ class GraphNetworkConfig:
         return cls(
             node_feature_dim=node_feature_dim,
             edge_feature_dim=edge_feature_dim,
-            hidden_dim=64,
+            hidden_dim=32,
             gcn_layers=2,
-            transformer_layers=2,
-            transformer_heads=4,
+            transformer_layers=1,
+            transformer_heads=2,
             dropout=dropout,
         )
 

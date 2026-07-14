@@ -1,0 +1,13 @@
+split: test
+sequence_count: 100
+smoke_sequence_count: 4
+recovery_budget_steps: 30
+logical_events:
+  - policy_add
+  - traffic_scale
+  - link_failure_recovery
+  - policy_remove
+  - hotspot_change
+  - node_failure_recovery
+expected_valid: true
+negative_subset: disabled

@@ -1,0 +1,13 @@
+{
+  "burst_multiplier": 8.0,
+  "diurnal_amplitude": 0.35,
+  "diurnal_period_steps": 24,
+  "hotspot_multiplier": 4.0,
+  "load_levels": {
+    "High": 3.0,
+    "Low": 0.5,
+    "Normal": 1.0
+  },
+  "normal_target_mlu": 0.25,
+  "unit": "bps"
+}

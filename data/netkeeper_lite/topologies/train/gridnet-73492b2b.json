@@ -1,0 +1,692 @@
+{
+  "defaults": {
+    "bandwidth_bps": 100000000,
+    "capacity_bps": 100000000,
+    "capacity_max_bps": 100000000,
+    "delay_ms": 1.0,
+    "loss_rate": 0.0,
+    "ospf_weight": 1,
+    "packet_size_bytes": 1500,
+    "physical_bandwidth_bps": 100000000,
+    "queue_packets": 1000,
+    "state": "up",
+    "value_source": "default"
+  },
+  "directed": false,
+  "links": [
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 11.03379776543355,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R2:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R0",
+      "target": "R2"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 11.40361873617293,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R0",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.8135570306338908,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R0",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 7.777990680941514,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R0",
+      "target": "R8"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.7956145047690306,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R1--R2:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R1",
+      "target": "R2"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 20.57421000924061,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R1--R4:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R1",
+      "target": "R4"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 19.594446147921897,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R1--R5:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R1",
+      "target": "R5"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 17.184472933344516,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R1--R6:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R1",
+      "target": "R6"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 11.910761521769592,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R1--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R1",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 19.678676128885368,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R2--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R2",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 18.7902125055485,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R2--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R2",
+      "target": "R8"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.07111329813282362,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R3--R4:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R3",
+      "target": "R4"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 8.784186711019654,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R3--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R3",
+      "target": "R8"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.5945292951814016,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R4--R5:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R4",
+      "target": "R5"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 5.953395311128477,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R4--R6:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R4",
+      "target": "R6"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 10.96712043810945,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R4--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R4",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 4.359632336793607,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R5--R6:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R5",
+      "target": "R6"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 9.512192177437527,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R5--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R5",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 5.7944317671972705,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R6--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R6",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 4.872631213549608,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R6--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "45 Mbps DS-3",
+        "LinkNote": "45 Mbps ",
+        "LinkType": "DS-3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "45 Mbps DS-3",
+      "source": "R6",
+      "target": "R8"
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "R0",
+      "node_type": "router",
+      "original_id": "0",
+      "original_label": "Houston",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 29.76328,
+        "Longitude": -95.36327,
+        "id": 0,
+        "label": "Houston"
+      }
+    },
+    {
+      "node_id": "R1",
+      "node_type": "router",
+      "original_id": "1",
+      "original_label": "San Francisco",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 37.77493,
+        "Longitude": -122.41942,
+        "id": 1,
+        "label": "San Francisco"
+      }
+    },
+    {
+      "node_id": "R2",
+      "node_type": "router",
+      "original_id": "2",
+      "original_label": "Los Angeles",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 34.05223,
+        "Longitude": -118.24368,
+        "id": 2,
+        "label": "Los Angeles"
+      }
+    },
+    {
+      "node_id": "R3",
+      "node_type": "router",
+      "original_id": "3",
+      "original_label": "New York",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 40.71427,
+        "Longitude": -74.00597,
+        "id": 3,
+        "label": "New York"
+      }
+    },
+    {
+      "node_id": "R4",
+      "node_type": "router",
+      "original_id": "4",
+      "original_label": "Newark",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 40.73566,
+        "Longitude": -74.17237,
+        "id": 4,
+        "label": "Newark"
+      }
+    },
+    {
+      "node_id": "R5",
+      "node_type": "router",
+      "original_id": "5",
+      "original_label": "Washington, DC",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 38.89511,
+        "Longitude": -77.03637,
+        "id": 5,
+        "label": "Washington, DC"
+      }
+    },
+    {
+      "node_id": "R6",
+      "node_type": "router",
+      "original_id": "6",
+      "original_label": "Atlanta",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 33.749,
+        "Longitude": -84.38798,
+        "id": 6,
+        "label": "Atlanta"
+      }
+    },
+    {
+      "node_id": "R7",
+      "node_type": "router",
+      "original_id": "7",
+      "original_label": "Dallas",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 32.78306,
+        "Longitude": -96.80667,
+        "id": 7,
+        "label": "Dallas"
+      }
+    },
+    {
+      "node_id": "R8",
+      "node_type": "router",
+      "original_id": "8",
+      "original_label": "Miami",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 25.77427,
+        "Longitude": -80.19366,
+        "id": 8,
+        "label": "Miami"
+      }
+    }
+  ],
+  "normalized_name": "Gridnet",
+  "raw_name": "GridNet",
+  "schema_version": "netkeeper-sim.schema.v1",
+  "source_format": "graphml",
+  "source_sha256": "5ad4ba9afacb9ad32910858873579be015fe9c8101a8edcab65d513c34ed5b4c",
+  "topology_id": "zoo:gridnet:5ad4ba9a"
+}

@@ -1,0 +1,45 @@
+{
+  "files": [
+    {
+      "bytes": 7534,
+      "path": "dataset_statistics.json",
+      "sha256": "9f5cb94373ec3a8411e54f3bcdcf97c21a61a1a70f5423e17480c3ded263ba7c"
+    },
+    {
+      "bytes": 11832,
+      "path": "few_shot_candidates.jsonl",
+      "sha256": "6ff54b2494a2295d302c4ba19b973d95042a73eb598f5bd15a07ff90b0f61cd9"
+    },
+    {
+      "bytes": 250,
+      "path": "generation_config.yaml",
+      "sha256": "0310a821b59209642fd1842d41a3143c73e6d407b04bddb64e068b4409414003"
+    },
+    {
+      "bytes": 35,
+      "path": "random_seeds.json",
+      "sha256": "88dba42b07d6781bc2fcdd1bf945a37a5be4a432207a5d31f26050696fb5cadb"
+    },
+    {
+      "bytes": 39084,
+      "path": "template_statistics.json",
+      "sha256": "d798b43e0ab6cee97680a5a3f7f4f6a9f7d2fbd13bc8f9c5bb0305956329c295"
+    },
+    {
+      "bytes": 550904,
+      "path": "test.jsonl",
+      "sha256": "8df241959d4e155ab3c97a34c6641ec5018bdc8e32176a7c4efc6eafe1ec53a1"
+    },
+    {
+      "bytes": 1330950,
+      "path": "train.jsonl",
+      "sha256": "21121bc2b3b2d4721f80ac14aeb5b0b3683b252d1d95c57186f89305d7313fc8"
+    },
+    {
+      "bytes": 343719,
+      "path": "validation.jsonl",
+      "sha256": "6fae90d0f91c559f3b6c2f0f04b2cb4c40847f6484b10a42293acccc52884234"
+    }
+  ],
+  "schema_version": "netkeeper.intent.v1"
+}

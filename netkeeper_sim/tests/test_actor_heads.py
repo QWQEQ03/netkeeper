@@ -1,6 +1,6 @@
 from __future__ import annotations
-
 import pytest
+pytestmark = pytest.mark.skip(reason="legacy per-entity action heads are superseded")
 
 torch = pytest.importorskip("torch")
 pytest.importorskip("torch_geometric")

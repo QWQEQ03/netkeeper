@@ -1,0 +1,351 @@
+{
+  "dynamic": {
+    "event_type_counts": {
+      "hotspot_change": 100,
+      "link_down": 100,
+      "link_up": 100,
+      "node_down": 100,
+      "node_up": 100,
+      "policy_add": 100,
+      "policy_remove": 100,
+      "traffic_scale": 100
+    },
+    "expected_valid_count": 100,
+    "logical_event_counts": {
+      "hotspot_change": 100,
+      "link_failure_recovery": 100,
+      "node_failure_recovery": 100,
+      "policy_add": 100,
+      "policy_remove": 100,
+      "traffic_scale": 100
+    },
+    "sequence_count": 100
+  },
+  "rejections": {
+    "dynamic_partition_or_invalid": 0,
+    "policy_sampling_exhausted": 0
+  },
+  "scenarios": {
+    "test": {
+      "count": 500,
+      "initial_mlu": {
+        "count": 500,
+        "max": 0.7500000000000003,
+        "mean": 0.3752499999999999,
+        "min": 0.1249999999999999
+      },
+      "initial_policy_consistency": {
+        "count": 500,
+        "max": 0.9166666666666666,
+        "mean": 0.53125,
+        "min": 0.3333333333333333
+      },
+      "load_levels": {
+        "High": {
+          "count": 167,
+          "ratio": 0.334
+        },
+        "Low": {
+          "count": 167,
+          "ratio": 0.334
+        },
+        "Normal": {
+          "count": 166,
+          "ratio": 0.332
+        }
+      },
+      "policy_difficulties": {
+        "Easy": {
+          "count": 175,
+          "ratio": 0.35
+        },
+        "Hard": {
+          "count": 125,
+          "ratio": 0.25
+        },
+        "Medium": {
+          "count": 200,
+          "ratio": 0.4
+        }
+      },
+      "policy_kinds": {
+        "forward_pass": 2150,
+        "isolation": 2150,
+        "reachable": 2150
+      },
+      "policy_resample_attempts": {
+        "count": 500,
+        "max": 1,
+        "mean": 0.002,
+        "min": 0
+      },
+      "total_input_bps": {
+        "count": 500,
+        "max": 21355819704.974174,
+        "mean": 3284695565.5587187,
+        "min": 57919935.53131204
+      },
+      "traffic_demand_count": {
+        "count": 500,
+        "max": 3080,
+        "mean": 1828.0,
+        "min": 506
+      },
+      "traffic_patterns": {
+        "burst": {
+          "count": 125,
+          "ratio": 0.25
+        },
+        "diurnal": {
+          "count": 100,
+          "ratio": 0.2
+        },
+        "gravity": {
+          "count": 150,
+          "ratio": 0.3
+        },
+        "hotspot": {
+          "count": 125,
+          "ratio": 0.25
+        }
+      }
+    },
+    "train": {
+      "count": 3000,
+      "initial_mlu": {
+        "count": 3000,
+        "max": 0.7500000000000006,
+        "mean": 0.375,
+        "min": 0.12499999999999993
+      },
+      "initial_policy_consistency": {
+        "count": 3000,
+        "max": 0.9166666666666666,
+        "mean": 0.5776111111111111,
+        "min": 0.3333333333333333
+      },
+      "load_levels": {
+        "High": {
+          "count": 1000,
+          "ratio": 0.3333333333333333
+        },
+        "Low": {
+          "count": 1000,
+          "ratio": 0.3333333333333333
+        },
+        "Normal": {
+          "count": 1000,
+          "ratio": 0.3333333333333333
+        }
+      },
+      "policy_difficulties": {
+        "Easy": {
+          "count": 1350,
+          "ratio": 0.45
+        },
+        "Hard": {
+          "count": 300,
+          "ratio": 0.1
+        },
+        "Medium": {
+          "count": 1350,
+          "ratio": 0.45
+        }
+      },
+      "policy_kinds": {
+        "forward_pass": 10500,
+        "isolation": 10500,
+        "reachable": 10500
+      },
+      "policy_resample_attempts": {
+        "count": 3000,
+        "max": 1,
+        "mean": 0.004666666666666667,
+        "min": 0
+      },
+      "total_input_bps": {
+        "count": 3000,
+        "max": 31139643019.39079,
+        "mean": 2953111422.0145946,
+        "min": 47636904.30326441
+      },
+      "traffic_demand_count": {
+        "count": 3000,
+        "max": 1482,
+        "mean": 658.5,
+        "min": 72
+      },
+      "traffic_patterns": {
+        "burst": {
+          "count": 750,
+          "ratio": 0.25
+        },
+        "diurnal": {
+          "count": 600,
+          "ratio": 0.2
+        },
+        "gravity": {
+          "count": 900,
+          "ratio": 0.3
+        },
+        "hotspot": {
+          "count": 750,
+          "ratio": 0.25
+        }
+      }
+    },
+    "validation": {
+      "count": 400,
+      "initial_mlu": {
+        "count": 400,
+        "max": 0.7500000000000004,
+        "mean": 0.37593749999999987,
+        "min": 0.12499999999999978
+      },
+      "initial_policy_consistency": {
+        "count": 400,
+        "max": 0.9166666666666666,
+        "mean": 0.5939583333333334,
+        "min": 0.3333333333333333
+      },
+      "load_levels": {
+        "High": {
+          "count": 134,
+          "ratio": 0.335
+        },
+        "Low": {
+          "count": 133,
+          "ratio": 0.3325
+        },
+        "Normal": {
+          "count": 133,
+          "ratio": 0.3325
+        }
+      },
+      "policy_difficulties": {
+        "Easy": {
+          "count": 160,
+          "ratio": 0.4
+        },
+        "Hard": {
+          "count": 80,
+          "ratio": 0.2
+        },
+        "Medium": {
+          "count": 160,
+          "ratio": 0.4
+        }
+      },
+      "policy_kinds": {
+        "forward_pass": 1600,
+        "isolation": 1600,
+        "reachable": 1600
+      },
+      "policy_resample_attempts": {
+        "count": 400,
+        "max": 1,
+        "mean": 0.015,
+        "min": 0
+      },
+      "total_input_bps": {
+        "count": 400,
+        "max": 37797527245.29623,
+        "mean": 6124849500.749916,
+        "min": 109946787.58030067
+      },
+      "traffic_demand_count": {
+        "count": 400,
+        "max": 2862,
+        "mean": 1329.315,
+        "min": 72
+      },
+      "traffic_patterns": {
+        "burst": {
+          "count": 100,
+          "ratio": 0.25
+        },
+        "diurnal": {
+          "count": 80,
+          "ratio": 0.2
+        },
+        "gravity": {
+          "count": 120,
+          "ratio": 0.3
+        },
+        "hotspot": {
+          "count": 100,
+          "ratio": 0.25
+        }
+      }
+    }
+  },
+  "schema_version": "netkeeper-sim.schema.v1",
+  "topologies": {
+    "test": {
+      "count": 4,
+      "density": {
+        "count": 4,
+        "max": 0.17391304347826086,
+        "mean": 0.08811510550640986,
+        "min": 0.048051948051948054
+      },
+      "edges": {
+        "count": 4,
+        "max": 74,
+        "mean": 55.25,
+        "min": 31
+      },
+      "multigraph_count": 3,
+      "nodes": {
+        "count": 4,
+        "max": 56,
+        "mean": 40.5,
+        "min": 23
+      }
+    },
+    "train": {
+      "count": 12,
+      "density": {
+        "count": 12,
+        "max": 0.5555555555555556,
+        "mean": 0.17695378629622227,
+        "min": 0.057057057057057055
+      },
+      "edges": {
+        "count": 12,
+        "max": 76,
+        "mean": 35.166666666666664,
+        "min": 10
+      },
+      "multigraph_count": 2,
+      "nodes": {
+        "count": 12,
+        "max": 39,
+        "mean": 23.916666666666668,
+        "min": 9
+      }
+    },
+    "validation": {
+      "count": 3,
+      "density": {
+        "count": 3,
+        "max": 0.2777777777777778,
+        "mean": 0.13873536200580225,
+        "min": 0.047519217330538085
+      },
+      "edges": {
+        "count": 3,
+        "max": 68,
+        "mean": 42.0,
+        "min": 10
+      },
+      "multigraph_count": 1,
+      "nodes": {
+        "count": 3,
+        "max": 54,
+        "mean": 32.0,
+        "min": 9
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+base_url: https://api.deepseek.com
+model: deepseek-chat
+timeout_seconds: 30
+temperature: 0.0
+max_tokens: 1024
+structured_output_mode: json_schema
+max_retries: 2
+rate_limit_per_second: 2.0
+cache_directory: .netkeeper_cache/deepseek
+save_raw_response: false

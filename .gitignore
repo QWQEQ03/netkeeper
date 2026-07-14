@@ -32,9 +32,15 @@ sources.tar.gz
 
 # Model checkpoints and generated training artifacts
 netkeeper_sim/checkpoints/
+netkeeper_sim/runs/
 *.pt
 
 # Logs and temporary files
 *.log
 *.tmp
 *.bak
+.env
+.env.*
+!.env.example
+.netkeeper_cache/
+data/netkeeper_lite/intents_smoke/

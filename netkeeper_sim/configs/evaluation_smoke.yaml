@@ -1,0 +1,8 @@
+methods: [no_update, random, ospf_default, local_search_ospf, checkpoint]
+seeds: [701]
+mode: static
+max_steps: 2
+hold_steps: 9
+local_search_budget: 64
+local_search_deltas: [1, 2, 4, 8]
+checkpoint_status: debug_unconverged

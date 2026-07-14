@@ -1,0 +1,429 @@
+{
+  "defaults": {
+    "bandwidth_bps": 100000000,
+    "capacity_bps": 100000000,
+    "capacity_max_bps": 100000000,
+    "delay_ms": 1.0,
+    "loss_rate": 0.0,
+    "ospf_weight": 1,
+    "packet_size_bytes": 1500,
+    "physical_bandwidth_bps": 100000000,
+    "queue_packets": 1000,
+    "state": "up",
+    "value_source": "default"
+  },
+  "directed": false,
+  "links": [
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R1:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Thin Line",
+        "key": 0
+      },
+      "raw_edge_id": "0",
+      "raw_name": "Thin Line",
+      "source": "R0",
+      "target": "R1"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 5000000000,
+        "capacity_bps": 5000000000,
+        "capacity_max_bps": 5000000000,
+        "delay_ms": 1.978742412977909,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 5000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R2:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "5 Gbit/s",
+        "LinkNote": " it/s",
+        "LinkSpeed": "5",
+        "LinkSpeedRaw": 5000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": "0",
+      "raw_name": "5 Gbit/s",
+      "source": "R1",
+      "target": "R2"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 10000000000,
+        "capacity_bps": 10000000000,
+        "capacity_max_bps": 10000000000,
+        "delay_ms": 1.978742412977909,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 10000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R2:1",
+      "parallel_ordinal": 1,
+      "raw_attributes": {
+        "LinkLabel": "10 Gbit/s",
+        "LinkNote": " it/s",
+        "LinkSpeed": "10",
+        "LinkSpeedRaw": 10000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 1
+      },
+      "raw_edge_id": "1",
+      "raw_name": "10 Gbit/s",
+      "source": "R1",
+      "target": "R2"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 10000000000,
+        "capacity_bps": 10000000000,
+        "capacity_max_bps": 10000000000,
+        "delay_ms": 2.6119118029280846,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 10000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "10 Gbit/s",
+        "LinkNote": " it/s",
+        "LinkSpeed": "10",
+        "LinkSpeedRaw": 10000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": "0",
+      "raw_name": "10 Gbit/s",
+      "source": "R1",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 10000000000,
+        "capacity_bps": 10000000000,
+        "capacity_max_bps": 10000000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 10000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R5:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "10 Gbit/s",
+        "LinkNote": " it/s",
+        "LinkSpeed": "10",
+        "LinkSpeedRaw": 10000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": "0",
+      "raw_name": "10 Gbit/s",
+      "source": "R1",
+      "target": "R5"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 15000000000,
+        "capacity_bps": 15000000000,
+        "capacity_max_bps": 15000000000,
+        "delay_ms": 1.0,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 15000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R6:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "15 Gbit/s",
+        "LinkNote": " it/s",
+        "LinkSpeed": "15",
+        "LinkSpeedRaw": 15000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": "0",
+      "raw_name": "15 Gbit/s",
+      "source": "R1",
+      "target": "R6"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 1000000000,
+        "capacity_bps": 1000000000,
+        "capacity_max_bps": 1000000000,
+        "delay_ms": 3.440039764201689,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 1000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "1 Gbit/s",
+        "LinkNote": " it/s",
+        "LinkSpeed": "1",
+        "LinkSpeedRaw": 1000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": "0",
+      "raw_name": "1 Gbit/s",
+      "source": "R1",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 10000000000,
+        "capacity_bps": 10000000000,
+        "capacity_max_bps": 10000000000,
+        "delay_ms": 2.0817135461572924,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 10000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R1--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "10 Gbit/s",
+        "LinkNote": " it/s",
+        "LinkSpeed": "10",
+        "LinkSpeedRaw": 10000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": "0",
+      "raw_name": "10 Gbit/s",
+      "source": "R1",
+      "target": "R8"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 155000000,
+        "capacity_bps": 155000000,
+        "capacity_max_bps": 155000000,
+        "delay_ms": 10.520994210876744,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 155000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R3--R4:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "155 Mbit/s",
+        "LinkNote": " it/s",
+        "LinkSpeed": "155",
+        "LinkSpeedRaw": 155000000.0,
+        "LinkSpeedUnits": "M",
+        "key": 0
+      },
+      "raw_edge_id": "0",
+      "raw_name": "155 Mbit/s",
+      "source": "R3",
+      "target": "R4"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 5000000000,
+        "capacity_bps": 5000000000,
+        "capacity_max_bps": 5000000000,
+        "delay_ms": 2.416217351248777,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 5000000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "topology_zoo_link_speed"
+      },
+      "link_id": "L:R3--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "5 Gbit/s",
+        "LinkNote": " it/s",
+        "LinkSpeed": "5",
+        "LinkSpeedRaw": 5000000000.0,
+        "LinkSpeedUnits": "G",
+        "key": 0
+      },
+      "raw_edge_id": "0",
+      "raw_name": "5 Gbit/s",
+      "source": "R3",
+      "target": "R8"
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "R0",
+      "node_type": "router",
+      "original_id": "0",
+      "original_label": "NETNOD",
+      "raw_attributes": {
+        "Internal": 0,
+        "id": 0,
+        "label": "NETNOD"
+      }
+    },
+    {
+      "node_id": "R1",
+      "node_type": "router",
+      "original_id": "1",
+      "original_label": "Stockholm",
+      "raw_attributes": {
+        "Country": "Sweden",
+        "Internal": 1,
+        "Latitude": 59.33258,
+        "Longitude": 18.0649,
+        "id": 1,
+        "label": "Stockholm"
+      }
+    },
+    {
+      "node_id": "R2",
+      "node_type": "router",
+      "original_id": "2",
+      "original_label": "Helsinki",
+      "raw_attributes": {
+        "Country": "Finland",
+        "Internal": 1,
+        "Latitude": 60.16952,
+        "Longitude": 24.93545,
+        "id": 2,
+        "label": "Helsinki"
+      }
+    },
+    {
+      "node_id": "R3",
+      "node_type": "router",
+      "original_id": "3",
+      "original_label": "Copenhagen",
+      "raw_attributes": {
+        "Country": "Denmark",
+        "Internal": 1,
+        "Latitude": 55.67594,
+        "Longitude": 12.56553,
+        "id": 3,
+        "label": "Copenhagen"
+      }
+    },
+    {
+      "node_id": "R4",
+      "node_type": "router",
+      "original_id": "4",
+      "original_label": "Reykjavik",
+      "raw_attributes": {
+        "Country": "Iceland",
+        "Internal": 1,
+        "Latitude": 64.13548,
+        "Longitude": -21.89541,
+        "id": 4,
+        "label": "Reykjavik"
+      }
+    },
+    {
+      "node_id": "R5",
+      "node_type": "router",
+      "original_id": "5",
+      "original_label": "GEANT",
+      "raw_attributes": {
+        "Internal": 0,
+        "id": 5,
+        "label": "GEANT"
+      }
+    },
+    {
+      "node_id": "R6",
+      "node_type": "router",
+      "original_id": "6",
+      "original_label": "General Internet",
+      "raw_attributes": {
+        "Internal": 0,
+        "id": 6,
+        "label": "General Internet"
+      }
+    },
+    {
+      "node_id": "R7",
+      "node_type": "router",
+      "original_id": "7",
+      "original_label": "St Petersburg",
+      "raw_attributes": {
+        "Country": "Russia",
+        "Internal": 1,
+        "Latitude": 59.89444,
+        "Longitude": 30.26417,
+        "id": 7,
+        "label": "St Petersburg"
+      }
+    },
+    {
+      "node_id": "R8",
+      "node_type": "router",
+      "original_id": "8",
+      "original_label": "Oslo",
+      "raw_attributes": {
+        "Country": "Norway",
+        "Internal": 1,
+        "Latitude": 59.91273,
+        "Longitude": 10.74609,
+        "id": 8,
+        "label": "Oslo"
+      }
+    }
+  ],
+  "normalized_name": "Nordu2005",
+  "raw_name": "NORDU",
+  "schema_version": "netkeeper-sim.schema.v1",
+  "source_format": "graphml",
+  "source_sha256": "0407cec5d42a045699c28c110910befd34106ee8799952464237b270248750b8",
+  "topology_id": "zoo:nordu2005:0407cec5"
+}

@@ -1,0 +1,14 @@
+counts:
+  test: 500
+  train: 1200
+  validation: 300
+generator_version: 1.0.0
+level_ratios:
+  '1': 0.4
+  '2': 0.4
+  '3': 0.2
+offline_only: true
+paths_relative_to_dataset_root: true
+rewrite_ratio: 0.2
+schema_version: netkeeper.intent.v1
+seed: 20260714

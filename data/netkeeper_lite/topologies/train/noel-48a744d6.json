@@ -1,0 +1,917 @@
+{
+  "defaults": {
+    "bandwidth_bps": 100000000,
+    "capacity_bps": 100000000,
+    "capacity_max_bps": 100000000,
+    "delay_ms": 1.0,
+    "loss_rate": 0.0,
+    "ospf_weight": 1,
+    "packet_size_bytes": 1500,
+    "physical_bandwidth_bps": 100000000,
+    "queue_packets": 1000,
+    "state": "up",
+    "value_source": "default"
+  },
+  "directed": false,
+  "links": [
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.24193652124761467,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R1:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e19",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R0",
+      "target": "R1"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0903382203069198,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R2:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e17",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R0",
+      "target": "R2"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.8063916275361948,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e18",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R0",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.5240076892705637,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R6:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e20",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R0",
+      "target": "R6"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.25375558604223697,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R10--R2:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e16",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R10",
+      "target": "R2"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.21987905676483685,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R10--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e15",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R10",
+      "target": "R9"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.3566953022388568,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R11--R12:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e0",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R11",
+      "target": "R12"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.9545733363470461,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R11--R15:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e1",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R11",
+      "target": "R15"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.19646109722483987,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R12--R13:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e2",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R12",
+      "target": "R13"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.2506905387958974,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R13--R14:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e3",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R13",
+      "target": "R14"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.2097393296981157,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R14--R15:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e4",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R14",
+      "target": "R15"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.20413673530213575,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R15--R16:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e5",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R15",
+      "target": "R16"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.168861123973715,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R15--R18:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e6",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R15",
+      "target": "R18"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.7684600580993074,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R15--R2:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e8",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R15",
+      "target": "R2"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.8923278786506992,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R15--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e7",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R15",
+      "target": "R9"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.20994276375223578,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R16--R17:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e9",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R16",
+      "target": "R17"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.8463851015720765,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R17--R18:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e10",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R17",
+      "target": "R18"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.422294827222372,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R18--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e11",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R18",
+      "target": "R8"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.5222712526443,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R3--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e14",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R3",
+      "target": "R9"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.307563403729091,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R4--R5:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e22",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R4",
+      "target": "R5"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.3166467653072294,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R4--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e23",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R4",
+      "target": "R8"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.02114043015681553,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R5--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e24",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R5",
+      "target": "R8"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.5750729388224752,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R5--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e12",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R5",
+      "target": "R9"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.18560216800381021,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R6--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e21",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R6",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.5679003627858257,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R8--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "id": "e13",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": null,
+      "source": "R8",
+      "target": "R9"
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "R0",
+      "node_type": "router",
+      "original_id": "0",
+      "original_label": "Spokane",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 47.65878,
+        "Longitude": -117.42605,
+        "id": 0,
+        "label": "Spokane"
+      }
+    },
+    {
+      "node_id": "R1",
+      "node_type": "router",
+      "original_id": "1",
+      "original_label": "Coeur d'Alene",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 47.67768,
+        "Longitude": -116.78047,
+        "id": 1,
+        "label": "Coeur d'Alene"
+      }
+    },
+    {
+      "node_id": "R2",
+      "node_type": "router",
+      "original_id": "2",
+      "original_label": "Wenatchee",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 47.42346,
+        "Longitude": -120.31035,
+        "id": 2,
+        "label": "Wenatchee"
+      }
+    },
+    {
+      "node_id": "R3",
+      "node_type": "router",
+      "original_id": "3",
+      "original_label": "Othello",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 46.82597,
+        "Longitude": -119.17529,
+        "id": 3,
+        "label": "Othello"
+      }
+    },
+    {
+      "node_id": "R4",
+      "node_type": "router",
+      "original_id": "4",
+      "original_label": "Walla Walla",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 46.06458,
+        "Longitude": -118.34302,
+        "id": 4,
+        "label": "Walla Walla"
+      }
+    },
+    {
+      "node_id": "R5",
+      "node_type": "router",
+      "original_id": "5",
+      "original_label": "Pasco",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 46.23958,
+        "Longitude": -119.10057,
+        "id": 5,
+        "label": "Pasco"
+      }
+    },
+    {
+      "node_id": "R6",
+      "node_type": "router",
+      "original_id": "6",
+      "original_label": "Pullman",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 46.73127,
+        "Longitude": -117.17962,
+        "id": 6,
+        "label": "Pullman"
+      }
+    },
+    {
+      "node_id": "R7",
+      "node_type": "router",
+      "original_id": "7",
+      "original_label": "Lewiston",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 46.41655,
+        "Longitude": -117.01766,
+        "id": 7,
+        "label": "Lewiston"
+      }
+    },
+    {
+      "node_id": "R8",
+      "node_type": "router",
+      "original_id": "8",
+      "original_label": "Kennewick",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 46.21125,
+        "Longitude": -119.13723,
+        "id": 8,
+        "label": "Kennewick"
+      }
+    },
+    {
+      "node_id": "R9",
+      "node_type": "router",
+      "original_id": "9",
+      "original_label": "Yakima",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 46.60207,
+        "Longitude": -120.5059,
+        "id": 9,
+        "label": "Yakima"
+      }
+    },
+    {
+      "node_id": "R10",
+      "node_type": "router",
+      "original_id": "10",
+      "original_label": "Ellensburg",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 46.99651,
+        "Longitude": -120.54785,
+        "id": 10,
+        "label": "Ellensburg"
+      }
+    },
+    {
+      "node_id": "R11",
+      "node_type": "router",
+      "original_id": "11",
+      "original_label": "Vancouver",
+      "raw_attributes": {
+        "Country": "Canada",
+        "Internal": 1,
+        "Latitude": 49.24966,
+        "Longitude": -123.11934,
+        "id": 11,
+        "label": "Vancouver"
+      }
+    },
+    {
+      "node_id": "R12",
+      "node_type": "router",
+      "original_id": "12",
+      "original_label": "Bellingham",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 48.75955,
+        "Longitude": -122.48822,
+        "id": 12,
+        "label": "Bellingham"
+      }
+    },
+    {
+      "node_id": "R13",
+      "node_type": "router",
+      "original_id": "13",
+      "original_label": "Mt Vernon",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 48.42122,
+        "Longitude": -122.33405,
+        "id": 13,
+        "label": "Mt Vernon"
+      }
+    },
+    {
+      "node_id": "R14",
+      "node_type": "router",
+      "original_id": "14",
+      "original_label": "Everett",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 47.97898,
+        "Longitude": -122.20208,
+        "id": 14,
+        "label": "Everett"
+      }
+    },
+    {
+      "node_id": "R15",
+      "node_type": "router",
+      "original_id": "15",
+      "original_label": "Westin - Seattle",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 47.6129,
+        "Longitude": -122.3377,
+        "id": 15,
+        "label": "Westin - Seattle"
+      }
+    },
+    {
+      "node_id": "R16",
+      "node_type": "router",
+      "original_id": "16",
+      "original_label": "Tacoma",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 47.25288,
+        "Longitude": -122.44429,
+        "id": 16,
+        "label": "Tacoma"
+      }
+    },
+    {
+      "node_id": "R17",
+      "node_type": "router",
+      "original_id": "17",
+      "original_label": "Olympia",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 47.03787,
+        "Longitude": -122.9007,
+        "id": 17,
+        "label": "Olympia"
+      }
+    },
+    {
+      "node_id": "R18",
+      "node_type": "router",
+      "original_id": "18",
+      "original_label": "Portland",
+      "raw_attributes": {
+        "Country": "United States",
+        "Internal": 1,
+        "Latitude": 45.52345,
+        "Longitude": -122.67621,
+        "id": 18,
+        "label": "Portland"
+      }
+    }
+  ],
+  "normalized_name": "Noel",
+  "raw_name": "Noel Communications ",
+  "schema_version": "netkeeper-sim.schema.v1",
+  "source_format": "graphml",
+  "source_sha256": "7d0020d9b3e1527390b5fe01e02393b3fa4d843aa99eee82786b376ac3796115",
+  "topology_id": "zoo:noel:7d0020d9"
+}

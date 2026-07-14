@@ -8,22 +8,16 @@ from netkeeper_sim.rl.networks.actor_head import (
 from netkeeper_sim.rl.networks.centralized_critic import CentralizedCritic
 from netkeeper_sim.rl.networks.embeddings import ParameterID, ParameterIDEmbedding
 from netkeeper_sim.rl.networks.graph_encoder import SharedGraphTransformerEncoder
-from netkeeper_sim.rl.networks.multi_agent_actor import (
-    BGPActor,
-    MultiAgentActor,
-    OSPFActor,
-    PerformanceActor,
-)
+from netkeeper_sim.rl.networks.multi_agent_actor import ActorOutput, CandidateHead, MultiAgentActor
 from netkeeper_sim.rl.networks.target_network import clone_target_network
 
 __all__ = [
-    "BGPActor",
+    "ActorOutput",
+    "CandidateHead",
     "CentralizedCritic",
     "MultiAgentActor",
-    "OSPFActor",
     "ParameterID",
     "ParameterIDEmbedding",
-    "PerformanceActor",
     "SharedGraphTransformerEncoder",
     "argmax_masked_actions",
     "clone_target_network",

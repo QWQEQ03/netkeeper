@@ -1,0 +1,10 @@
+target_counts: {train: 3000, validation: 400, test: 500}
+smoke_counts: {train: 12, validation: 12, test: 12}
+difficulty_ratios:
+  train: {Easy: 0.45, Medium: 0.45, Hard: 0.10}
+  validation: {Easy: 0.40, Medium: 0.40, Hard: 0.20}
+  test: {Easy: 0.35, Medium: 0.40, Hard: 0.25}
+traffic_ratios: {gravity: 0.30, diurnal: 0.20, hotspot: 0.25, burst: 0.25}
+load_ratios: {Low: 0.3333333333, Normal: 0.3333333333, High: 0.3333333334}
+max_steps: 50
+events: []

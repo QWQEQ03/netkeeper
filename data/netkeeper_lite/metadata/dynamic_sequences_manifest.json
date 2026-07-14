@@ -1,0 +1,18 @@
+{
+  "count": 100,
+  "dataset_version": "netkeeper-lite.dynamic-sequences.v1",
+  "expected_valid": true,
+  "file": "dynamic_sequences/test.jsonl",
+  "generator_version": "1.0.0",
+  "logical_event_plan": [
+    "policy_add",
+    "traffic_scale",
+    "link_failure_recovery",
+    "policy_remove",
+    "hotspot_change",
+    "node_failure_recovery"
+  ],
+  "recovery_budget_steps": 30,
+  "root_seed": 20260713,
+  "split": "test"
+}

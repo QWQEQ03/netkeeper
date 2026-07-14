@@ -1,0 +1,111 @@
+{
+  "dataset_version": "netkeeper-lite.static-scenarios.v1",
+  "difficulty_ratios": {
+    "test": {
+      "Easy": 0.35,
+      "Hard": 0.25,
+      "Medium": 0.4
+    },
+    "train": {
+      "Easy": 0.45,
+      "Hard": 0.1,
+      "Medium": 0.45
+    },
+    "validation": {
+      "Easy": 0.4,
+      "Hard": 0.2,
+      "Medium": 0.4
+    }
+  },
+  "generator_version": "1.0.0",
+  "load_ratios": {
+    "High": 0.3333333333333333,
+    "Low": 0.3333333333333333,
+    "Normal": 0.3333333333333333
+  },
+  "max_steps": 50,
+  "policy_counts_per_kind": {
+    "Easy": 2,
+    "Hard": 8,
+    "Medium": 4
+  },
+  "root_seed": 20260713,
+  "smoke_scenario_counts": {
+    "test": 12,
+    "train": 12,
+    "validation": 12
+  },
+  "splits": {
+    "test": {
+      "count": 12,
+      "difficulty_quota": {
+        "Easy": 4,
+        "Hard": 3,
+        "Medium": 5
+      },
+      "file": "scenarios/smoke/test.jsonl",
+      "load_quota": {
+        "High": 4,
+        "Low": 4,
+        "Normal": 4
+      },
+      "traffic_quota": {
+        "burst": 3,
+        "diurnal": 2,
+        "gravity": 4,
+        "hotspot": 3
+      }
+    },
+    "train": {
+      "count": 12,
+      "difficulty_quota": {
+        "Easy": 6,
+        "Hard": 1,
+        "Medium": 5
+      },
+      "file": "scenarios/smoke/train.jsonl",
+      "load_quota": {
+        "High": 4,
+        "Low": 4,
+        "Normal": 4
+      },
+      "traffic_quota": {
+        "burst": 3,
+        "diurnal": 2,
+        "gravity": 4,
+        "hotspot": 3
+      }
+    },
+    "validation": {
+      "count": 12,
+      "difficulty_quota": {
+        "Easy": 5,
+        "Hard": 2,
+        "Medium": 5
+      },
+      "file": "scenarios/smoke/validation.jsonl",
+      "load_quota": {
+        "High": 4,
+        "Low": 4,
+        "Normal": 4
+      },
+      "traffic_quota": {
+        "burst": 3,
+        "diurnal": 2,
+        "gravity": 4,
+        "hotspot": 3
+      }
+    }
+  },
+  "target_scenario_counts": {
+    "test": 500,
+    "train": 3000,
+    "validation": 400
+  },
+  "traffic_ratios": {
+    "burst": 0.25,
+    "diurnal": 0.2,
+    "gravity": 0.3,
+    "hotspot": 0.25
+  }
+}

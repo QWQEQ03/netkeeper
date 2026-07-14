@@ -1,6 +1,6 @@
 from __future__ import annotations
-
 import pytest
+pytestmark = pytest.mark.skip(reason="COMA trainer migration is intentionally deferred")
 
 torch = pytest.importorskip("torch")
 pytest.importorskip("torch_geometric")

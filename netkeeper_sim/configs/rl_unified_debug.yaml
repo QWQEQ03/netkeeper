@@ -1,0 +1,14 @@
+training:
+  episodes: 20
+  max_steps: 20
+  batch_size: 2
+  seed: 42
+  split: train
+reward:
+  policy_improvement: 1.0
+  mlu_improvement: 1.0
+  traffic_shift_penalty: 0.5
+  configuration_change_penalty: 0.01
+  illegal_action_penalty: 1.0
+  dropped_traffic_penalty: 1.0
+  include_traffic_shift: true

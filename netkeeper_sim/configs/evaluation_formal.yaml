@@ -1,0 +1,22 @@
+methods:
+  - no_update
+  - random
+  - ospf_default
+  - local_search_ospf
+  - checkpoint
+deterministic_seed: 20260714
+random_seeds: [20260714, 20260715, 20260716]
+mode: both
+max_steps: 50
+hold_steps: 3
+recovery_budget: 30
+local_search_budget: 64
+local_search_deltas: [1, 2, 4, 8]
+traffic_shift_primary: paper_v1
+traffic_shift_secondary: project_v1
+evaluation_manifest: configs/frozen_evaluation_manifest.json
+checkpoint: runs/rl-f27e74f349/best.pt
+checkpoint_manifest: runs/rl-f27e74f349/checkpoint_manifest.json
+checkpoint_status: formal_validation_selected
+require_formal_checkpoint: true
+device: cpu

@@ -1,0 +1,1747 @@
+{
+  "templates": [
+    {
+      "api_sequence": [
+        "add_reachable_policy"
+      ],
+      "category": "policy",
+      "family_id": "train.single.add_reachable_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.add_reachable_policy"
+    },
+    {
+      "api_sequence": [
+        "add_forward_policy"
+      ],
+      "category": "policy",
+      "family_id": "train.single.add_forward_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.add_forward_policy"
+    },
+    {
+      "api_sequence": [
+        "add_avoid_policy"
+      ],
+      "category": "policy",
+      "family_id": "train.single.add_avoid_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.add_avoid_policy"
+    },
+    {
+      "api_sequence": [
+        "add_isolation_policy"
+      ],
+      "category": "policy",
+      "family_id": "train.single.add_isolation_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.add_isolation_policy"
+    },
+    {
+      "api_sequence": [
+        "remove_policy"
+      ],
+      "category": "policy",
+      "family_id": "train.single.remove_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.remove_policy"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "train.single.set_traffic_demand",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "scale_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "train.single.scale_traffic_demand",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.scale_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_hotspot"
+      ],
+      "category": "traffic",
+      "family_id": "train.single.set_traffic_hotspot",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_traffic_hotspot"
+    },
+    {
+      "api_sequence": [
+        "set_link_state"
+      ],
+      "category": "topology",
+      "family_id": "train.single.set_link_state",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_link_state"
+    },
+    {
+      "api_sequence": [
+        "set_node_state"
+      ],
+      "category": "topology",
+      "family_id": "train.single.set_node_state",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_node_state"
+    },
+    {
+      "api_sequence": [
+        "set_ospf_weight"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_ospf_weight",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_ospf_weight"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_local_pref"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_bgp_local_pref",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_bgp_local_pref"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_as_path_length"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_bgp_as_path_length",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_bgp_as_path_length"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_med"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_bgp_med",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_bgp_med"
+    },
+    {
+      "api_sequence": [
+        "set_link_bandwidth"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_link_bandwidth",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_link_bandwidth"
+    },
+    {
+      "api_sequence": [
+        "set_link_capacity"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_link_capacity",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_link_capacity"
+    },
+    {
+      "api_sequence": [
+        "set_queue_length"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_queue_length",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.set_queue_length"
+    },
+    {
+      "api_sequence": [
+        "get_network_state"
+      ],
+      "category": "control",
+      "family_id": "train.single.get_network_state",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.get_network_state"
+    },
+    {
+      "api_sequence": [
+        "optimize_network"
+      ],
+      "category": "control",
+      "family_id": "train.single.optimize_network",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.1.optimize_network"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy"
+      ],
+      "category": "policy",
+      "family_id": "train.single.add_reachable_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.add_reachable_policy"
+    },
+    {
+      "api_sequence": [
+        "add_forward_policy"
+      ],
+      "category": "policy",
+      "family_id": "train.single.add_forward_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.add_forward_policy"
+    },
+    {
+      "api_sequence": [
+        "add_avoid_policy"
+      ],
+      "category": "policy",
+      "family_id": "train.single.add_avoid_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.add_avoid_policy"
+    },
+    {
+      "api_sequence": [
+        "add_isolation_policy"
+      ],
+      "category": "policy",
+      "family_id": "train.single.add_isolation_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.add_isolation_policy"
+    },
+    {
+      "api_sequence": [
+        "remove_policy"
+      ],
+      "category": "policy",
+      "family_id": "train.single.remove_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.remove_policy"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "train.single.set_traffic_demand",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "scale_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "train.single.scale_traffic_demand",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.scale_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_hotspot"
+      ],
+      "category": "traffic",
+      "family_id": "train.single.set_traffic_hotspot",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_traffic_hotspot"
+    },
+    {
+      "api_sequence": [
+        "set_link_state"
+      ],
+      "category": "topology",
+      "family_id": "train.single.set_link_state",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_link_state"
+    },
+    {
+      "api_sequence": [
+        "set_node_state"
+      ],
+      "category": "topology",
+      "family_id": "train.single.set_node_state",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_node_state"
+    },
+    {
+      "api_sequence": [
+        "set_ospf_weight"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_ospf_weight",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_ospf_weight"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_local_pref"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_bgp_local_pref",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_bgp_local_pref"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_as_path_length"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_bgp_as_path_length",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_bgp_as_path_length"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_med"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_bgp_med",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_bgp_med"
+    },
+    {
+      "api_sequence": [
+        "set_link_bandwidth"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_link_bandwidth",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_link_bandwidth"
+    },
+    {
+      "api_sequence": [
+        "set_link_capacity"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_link_capacity",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_link_capacity"
+    },
+    {
+      "api_sequence": [
+        "set_queue_length"
+      ],
+      "category": "config",
+      "family_id": "train.single.set_queue_length",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.set_queue_length"
+    },
+    {
+      "api_sequence": [
+        "get_network_state"
+      ],
+      "category": "control",
+      "family_id": "train.single.get_network_state",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.get_network_state"
+    },
+    {
+      "api_sequence": [
+        "optimize_network"
+      ],
+      "category": "control",
+      "family_id": "train.single.optimize_network",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.2.optimize_network"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "train.multi.policy_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.3.policy_opt"
+    },
+    {
+      "api_sequence": [
+        "set_link_state",
+        "add_reachable_policy",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "train.multi.failure_reach_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.3.failure_reach_opt"
+    },
+    {
+      "api_sequence": [
+        "scale_traffic_demand",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "train.multi.traffic_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.3.traffic_opt"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy",
+        "set_ospf_weight"
+      ],
+      "category": "multi_operation",
+      "family_id": "train.multi.policy_config",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.3.policy_config"
+    },
+    {
+      "api_sequence": [
+        "set_link_state",
+        "set_link_state",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "train.multi.recovery",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.3.recovery"
+    },
+    {
+      "api_sequence": [
+        "get_network_state",
+        "add_avoid_policy",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "train.multi.read_policy_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "train"
+      ],
+      "template_id": "train.3.read_policy_opt"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy"
+      ],
+      "category": "policy",
+      "family_id": "validation.single.add_reachable_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.add_reachable_policy"
+    },
+    {
+      "api_sequence": [
+        "add_forward_policy"
+      ],
+      "category": "policy",
+      "family_id": "validation.single.add_forward_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.add_forward_policy"
+    },
+    {
+      "api_sequence": [
+        "add_avoid_policy"
+      ],
+      "category": "policy",
+      "family_id": "validation.single.add_avoid_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.add_avoid_policy"
+    },
+    {
+      "api_sequence": [
+        "add_isolation_policy"
+      ],
+      "category": "policy",
+      "family_id": "validation.single.add_isolation_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.add_isolation_policy"
+    },
+    {
+      "api_sequence": [
+        "remove_policy"
+      ],
+      "category": "policy",
+      "family_id": "validation.single.remove_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.remove_policy"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "validation.single.set_traffic_demand",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "scale_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "validation.single.scale_traffic_demand",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.scale_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_hotspot"
+      ],
+      "category": "traffic",
+      "family_id": "validation.single.set_traffic_hotspot",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_traffic_hotspot"
+    },
+    {
+      "api_sequence": [
+        "set_link_state"
+      ],
+      "category": "topology",
+      "family_id": "validation.single.set_link_state",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_link_state"
+    },
+    {
+      "api_sequence": [
+        "set_node_state"
+      ],
+      "category": "topology",
+      "family_id": "validation.single.set_node_state",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_node_state"
+    },
+    {
+      "api_sequence": [
+        "set_ospf_weight"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_ospf_weight",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_ospf_weight"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_local_pref"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_bgp_local_pref",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_bgp_local_pref"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_as_path_length"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_bgp_as_path_length",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_bgp_as_path_length"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_med"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_bgp_med",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_bgp_med"
+    },
+    {
+      "api_sequence": [
+        "set_link_bandwidth"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_link_bandwidth",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_link_bandwidth"
+    },
+    {
+      "api_sequence": [
+        "set_link_capacity"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_link_capacity",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_link_capacity"
+    },
+    {
+      "api_sequence": [
+        "set_queue_length"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_queue_length",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.set_queue_length"
+    },
+    {
+      "api_sequence": [
+        "get_network_state"
+      ],
+      "category": "control",
+      "family_id": "validation.single.get_network_state",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.get_network_state"
+    },
+    {
+      "api_sequence": [
+        "optimize_network"
+      ],
+      "category": "control",
+      "family_id": "validation.single.optimize_network",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.1.optimize_network"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy"
+      ],
+      "category": "policy",
+      "family_id": "validation.single.add_reachable_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.add_reachable_policy"
+    },
+    {
+      "api_sequence": [
+        "add_forward_policy"
+      ],
+      "category": "policy",
+      "family_id": "validation.single.add_forward_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.add_forward_policy"
+    },
+    {
+      "api_sequence": [
+        "add_avoid_policy"
+      ],
+      "category": "policy",
+      "family_id": "validation.single.add_avoid_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.add_avoid_policy"
+    },
+    {
+      "api_sequence": [
+        "add_isolation_policy"
+      ],
+      "category": "policy",
+      "family_id": "validation.single.add_isolation_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.add_isolation_policy"
+    },
+    {
+      "api_sequence": [
+        "remove_policy"
+      ],
+      "category": "policy",
+      "family_id": "validation.single.remove_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.remove_policy"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "validation.single.set_traffic_demand",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "scale_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "validation.single.scale_traffic_demand",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.scale_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_hotspot"
+      ],
+      "category": "traffic",
+      "family_id": "validation.single.set_traffic_hotspot",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_traffic_hotspot"
+    },
+    {
+      "api_sequence": [
+        "set_link_state"
+      ],
+      "category": "topology",
+      "family_id": "validation.single.set_link_state",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_link_state"
+    },
+    {
+      "api_sequence": [
+        "set_node_state"
+      ],
+      "category": "topology",
+      "family_id": "validation.single.set_node_state",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_node_state"
+    },
+    {
+      "api_sequence": [
+        "set_ospf_weight"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_ospf_weight",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_ospf_weight"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_local_pref"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_bgp_local_pref",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_bgp_local_pref"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_as_path_length"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_bgp_as_path_length",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_bgp_as_path_length"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_med"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_bgp_med",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_bgp_med"
+    },
+    {
+      "api_sequence": [
+        "set_link_bandwidth"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_link_bandwidth",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_link_bandwidth"
+    },
+    {
+      "api_sequence": [
+        "set_link_capacity"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_link_capacity",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_link_capacity"
+    },
+    {
+      "api_sequence": [
+        "set_queue_length"
+      ],
+      "category": "config",
+      "family_id": "validation.single.set_queue_length",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.set_queue_length"
+    },
+    {
+      "api_sequence": [
+        "get_network_state"
+      ],
+      "category": "control",
+      "family_id": "validation.single.get_network_state",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.get_network_state"
+    },
+    {
+      "api_sequence": [
+        "optimize_network"
+      ],
+      "category": "control",
+      "family_id": "validation.single.optimize_network",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.2.optimize_network"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "validation.multi.policy_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.3.policy_opt"
+    },
+    {
+      "api_sequence": [
+        "set_link_state",
+        "add_reachable_policy",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "validation.multi.failure_reach_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.3.failure_reach_opt"
+    },
+    {
+      "api_sequence": [
+        "scale_traffic_demand",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "validation.multi.traffic_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.3.traffic_opt"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy",
+        "set_ospf_weight"
+      ],
+      "category": "multi_operation",
+      "family_id": "validation.multi.policy_config",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.3.policy_config"
+    },
+    {
+      "api_sequence": [
+        "set_link_state",
+        "set_link_state",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "validation.multi.recovery",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.3.recovery"
+    },
+    {
+      "api_sequence": [
+        "get_network_state",
+        "add_avoid_policy",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "validation.multi.read_policy_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "validation"
+      ],
+      "template_id": "validation.3.read_policy_opt"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy"
+      ],
+      "category": "policy",
+      "family_id": "test.single.add_reachable_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.add_reachable_policy"
+    },
+    {
+      "api_sequence": [
+        "add_forward_policy"
+      ],
+      "category": "policy",
+      "family_id": "test.single.add_forward_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.add_forward_policy"
+    },
+    {
+      "api_sequence": [
+        "add_avoid_policy"
+      ],
+      "category": "policy",
+      "family_id": "test.single.add_avoid_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.add_avoid_policy"
+    },
+    {
+      "api_sequence": [
+        "add_isolation_policy"
+      ],
+      "category": "policy",
+      "family_id": "test.single.add_isolation_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.add_isolation_policy"
+    },
+    {
+      "api_sequence": [
+        "remove_policy"
+      ],
+      "category": "policy",
+      "family_id": "test.single.remove_policy",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.remove_policy"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "test.single.set_traffic_demand",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "scale_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "test.single.scale_traffic_demand",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.scale_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_hotspot"
+      ],
+      "category": "traffic",
+      "family_id": "test.single.set_traffic_hotspot",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_traffic_hotspot"
+    },
+    {
+      "api_sequence": [
+        "set_link_state"
+      ],
+      "category": "topology",
+      "family_id": "test.single.set_link_state",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_link_state"
+    },
+    {
+      "api_sequence": [
+        "set_node_state"
+      ],
+      "category": "topology",
+      "family_id": "test.single.set_node_state",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_node_state"
+    },
+    {
+      "api_sequence": [
+        "set_ospf_weight"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_ospf_weight",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_ospf_weight"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_local_pref"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_bgp_local_pref",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_bgp_local_pref"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_as_path_length"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_bgp_as_path_length",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_bgp_as_path_length"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_med"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_bgp_med",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_bgp_med"
+    },
+    {
+      "api_sequence": [
+        "set_link_bandwidth"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_link_bandwidth",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_link_bandwidth"
+    },
+    {
+      "api_sequence": [
+        "set_link_capacity"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_link_capacity",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_link_capacity"
+    },
+    {
+      "api_sequence": [
+        "set_queue_length"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_queue_length",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.set_queue_length"
+    },
+    {
+      "api_sequence": [
+        "get_network_state"
+      ],
+      "category": "control",
+      "family_id": "test.single.get_network_state",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.get_network_state"
+    },
+    {
+      "api_sequence": [
+        "optimize_network"
+      ],
+      "category": "control",
+      "family_id": "test.single.optimize_network",
+      "level": "1",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.1.optimize_network"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy"
+      ],
+      "category": "policy",
+      "family_id": "test.single.add_reachable_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.add_reachable_policy"
+    },
+    {
+      "api_sequence": [
+        "add_forward_policy"
+      ],
+      "category": "policy",
+      "family_id": "test.single.add_forward_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.add_forward_policy"
+    },
+    {
+      "api_sequence": [
+        "add_avoid_policy"
+      ],
+      "category": "policy",
+      "family_id": "test.single.add_avoid_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.add_avoid_policy"
+    },
+    {
+      "api_sequence": [
+        "add_isolation_policy"
+      ],
+      "category": "policy",
+      "family_id": "test.single.add_isolation_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.add_isolation_policy"
+    },
+    {
+      "api_sequence": [
+        "remove_policy"
+      ],
+      "category": "policy",
+      "family_id": "test.single.remove_policy",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.remove_policy"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "test.single.set_traffic_demand",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "scale_traffic_demand"
+      ],
+      "category": "traffic",
+      "family_id": "test.single.scale_traffic_demand",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.scale_traffic_demand"
+    },
+    {
+      "api_sequence": [
+        "set_traffic_hotspot"
+      ],
+      "category": "traffic",
+      "family_id": "test.single.set_traffic_hotspot",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_traffic_hotspot"
+    },
+    {
+      "api_sequence": [
+        "set_link_state"
+      ],
+      "category": "topology",
+      "family_id": "test.single.set_link_state",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_link_state"
+    },
+    {
+      "api_sequence": [
+        "set_node_state"
+      ],
+      "category": "topology",
+      "family_id": "test.single.set_node_state",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_node_state"
+    },
+    {
+      "api_sequence": [
+        "set_ospf_weight"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_ospf_weight",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_ospf_weight"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_local_pref"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_bgp_local_pref",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_bgp_local_pref"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_as_path_length"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_bgp_as_path_length",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_bgp_as_path_length"
+    },
+    {
+      "api_sequence": [
+        "set_bgp_med"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_bgp_med",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_bgp_med"
+    },
+    {
+      "api_sequence": [
+        "set_link_bandwidth"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_link_bandwidth",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_link_bandwidth"
+    },
+    {
+      "api_sequence": [
+        "set_link_capacity"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_link_capacity",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_link_capacity"
+    },
+    {
+      "api_sequence": [
+        "set_queue_length"
+      ],
+      "category": "config",
+      "family_id": "test.single.set_queue_length",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.set_queue_length"
+    },
+    {
+      "api_sequence": [
+        "get_network_state"
+      ],
+      "category": "control",
+      "family_id": "test.single.get_network_state",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.get_network_state"
+    },
+    {
+      "api_sequence": [
+        "optimize_network"
+      ],
+      "category": "control",
+      "family_id": "test.single.optimize_network",
+      "level": "2",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.2.optimize_network"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "test.multi.policy_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.3.policy_opt"
+    },
+    {
+      "api_sequence": [
+        "set_link_state",
+        "add_reachable_policy",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "test.multi.failure_reach_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.3.failure_reach_opt"
+    },
+    {
+      "api_sequence": [
+        "scale_traffic_demand",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "test.multi.traffic_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.3.traffic_opt"
+    },
+    {
+      "api_sequence": [
+        "add_reachable_policy",
+        "set_ospf_weight"
+      ],
+      "category": "multi_operation",
+      "family_id": "test.multi.policy_config",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.3.policy_config"
+    },
+    {
+      "api_sequence": [
+        "set_link_state",
+        "set_link_state",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "test.multi.recovery",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.3.recovery"
+    },
+    {
+      "api_sequence": [
+        "get_network_state",
+        "add_avoid_policy",
+        "optimize_network"
+      ],
+      "category": "multi_operation",
+      "family_id": "test.multi.read_policy_opt",
+      "level": "3",
+      "slots": [],
+      "splits": [
+        "test"
+      ],
+      "template_id": "test.3.read_policy_opt"
+    }
+  ]
+}

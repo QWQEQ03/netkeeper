@@ -1,0 +1,242 @@
+{
+  "dataset_version": "netkeeper-lite.topologies.v1",
+  "defaults": {
+    "bandwidth_bps": 100000000,
+    "capacity_bps": 100000000,
+    "capacity_max_bps": 100000000,
+    "delay_ms": 1.0,
+    "loss_rate": 0.0,
+    "ospf_weight": 1,
+    "packet_size_bytes": 1500,
+    "physical_bandwidth_bps": 100000000,
+    "queue_packets": 1000,
+    "state": "up",
+    "value_source": "default"
+  },
+  "generator_version": "1.0.0",
+  "selection_deviations": [],
+  "selection_policy": {
+    "test": "2 x 8-50 + 2 x 51-80",
+    "train": "12 x 8-50",
+    "validation": "2 x 8-50 + 1 x 51-80"
+  },
+  "selection_seed": 20260713,
+  "source_root": "../InternetTopologyZoo",
+  "splits": {
+    "test": [
+      {
+        "content_sha256": "1c4d12b5188f8faa392fed04c1aa7d2b7e48ef646ad0e4aa970e6f2d4b91ed74",
+        "density": 0.082010582010582,
+        "edge_count": 31,
+        "is_multigraph": false,
+        "node_count": 28,
+        "normalized_file": "topologies/test/darkstrand-cdab00e2.json",
+        "source_file": "graphml/Darkstrand.graphml",
+        "source_sha256": "71c5ff72c78d8d37a0f6cdbd3b3e2a3a8afcd93fa3d6949c0890fe091c1b4840",
+        "topology_id": "zoo:darkstrand:aecb48e6"
+      },
+      {
+        "content_sha256": "c1e41b59add2c79801650789f985c6b01648f86689c0cce4ec3df86c2bca603e",
+        "density": 0.17391304347826086,
+        "edge_count": 44,
+        "is_multigraph": true,
+        "node_count": 23,
+        "normalized_file": "topologies/test/belnet2006-d52e48eb.json",
+        "source_file": "graphml/Belnet2006.graphml",
+        "source_sha256": "a1df231a5d2f83949e9b787e104b235b948ac167e04c915ee680f17c6ddfbbf8",
+        "topology_id": "zoo:belnet2006:49d8165b"
+      },
+      {
+        "content_sha256": "70f3c30c94ac43a85ccbf752e4bd2e5305a169d9e9a57879b6b92bc1cdebfa77",
+        "density": 0.048484848484848485,
+        "edge_count": 72,
+        "is_multigraph": true,
+        "node_count": 55,
+        "normalized_file": "topologies/test/garr201005-28650b2f.json",
+        "source_file": "graphml/Garr201005.graphml",
+        "source_sha256": "1c290d0baa3226ffc051894573211e32bf9a6846bf5f174bb14edd88a958d003",
+        "topology_id": "zoo:garr201005:f6fa51f4"
+      },
+      {
+        "content_sha256": "391a975ee866d257dc68d6a3912c66a246972ca406ab32c8d6f28acfe25f382a",
+        "density": 0.048051948051948054,
+        "edge_count": 74,
+        "is_multigraph": true,
+        "node_count": 56,
+        "normalized_file": "topologies/test/garr-b848cf6c.json",
+        "source_file": "graphml/Garr.graphml",
+        "source_sha256": "b87433c1a840eda08802dfce6f064367b761e1a9612bd663b1f5c5aceb22db4c",
+        "topology_id": "zoo:garr:c6b0c695"
+      }
+    ],
+    "train": [
+      {
+        "content_sha256": "67a7b5560fe5ef7c3d4ba188c8b78056f8f4a0c43a4ac590dc1db6e6872228c9",
+        "density": 0.2777777777777778,
+        "edge_count": 10,
+        "is_multigraph": false,
+        "node_count": 9,
+        "normalized_file": "topologies/train/arpanet19706-fd6c27dd.json",
+        "source_file": "graphml/Arpanet19706.graphml",
+        "source_sha256": "38760717947eaa15f9cd37f81d0e48a31f0a735828a61ba8ad8603c0cf0f587f",
+        "topology_id": "zoo:arpanet19706:381c167f"
+      },
+      {
+        "content_sha256": "d4388b4044c488e1ac4999a764939f5bdd161eec12acded1ae3a65ea02e43dc4",
+        "density": 0.16996047430830039,
+        "edge_count": 43,
+        "is_multigraph": true,
+        "node_count": 23,
+        "normalized_file": "topologies/train/belnet2004-8ca159a9.json",
+        "source_file": "graphml/Belnet2004.graphml",
+        "source_sha256": "6cedeade9d072de7813aee075c6a65b850d49751e4847b590c56f2624d3b328e",
+        "topology_id": "zoo:belnet2004:39ee6689"
+      },
+      {
+        "content_sha256": "0f157bfdc4b63d0c0eab8569586af6f51f1fd8af4155c06e694f80c923a84a2e",
+        "density": 0.14619883040935672,
+        "edge_count": 25,
+        "is_multigraph": false,
+        "node_count": 19,
+        "normalized_file": "topologies/train/noel-48a744d6.json",
+        "source_file": "graphml/Noel.graphml",
+        "source_sha256": "e7d23a1bb99a6b4a21680dc587d39b533e7a5436dfea9a6fab44ef2170a16124",
+        "topology_id": "zoo:noel:7d0020d9"
+      },
+      {
+        "content_sha256": "df87340c6b85adbd32464ca1c81a6a135d55510940253c035cd2499a6e0c83b1",
+        "density": 0.12063492063492064,
+        "edge_count": 76,
+        "is_multigraph": false,
+        "node_count": 36,
+        "normalized_file": "topologies/train/btnorthamerica-5601cab9.json",
+        "source_file": "graphml/BtNorthAmerica.graphml",
+        "source_sha256": "e664212d74ad5f69bf0b3d9d49a28d80812bee64970d32e11c237714a2c4d25c",
+        "topology_id": "zoo:btnorthamerica:1fb5d79b"
+      },
+      {
+        "content_sha256": "8d9f67977eef5a442e6e54aa3654ad6e7942435b866ebe3724bde0e46a57cedf",
+        "density": 0.09269162210338681,
+        "edge_count": 52,
+        "is_multigraph": false,
+        "node_count": 34,
+        "normalized_file": "topologies/train/geant2009-521bdb54.json",
+        "source_file": "graphml/Geant2009.graphml",
+        "source_sha256": "74c80ad60b37315b27d3f44946d05b5d0761c213c51e03de56b0f2c55ca07a6a",
+        "topology_id": "zoo:geant2009:1ebec232"
+      },
+      {
+        "content_sha256": "ccd0d42b52b8ae60eb0f7f9db88f2695cbf34d28ac0523a2a0a052ffd94e8d41",
+        "density": 0.057057057057057055,
+        "edge_count": 38,
+        "is_multigraph": false,
+        "node_count": 37,
+        "normalized_file": "topologies/train/bren-337fa4f2.json",
+        "source_file": "graphml/Bren.graphml",
+        "source_sha256": "030cbd11136de7d5f73db5c3b683ad0467eb020bc87c87c54da5c4ead3189f22",
+        "topology_id": "zoo:bren:e13f23c8"
+      },
+      {
+        "content_sha256": "cd2bef0919cac34682a591a386b48999329070f3cc33aefcc87570120d8db24d",
+        "density": 0.5555555555555556,
+        "edge_count": 20,
+        "is_multigraph": false,
+        "node_count": 9,
+        "normalized_file": "topologies/train/gridnet-73492b2b.json",
+        "source_file": "graphml/Gridnet.graphml",
+        "source_sha256": "a42ab1615a0266a8e181e6048cdd4d1edf252b429d63e7936345f3feb622d65f",
+        "topology_id": "zoo:gridnet:5ad4ba9a"
+      },
+      {
+        "content_sha256": "7fe2c03a6d224f811c0991707d10ac836cc925dbb5d4d0d216801004210ea360",
+        "density": 0.16996047430830039,
+        "edge_count": 43,
+        "is_multigraph": true,
+        "node_count": 23,
+        "normalized_file": "topologies/train/belnet2003-bd32fd41.json",
+        "source_file": "graphml/Belnet2003.graphml",
+        "source_sha256": "5078c2c17616651cb01a540f8530d3f4f1d3d452696aca7cf689c8525cedd7e0",
+        "topology_id": "zoo:belnet2003:ca385d2b"
+      },
+      {
+        "content_sha256": "be501600c1f90d81cd23526c799cc8b269e199f2108a2dc56fc5016efa25cb28",
+        "density": 0.175,
+        "edge_count": 21,
+        "is_multigraph": false,
+        "node_count": 16,
+        "normalized_file": "topologies/train/hostwayinternational-55336840.json",
+        "source_file": "graphml/HostwayInternational.graphml",
+        "source_sha256": "ec74d3e30470e3767cfad581970ba1643e4d98a7944c09a0a931efa4424ca776",
+        "topology_id": "zoo:hostwayinternational:cfdb2f15"
+      },
+      {
+        "content_sha256": "9a734a9f427bcfd202fe3f16f747f1ac8cdbedd2de9f8327b7f0eb3e63124d3a",
+        "density": 0.0812807881773399,
+        "edge_count": 33,
+        "is_multigraph": false,
+        "node_count": 29,
+        "normalized_file": "topologies/train/cesnet200304-a99ad175.json",
+        "source_file": "graphml/Cesnet200304.graphml",
+        "source_sha256": "0cf06c77a83c1a7f43e6cf572b9b02fbf22797bdb6b83c118a9fb56b8ba651a5",
+        "topology_id": "zoo:cesnet200304:0c88b524"
+      },
+      {
+        "content_sha256": "6303c4043ae4cd18a9f4c5d9526e8a1c48f67bd730a4153b083b308cfa53efaf",
+        "density": 0.059379217273954114,
+        "edge_count": 44,
+        "is_multigraph": false,
+        "node_count": 39,
+        "normalized_file": "topologies/train/cesnet200603-3ca65c5a.json",
+        "source_file": "graphml/Cesnet200603.graphml",
+        "source_sha256": "d28b7941243d673873b6669efa48a8564502b93a4ef02927c13ea16db157b5ba",
+        "topology_id": "zoo:cesnet200603:6ec4c01f"
+      },
+      {
+        "content_sha256": "c2ed70de523e85e54df69ff42d3dbef4f289c57f63e82a69aebcf5f05bd53be3",
+        "density": 0.21794871794871795,
+        "edge_count": 17,
+        "is_multigraph": false,
+        "node_count": 13,
+        "normalized_file": "topologies/train/navigata-8847ec0d.json",
+        "source_file": "graphml/Navigata.graphml",
+        "source_sha256": "6c7d8a4487189a7cd4e8742fa24e52c54851a28a47db8b4f114b3c962e4ac960",
+        "topology_id": "zoo:navigata:9643bdf1"
+      }
+    ],
+    "validation": [
+      {
+        "content_sha256": "1f372d76879f4bfd6eaa592459cef94b28a66daa6c7160cfe6c97f43ccf14781",
+        "density": 0.2777777777777778,
+        "edge_count": 10,
+        "is_multigraph": true,
+        "node_count": 9,
+        "normalized_file": "topologies/validation/nordu2005-675fe3e3.json",
+        "source_file": "graphml/Nordu2005.graphml",
+        "source_sha256": "2149147b47a79a2c39c0730e7d977d6af8a1b8cc7942c8f712f18122914005ee",
+        "topology_id": "zoo:nordu2005:0407cec5"
+      },
+      {
+        "content_sha256": "8d392eccc8c373e193adbc6fa2745c11a0e8d1eead7659e64cd9361461aef7b9",
+        "density": 0.09090909090909091,
+        "edge_count": 48,
+        "is_multigraph": false,
+        "node_count": 33,
+        "normalized_file": "topologies/validation/bics-6701f1d8.json",
+        "source_file": "graphml/Bics.graphml",
+        "source_sha256": "9aa0f9585af6d991af248eb644fec8f6ef9023d6e177d1de7212e10145e1ec60",
+        "topology_id": "zoo:bics:5f45352e"
+      },
+      {
+        "content_sha256": "b6da6295162cbeca4015919321149712ae1ad51d0824c0bcc1e8602968d54fdf",
+        "density": 0.047519217330538085,
+        "edge_count": 68,
+        "is_multigraph": false,
+        "node_count": 54,
+        "normalized_file": "topologies/validation/garr200912-82a3a8eb.json",
+        "source_file": "graphml/Garr200912.graphml",
+        "source_sha256": "6a65470daf41d1971fcdb27a49693ef0b1d108c6d3e237500be20d70b9abe177",
+        "topology_id": "zoo:garr200912:a0572007"
+      }
+    ]
+  }
+}

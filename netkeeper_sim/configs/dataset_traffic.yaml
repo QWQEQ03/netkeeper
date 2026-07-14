@@ -1,0 +1,11 @@
+# Canonical configuration for NetKeeper-Lite topology traffic generation.
+unit: bps
+normal_target_mlu: 0.25
+diurnal_period_steps: 24
+diurnal_amplitude: 0.35
+hotspot_multiplier: 4.0
+burst_multiplier: 8.0
+load_levels:
+  Low: 0.5
+  Normal: 1.0
+  High: 3.0

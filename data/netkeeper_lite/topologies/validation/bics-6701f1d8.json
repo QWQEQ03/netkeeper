@@ -1,0 +1,1789 @@
+{
+  "defaults": {
+    "bandwidth_bps": 100000000,
+    "capacity_bps": 100000000,
+    "capacity_max_bps": 100000000,
+    "delay_ms": 1.0,
+    "loss_rate": 0.0,
+    "ospf_weight": 1,
+    "packet_size_bytes": 1500,
+    "physical_bandwidth_bps": 100000000,
+    "queue_packets": 1000,
+    "state": "up",
+    "value_source": "default"
+  },
+  "directed": false,
+  "links": [
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.27441842749450884,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R1:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R0",
+      "target": "R1"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.4553186855497853,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R2:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R0",
+      "target": "R2"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.8070746847022424,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R0--R5:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R0",
+      "target": "R5"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 3.127122065116493,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R1--R16:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R1",
+      "target": "R16"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.988143179884496,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R1--R19:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R1",
+      "target": "R19"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.38740634792657597,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R10--R13:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R10",
+      "target": "R13"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.8213469248719893,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R11--R12:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R11",
+      "target": "R12"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.9170523794393114,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R11--R19:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R11",
+      "target": "R19"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.5679767508736702,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R11--R32:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R11",
+      "target": "R32"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.9357161634104492,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R12--R14:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R12",
+      "target": "R14"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.121051542604836,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R13--R15:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R13",
+      "target": "R15"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.0857082552024364,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R13--R16:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R13",
+      "target": "R16"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.5297107881142886,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R13--R19:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R13",
+      "target": "R19"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 3.4161752452561234,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R13--R4:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R13",
+      "target": "R4"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.5864943218477294,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R14--R19:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R14",
+      "target": "R19"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.8674063458210035,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R14--R20:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R14",
+      "target": "R20"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.601571375191132,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R14--R21:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R14",
+      "target": "R21"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.3215421220492956,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R14--R22:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R14",
+      "target": "R22"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.5977468012678636,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R14--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R14",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.049964363870752,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R15--R22:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R15",
+      "target": "R22"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.5602057200347548,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R15--R31:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R15",
+      "target": "R31"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.9385084919894336,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R15--R32:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R15",
+      "target": "R32"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.9340735569489707,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R16--R30:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R16",
+      "target": "R30"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.3855446324398764,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R16--R4:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R16",
+      "target": "R4"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.628369183028604,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R17--R18:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R17",
+      "target": "R18"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.8075560563848354,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R17--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R17",
+      "target": "R9"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 3.15327229249733,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R18--R5:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R18",
+      "target": "R5"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.8211729940722678,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R19--R20:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R19",
+      "target": "R20"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 5.930974181477354,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R19--R23:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R19",
+      "target": "R23"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 4.448940459702805,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R19--R24:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R19",
+      "target": "R24"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.04559598521583,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R19--R2:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R19",
+      "target": "R2"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.5870074349163046,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R2--R24:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R2",
+      "target": "R24"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.7846531819067761,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R20--R21:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R20",
+      "target": "R21"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.28746229107129945,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R20--R3:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R20",
+      "target": "R3"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.718854433871299,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R21--R22:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R21",
+      "target": "R22"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.317675299847061,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R21--R26:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R21",
+      "target": "R26"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 7.927685207593544,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R21--R27:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R21",
+      "target": "R27"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 5.262235985420492,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R22--R28:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R22",
+      "target": "R28"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.966034900238605,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R22--R31:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R22",
+      "target": "R31"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 3.444847885860777,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R24--R25:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R24",
+      "target": "R25"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 3.736035461876777,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R25--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R25",
+      "target": "R8"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.5212082075013544,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R28--R29:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R28",
+      "target": "R29"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.6964278072946317,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R29--R30:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R29",
+      "target": "R30"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.3799746877199022,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R30--R31:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "Optic Fiber",
+        "LinkNote": "Optic ",
+        "LinkType": "Fiber",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "Optic Fiber",
+      "source": "R30",
+      "target": "R31"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 1.4969364005697836,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R5--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R5",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 3.2171932973334147,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R5--R8:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R5",
+      "target": "R8"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 0.5845133413835745,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R6--R7:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R6",
+      "target": "R7"
+    },
+    {
+      "attributes": {
+        "bandwidth_bps": 100000000,
+        "capacity_bps": 100000000,
+        "capacity_max_bps": 100000000,
+        "delay_ms": 2.2269493615243645,
+        "loss_rate": 0.0,
+        "ospf_weight": 1,
+        "packet_size_bytes": 1500,
+        "physical_bandwidth_bps": 100000000,
+        "queue_packets": 1000,
+        "state": "up",
+        "value_source": "default_missing_unit"
+      },
+      "link_id": "L:R8--R9:0",
+      "parallel_ordinal": 0,
+      "raw_attributes": {
+        "LinkLabel": "SDH",
+        "LinkType": "SDH",
+        "key": 0
+      },
+      "raw_edge_id": null,
+      "raw_name": "SDH",
+      "source": "R8",
+      "target": "R9"
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "R0",
+      "node_type": "router",
+      "original_id": "0",
+      "original_label": "Bratislava",
+      "raw_attributes": {
+        "Country": "Slovakia",
+        "Internal": 1,
+        "Latitude": 48.14816,
+        "Longitude": 17.10674,
+        "id": 0,
+        "label": "Bratislava",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R1",
+      "node_type": "router",
+      "original_id": "1",
+      "original_label": "Vienna",
+      "raw_attributes": {
+        "Country": "Austria",
+        "Internal": 1,
+        "Latitude": 48.20849,
+        "Longitude": 16.37208,
+        "id": 1,
+        "label": "Vienna",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R2",
+      "node_type": "router",
+      "original_id": "2",
+      "original_label": "Praha",
+      "raw_attributes": {
+        "Country": "Czech Republic",
+        "Internal": 1,
+        "Latitude": 50.08804,
+        "Longitude": 14.42076,
+        "id": 2,
+        "label": "Praha",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R3",
+      "node_type": "router",
+      "original_id": "3",
+      "original_label": "Rotterdam",
+      "raw_attributes": {
+        "Country": "Netherlands",
+        "Internal": 1,
+        "Latitude": 51.9225,
+        "Longitude": 4.47917,
+        "id": 3,
+        "label": "Rotterdam",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R4",
+      "node_type": "router",
+      "original_id": "4",
+      "original_label": "Roma",
+      "raw_attributes": {
+        "Country": "Italy",
+        "Internal": 1,
+        "Latitude": 41.89474,
+        "Longitude": 12.4839,
+        "id": 4,
+        "label": "Roma",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R5",
+      "node_type": "router",
+      "original_id": "5",
+      "original_label": "Budapest",
+      "raw_attributes": {
+        "Country": "Hungary",
+        "Internal": 1,
+        "Latitude": 47.49801,
+        "Longitude": 19.03991,
+        "id": 5,
+        "label": "Budapest",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R6",
+      "node_type": "router",
+      "original_id": "6",
+      "original_label": "Ljubjana",
+      "raw_attributes": {
+        "Country": "Slovenia",
+        "Internal": 1,
+        "Latitude": 46.05108,
+        "Longitude": 14.50513,
+        "id": 6,
+        "label": "Ljubjana",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R7",
+      "node_type": "router",
+      "original_id": "7",
+      "original_label": "Zagreb",
+      "raw_attributes": {
+        "Country": "Croatia",
+        "Internal": 1,
+        "Latitude": 45.81444,
+        "Longitude": 15.97798,
+        "id": 7,
+        "label": "Zagreb",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R8",
+      "node_type": "router",
+      "original_id": "8",
+      "original_label": "Bucharest",
+      "raw_attributes": {
+        "Country": "Romania",
+        "Internal": 1,
+        "Latitude": 44.43225,
+        "Longitude": 26.10626,
+        "id": 8,
+        "label": "Bucharest",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R9",
+      "node_type": "router",
+      "original_id": "9",
+      "original_label": "Istanbul",
+      "raw_attributes": {
+        "Country": "Turkey",
+        "Internal": 1,
+        "Latitude": 41.01384,
+        "Longitude": 28.94966,
+        "id": 9,
+        "label": "Istanbul",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R10",
+      "node_type": "router",
+      "original_id": "10",
+      "original_label": "Vaduz",
+      "raw_attributes": {
+        "Country": "Liechtenstein",
+        "Internal": 1,
+        "Latitude": 47.14151,
+        "Longitude": 9.52154,
+        "id": 10,
+        "label": "Vaduz",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R11",
+      "node_type": "router",
+      "original_id": "11",
+      "original_label": "Strasbourg",
+      "raw_attributes": {
+        "Country": "France",
+        "Internal": 1,
+        "Latitude": 48.58333,
+        "Longitude": 7.75,
+        "id": 11,
+        "label": "Strasbourg",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R12",
+      "node_type": "router",
+      "original_id": "12",
+      "original_label": "Luxembourg",
+      "raw_attributes": {
+        "Country": "Luxembourg",
+        "Internal": 1,
+        "Latitude": 49.61167,
+        "Longitude": 6.13,
+        "id": 12,
+        "label": "Luxembourg",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R13",
+      "node_type": "router",
+      "original_id": "13",
+      "original_label": "Zurich",
+      "raw_attributes": {
+        "Country": "Switzerland",
+        "Internal": 1,
+        "Latitude": 47.36667,
+        "Longitude": 8.55,
+        "id": 13,
+        "label": "Zurich",
+        "type": "Cityring"
+      }
+    },
+    {
+      "node_id": "R14",
+      "node_type": "router",
+      "original_id": "14",
+      "original_label": "Brussels",
+      "raw_attributes": {
+        "Country": "Belgium",
+        "Internal": 1,
+        "Latitude": 50.85045,
+        "Longitude": 4.34878,
+        "id": 14,
+        "label": "Brussels",
+        "type": "Cityring"
+      }
+    },
+    {
+      "node_id": "R15",
+      "node_type": "router",
+      "original_id": "15",
+      "original_label": "Geneva",
+      "raw_attributes": {
+        "Country": "Switzerland",
+        "Internal": 1,
+        "Latitude": 46.20222,
+        "Longitude": 6.14569,
+        "id": 15,
+        "label": "Geneva",
+        "type": "Cityring"
+      }
+    },
+    {
+      "node_id": "R16",
+      "node_type": "router",
+      "original_id": "16",
+      "original_label": "Milan",
+      "raw_attributes": {
+        "Country": "Italy",
+        "Internal": 1,
+        "Latitude": 45.46427,
+        "Longitude": 9.18951,
+        "id": 16,
+        "label": "Milan",
+        "type": "Cityring"
+      }
+    },
+    {
+      "node_id": "R17",
+      "node_type": "router",
+      "original_id": "17",
+      "original_label": "Athens",
+      "raw_attributes": {
+        "Country": "Greece",
+        "Internal": 1,
+        "Latitude": 37.97945,
+        "Longitude": 23.71622,
+        "id": 17,
+        "label": "Athens",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R18",
+      "node_type": "router",
+      "original_id": "18",
+      "original_label": "Sofia",
+      "raw_attributes": {
+        "Country": "Bulgaria",
+        "Internal": 1,
+        "Latitude": 42.69751,
+        "Longitude": 23.32415,
+        "id": 18,
+        "label": "Sofia",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R19",
+      "node_type": "router",
+      "original_id": "19",
+      "original_label": "Frankfurt",
+      "raw_attributes": {
+        "Country": "Germany",
+        "Internal": 1,
+        "Latitude": 50.11667,
+        "Longitude": 8.68333,
+        "id": 19,
+        "label": "Frankfurt",
+        "type": "Cityring"
+      }
+    },
+    {
+      "node_id": "R20",
+      "node_type": "router",
+      "original_id": "20",
+      "original_label": "Amsterdam",
+      "raw_attributes": {
+        "Country": "Netherlands",
+        "Internal": 1,
+        "Latitude": 52.37403,
+        "Longitude": 4.88969,
+        "id": 20,
+        "label": "Amsterdam",
+        "type": "Cityring"
+      }
+    },
+    {
+      "node_id": "R21",
+      "node_type": "router",
+      "original_id": "21",
+      "original_label": "London",
+      "raw_attributes": {
+        "Country": "United Kingdom",
+        "Internal": 1,
+        "Latitude": 51.50853,
+        "Longitude": -0.12574,
+        "id": 21,
+        "label": "London",
+        "type": "Cityring"
+      }
+    },
+    {
+      "node_id": "R22",
+      "node_type": "router",
+      "original_id": "22",
+      "original_label": "Paris",
+      "raw_attributes": {
+        "Country": "France",
+        "Internal": 1,
+        "Latitude": 48.85341,
+        "Longitude": 2.3488,
+        "id": 22,
+        "label": "Paris",
+        "type": "Cityring"
+      }
+    },
+    {
+      "node_id": "R23",
+      "node_type": "router",
+      "original_id": "23",
+      "original_label": "Stockholm",
+      "raw_attributes": {
+        "Country": "Sweden",
+        "Internal": 1,
+        "Latitude": 59.33258,
+        "Longitude": 18.0649,
+        "id": 23,
+        "label": "Stockholm",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R24",
+      "node_type": "router",
+      "original_id": "24",
+      "original_label": "Warsaw",
+      "raw_attributes": {
+        "Country": "Poland",
+        "Internal": 1,
+        "Latitude": 52.22977,
+        "Longitude": 21.01178,
+        "id": 24,
+        "label": "Warsaw",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R25",
+      "node_type": "router",
+      "original_id": "25",
+      "original_label": "Kiev",
+      "raw_attributes": {
+        "Country": "Ukraine",
+        "Internal": 1,
+        "Latitude": 50.45466,
+        "Longitude": 30.5238,
+        "id": 25,
+        "label": "Kiev",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R26",
+      "node_type": "router",
+      "original_id": "26",
+      "original_label": "Dublin",
+      "raw_attributes": {
+        "Country": "Ireland",
+        "Internal": 1,
+        "Latitude": 53.34399,
+        "Longitude": -6.26719,
+        "id": 26,
+        "label": "Dublin",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R27",
+      "node_type": "router",
+      "original_id": "27",
+      "original_label": "Lisbon",
+      "raw_attributes": {
+        "Country": "Portugal",
+        "Internal": 1,
+        "Latitude": 38.71667,
+        "Longitude": -9.13333,
+        "id": 27,
+        "label": "Lisbon",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R28",
+      "node_type": "router",
+      "original_id": "28",
+      "original_label": "Madrid",
+      "raw_attributes": {
+        "Country": "Spain",
+        "Internal": 1,
+        "Latitude": 40.4165,
+        "Longitude": -3.70256,
+        "id": 28,
+        "label": "Madrid",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R29",
+      "node_type": "router",
+      "original_id": "29",
+      "original_label": "Barcelona",
+      "raw_attributes": {
+        "Country": "Spain",
+        "Internal": 1,
+        "Latitude": 41.38879,
+        "Longitude": 2.15899,
+        "id": 29,
+        "label": "Barcelona",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R30",
+      "node_type": "router",
+      "original_id": "30",
+      "original_label": "Marseille",
+      "raw_attributes": {
+        "Country": "France",
+        "Internal": 1,
+        "Latitude": 43.29695,
+        "Longitude": 5.38107,
+        "id": 30,
+        "label": "Marseille",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R31",
+      "node_type": "router",
+      "original_id": "31",
+      "original_label": "Lyon",
+      "raw_attributes": {
+        "Country": "France",
+        "Internal": 1,
+        "Latitude": 45.75,
+        "Longitude": 4.85,
+        "id": 31,
+        "label": "Lyon",
+        "type": "PoP"
+      }
+    },
+    {
+      "node_id": "R32",
+      "node_type": "router",
+      "original_id": "32",
+      "original_label": "Basel",
+      "raw_attributes": {
+        "Country": "Switzerland",
+        "Internal": 1,
+        "Latitude": 47.56667,
+        "Longitude": 7.6,
+        "id": 32,
+        "label": "Basel",
+        "type": "PoP"
+      }
+    }
+  ],
+  "normalized_name": "Bics",
+  "raw_name": "BICS",
+  "schema_version": "netkeeper-sim.schema.v1",
+  "source_format": "graphml",
+  "source_sha256": "5f45352ec155ddc42a4392e8f4079a51217addb1a0e785be7eb6a0ef4c70479f",
+  "topology_id": "zoo:bics:5f45352e"
+}

@@ -1,0 +1,22 @@
+{
+  "algorithm": {
+    "algorithm": "SHA-256",
+    "formula": "int.from_bytes(sha256(f'{root_seed}:{namespace}:{part1}:...').digest()[:8], 'big')",
+    "namespaces": [
+      "topology",
+      "scenario",
+      "traffic",
+      "policy",
+      "event"
+    ],
+    "python_hash_used": false
+  },
+  "recorded_seed_fields": {
+    "dynamic": "dynamic_sequences/test.jsonl:seed and derived_seeds",
+    "scenarios": "scenarios/*.jsonl:seed and derived_seeds",
+    "topology_split": "metadata/topology_split.json:selection_seed",
+    "traffic": "metadata/traffic_manifest.json:root_seed and matrices[].seed"
+  },
+  "root_seed": 20260713,
+  "schema_version": "netkeeper-sim.schema.v1"
+}

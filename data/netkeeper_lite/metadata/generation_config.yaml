@@ -1,0 +1,123 @@
+dataset_version: netkeeper-lite.release.v1
+dynamic:
+  count: 100
+  expected_valid: true
+  logical_event_plan:
+  - policy_add
+  - traffic_scale
+  - link_failure_recovery
+  - policy_remove
+  - hotspot_change
+  - node_failure_recovery
+  recovery_budget_steps: 30
+generator_versions:
+  dynamic: 1.0.0
+  scenarios: 1.0.0
+  topology: 1.0.0
+  traffic: 1.0.0
+policies:
+  difficulty_counts_per_kind:
+    Easy: 2
+    Hard: 8
+    Medium: 4
+  difficulty_ratios:
+    test:
+      Easy: 0.35
+      Hard: 0.25
+      Medium: 0.4
+    train:
+      Easy: 0.45
+      Hard: 0.1
+      Medium: 0.45
+    validation:
+      Easy: 0.4
+      Hard: 0.2
+      Medium: 0.4
+  static_filter: 0 < initial consistency < 1; no invalid/conflict/infeasible policy
+root_seed: 20260713
+scenarios:
+  counts:
+    test: 500
+    train: 3000
+    validation: 400
+  load_ratios:
+    High: 0.3333333333333333
+    Low: 0.3333333333333333
+    Normal: 0.3333333333333333
+  max_steps: 50
+  traffic_ratios:
+    burst: 0.25
+    diurnal: 0.2
+    gravity: 0.3
+    hotspot: 0.25
+schema_version: netkeeper-sim.schema.v1
+seed_derivation:
+  algorithm: SHA-256
+  formula: int.from_bytes(sha256(f'{root_seed}:{namespace}:{part1}:...').digest()[:8],
+    'big')
+  namespaces:
+  - topology
+  - scenario
+  - traffic
+  - policy
+  - event
+  python_hash_used: false
+topology:
+  counts:
+    test: 4
+    train: 12
+    validation: 3
+  defaults:
+    bandwidth_bps: 100000000
+    capacity_bps: 100000000
+    capacity_max_bps: 100000000
+    delay_ms: 1.0
+    loss_rate: 0.0
+    ospf_weight: 1
+    packet_size_bytes: 1500
+    physical_bandwidth_bps: 100000000
+    queue_packets: 1000
+    state: up
+    value_source: default
+  selection_policy:
+    test: 2 x 8-50 + 2 x 51-80
+    train: 12 x 8-50
+    validation: 2 x 8-50 + 1 x 51-80
+  selection_seed: 20260713
+traffic:
+  load_levels:
+    High: 3.0
+    Low: 0.5
+    Normal: 1.0
+  parameters:
+    burst_multiplier: 8.0
+    diurnal_amplitude: 0.35
+    diurnal_period_steps: 24
+    hotspot_multiplier: 4.0
+    load_levels:
+      High: 3.0
+      Low: 0.5
+      Normal: 1.0
+    normal_target_mlu: 0.25
+    unit: bps
+  patterns:
+    burst: deterministic OD burst multiplier
+    diurnal: gravity plus stored phase/time-index sinusoid
+    gravity: node capacity mass product with OD jitter
+    hotspot: deterministic hotspot ingress/egress multiplier
+  quotas:
+    test:
+      burst: 125
+      diurnal: 100
+      gravity: 150
+      hotspot: 125
+    train:
+      burst: 750
+      diurnal: 600
+      gravity: 900
+      hotspot: 750
+    validation:
+      burst: 100
+      diurnal: 80
+      gravity: 120
+      hotspot: 100

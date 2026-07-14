@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Literal
+from typing import TYPE_CHECKING, Iterable, Literal
 
 from netkeeper_sim.routing.bgp import BGPRouteTable
 from netkeeper_sim.routing.ospf import ForwardingTable
+from netkeeper_sim.schemas.models import RoutingEntry
+if TYPE_CHECKING:
+    from netkeeper_sim.simulator.deterministic import SelectedBGPRoute
 
 DestinationType = Literal["node", "prefix"]
 TrafficShiftMode = Literal["union", "intersection"]
@@ -15,6 +18,7 @@ TrafficShiftChangeType = Literal[
     "removed",
     "reachability_changed",
 ]
+TrafficShiftMetricVersion = Literal["paper_v1", "project_v1"]
 
 
 @dataclass(frozen=True, order=True)
@@ -58,6 +62,49 @@ class TrafficShiftResult:
     per_entry_details: tuple[TrafficShiftEntryDetail, ...]
 
 
+@dataclass(frozen=True)
+class VersionedTrafficShiftResult:
+    metric_version: TrafficShiftMetricVersion
+    numerator: int
+    denominator: int
+    shift_ratio: float
+    excluded_unreachable: int
+    added_entries: int
+    removed_entries: int
+    treatment: str
+
+
+def calculate_versioned_traffic_shift(
+    previous: ForwardingPlaneSnapshot,
+    current: ForwardingPlaneSnapshot,
+    metric_version: TrafficShiftMetricVersion,
+) -> VersionedTrafficShiftResult:
+    """Calculate the frozen paper/project metric definitions.
+
+    ``paper_v1`` compares only prefix FIB entries reachable in both snapshots:
+    new, removed, and unreachable entries are excluded from its denominator.
+    ``project_v1`` compares all node/prefix keys in the union: added/removed or
+    reachability changes are counted as shifts.
+    """
+    before, after = previous.entries, current.entries
+    if metric_version == "paper_v1":
+        keys = sorted(set(before) & set(after))
+        eligible = [key for key in keys if key.destination_type == "prefix" and before[key].reachable and after[key].reachable]
+        numerator = sum(before[key].next_hops != after[key].next_hops for key in eligible)
+        excluded = len(keys) - len(eligible)
+        return VersionedTrafficShiftResult("paper_v1", numerator, len(eligible), numerator / len(eligible) if eligible else 0.0, excluded, 0, 0, "unreachable_and_added_removed_prefixes_excluded")
+    if metric_version == "project_v1":
+        keys = sorted(set(before) | set(after))
+        numerator = 0; added = 0; removed = 0
+        for key in keys:
+            left, right = before.get(key), after.get(key)
+            if left is None: added += 1; numerator += 1
+            elif right is None: removed += 1; numerator += 1
+            elif left.reachable != right.reachable or (left.reachable and left.next_hops != right.next_hops): numerator += 1
+        return VersionedTrafficShiftResult("project_v1", numerator, len(keys), numerator / len(keys) if keys else 0.0, 0, added, removed, "union_including_added_removed_and_reachability_changes")
+    raise ValueError("unsupported traffic shift metric version")
+
+
 def capture_forwarding_plane_snapshot(
     forwarding_table: ForwardingTable,
     bgp_routes: BGPRouteTable | None = None,
@@ -91,6 +138,23 @@ def capture_forwarding_plane_snapshot(
                 )
 
     return ForwardingPlaneSnapshot(entries=entries)
+
+
+def capture_schema_forwarding_plane_snapshot(
+    routing: tuple[RoutingEntry, ...] | list[RoutingEntry],
+    selected_bgp_routes: Iterable["SelectedBGPRoute"] = (),
+) -> ForwardingPlaneSnapshot:
+    entries: dict[ForwardingKey, ForwardingState] = {}
+    for route in routing:
+        if route.router_id == route.destination:
+            continue
+        entries[ForwardingKey(route.router_id, route.destination, "node")] = ForwardingState(route.reachable, frozenset(route.next_hops if route.reachable else ()))
+    route_map = {(item.router_id, item.destination): item for item in routing}
+    for route in selected_bgp_routes:
+        igp = route_map.get((route.router_id, route.next_hop))
+        reachable = route.router_id == route.next_hop or (igp is not None and igp.reachable)
+        entries[ForwardingKey(route.router_id, route.prefix, "prefix")] = ForwardingState(reachable, frozenset((route.next_hop,)) if reachable else frozenset())
+    return ForwardingPlaneSnapshot(entries)
 
 
 def calculate_traffic_shift(

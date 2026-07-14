@@ -1,0 +1,770 @@
+{
+  "dataset_version": "netkeeper-lite.release.v1",
+  "file_count": 127,
+  "files": [
+    {
+      "bytes": 20059,
+      "path": "configurations/test/belnet2006.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "8b8d8c709cd5d336a7a795209abc2d71ce6a782c4a28d3a55b3b60a34b495c8a"
+    },
+    {
+      "bytes": 14456,
+      "path": "configurations/test/darkstrand.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "2bb01930cec76d66f6559c3e2b1dc23bc4df8c71d72b2052c4fcdc9db418ad09"
+    },
+    {
+      "bytes": 32646,
+      "path": "configurations/test/garr.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "9fbb057bcbaf3a8fa79df6d86826e62ce3ba4c38ea9fe44ffb6693fd79373256"
+    },
+    {
+      "bytes": 32914,
+      "path": "configurations/test/garr201005.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "6679a3de2556ebad8eb14d020c91c00ec8e081f7e015431c0050f62da5f01572"
+    },
+    {
+      "bytes": 4926,
+      "path": "configurations/train/arpanet19706.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "fcf880456ca508c6e991ecbc5ab6626b15239d5e56028cdc7037e61e61cd76f5"
+    },
+    {
+      "bytes": 19605,
+      "path": "configurations/train/belnet2003.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "310d2dd3df6448793898ba12fb3e5354f214dd6ac19bbfe9a52f0e0e7cb9e50a"
+    },
+    {
+      "bytes": 19606,
+      "path": "configurations/train/belnet2004.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "b048240bf3e67d5843703834152cf370244b26a35c5dd4821f3d0eec44a21baf"
+    },
+    {
+      "bytes": 17383,
+      "path": "configurations/train/bren.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "ecd487d7a233ae218d170a6789ccae4388318ca43f80fa6bf7ad3490c9fb20f2"
+    },
+    {
+      "bytes": 34174,
+      "path": "configurations/train/btnorthamerica.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "57920a93db21d7deef99cfaa46f45b489389f53d0d3c5fbb8096a9076450b4cb"
+    },
+    {
+      "bytes": 15412,
+      "path": "configurations/train/cesnet200304.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "aed2a5ae3849415633fcb8c7e5f5853b9c32653d0433d7ba369f7cded342baa9"
+    },
+    {
+      "bytes": 20305,
+      "path": "configurations/train/cesnet200603.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "63ebeb4fb67ef2ee0cbde3dc449ed1af636a307841c24c272a0dca264c4da5dd"
+    },
+    {
+      "bytes": 24196,
+      "path": "configurations/train/geant2009.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "5e64804570b1aed110845d4e6e78b9ee861e3b8d62ac20d593b4506375531f72"
+    },
+    {
+      "bytes": 9251,
+      "path": "configurations/train/gridnet.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "6eec7c641e26377d2fb6c3840d3e3aa62b2eb3b9c63a08cb00acce339966cf86"
+    },
+    {
+      "bytes": 9858,
+      "path": "configurations/train/hostwayinternational.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "cbb0393fcc74b90c8d1fae24b765622363486c2060900d5f2b0d4044d5202b73"
+    },
+    {
+      "bytes": 8053,
+      "path": "configurations/train/navigata.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "e333653d3488e02c940d1e7fd532b7e0b6e80faf1a91c38a1aff4804cb65fbeb"
+    },
+    {
+      "bytes": 11665,
+      "path": "configurations/train/noel.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "995e416c0aff4fe4a8bfa02f1d7926cf28bf13f50a8599a76b72557c0a5a8d1a"
+    },
+    {
+      "bytes": 21987,
+      "path": "configurations/validation/bics.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "209e2f5f6204f2353d49f000763c85f088fc62d526044506951f56d47ea28c8e"
+    },
+    {
+      "bytes": 31134,
+      "path": "configurations/validation/garr200912.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "40a1fc367f072614d28c63608f3781f38bf3cc5afc751cfa0f07ce26e5e094ed"
+    },
+    {
+      "bytes": 4963,
+      "path": "configurations/validation/nordu2005.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "7c0463aa45c05d53be8a9631396ffd7f3352918068162123b8dce6c07ab565f6"
+    },
+    {
+      "bytes": 257767,
+      "path": "dynamic_sequences/test.jsonl",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "0704bdd63058336471f7b895a15ac2ea0e1dd35c5078731efc75db55e3491220"
+    },
+    {
+      "bytes": 7485,
+      "path": "metadata/dataset_statistics.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "f2b3bd8a056cf978aba488ff729671c91d73fbde228900e50389d65007450558"
+    },
+    {
+      "bytes": 424,
+      "path": "metadata/dynamic_sequences_manifest.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "78488f66c94f6da5ea59da89c188fb1b479541068508ca3b5643c9a2b61101e1"
+    },
+    {
+      "bytes": 2583,
+      "path": "metadata/generation_config.yaml",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "4a6a0081dd0555eb9c88ea0888e957e57cb27a332b6c22817a1955b66aa0cb94"
+    },
+    {
+      "bytes": 677,
+      "path": "metadata/random_seeds.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "b25e027dab5d5d5621c76cbef7b4cc1b95b26373b60af510f8aa61acfa071447"
+    },
+    {
+      "bytes": 2147,
+      "path": "metadata/scenario_manifest.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "72159d6f95eefcec629b0e8029839e95192d435e8a886c1154d392581739dc24"
+    },
+    {
+      "bytes": 225499,
+      "path": "metadata/topology_candidates.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "9aef458f538edcd6c816b27ba7f8c68fad7621497a5f6594e51a7997c510e8f8"
+    },
+    {
+      "bytes": 10232,
+      "path": "metadata/topology_split.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "b57c75b1ef027c2c2ab251eb85fa8979c6ead5a1a2196a8b383a4761160bda1a"
+    },
+    {
+      "bytes": 239,
+      "path": "metadata/traffic_generation_config.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "e522be97f59b4c507f3dfd9c1ea71b9617548227eca896f6f1c20d03a2c634d3"
+    },
+    {
+      "bytes": 357976,
+      "path": "metadata/traffic_manifest.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "ba96285ea8e746243705754d60af57f738cdd9fe5f12d7094ca7b1e299360a84"
+    },
+    {
+      "bytes": 2374657,
+      "path": "scenarios/test.jsonl",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "335496386f2f54704be6fca50a026deb20ef591176129c0fef3aacecb595b9cd"
+    },
+    {
+      "bytes": 12295713,
+      "path": "scenarios/train.jsonl",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "b9b0704f0fec503447403430984656ac80b2982b3ffdfb0f0c2b306f82454652"
+    },
+    {
+      "bytes": 1802218,
+      "path": "scenarios/validation.jsonl",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "ae66a79ce9d0e37b28e38f1b6000be7fdef3c3d1efc2f4581a299e8c038f7af8"
+    },
+    {
+      "bytes": 42788,
+      "path": "topologies/test/belnet2006-d52e48eb.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "c1e41b59add2c79801650789f985c6b01648f86689c0cce4ec3df86c2bca603e"
+    },
+    {
+      "bytes": 30300,
+      "path": "topologies/test/darkstrand-cdab00e2.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "1c4d12b5188f8faa392fed04c1aa7d2b7e48ef646ad0e4aa970e6f2d4b91ed74"
+    },
+    {
+      "bytes": 65490,
+      "path": "topologies/test/garr-b848cf6c.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "391a975ee866d257dc68d6a3912c66a246972ca406ab32c8d6f28acfe25f382a"
+    },
+    {
+      "bytes": 72481,
+      "path": "topologies/test/garr201005-28650b2f.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "70f3c30c94ac43a85ccbf752e4bd2e5305a169d9e9a57879b6b92bc1cdebfa77"
+    },
+    {
+      "bytes": 10054,
+      "path": "topologies/train/arpanet19706-fd6c27dd.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "67a7b5560fe5ef7c3d4ba188c8b78056f8f4a0c43a4ac590dc1db6e6872228c9"
+    },
+    {
+      "bytes": 41959,
+      "path": "topologies/train/belnet2003-bd32fd41.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "7fe2c03a6d224f811c0991707d10ac836cc925dbb5d4d0d216801004210ea360"
+    },
+    {
+      "bytes": 41959,
+      "path": "topologies/train/belnet2004-8ca159a9.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "d4388b4044c488e1ac4999a764939f5bdd161eec12acded1ae3a65ea02e43dc4"
+    },
+    {
+      "bytes": 41476,
+      "path": "topologies/train/bren-337fa4f2.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "ccd0d42b52b8ae60eb0f7f9db88f2695cbf34d28ac0523a2a0a052ffd94e8d41"
+    },
+    {
+      "bytes": 61948,
+      "path": "topologies/train/btnorthamerica-5601cab9.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "df87340c6b85adbd32464ca1c81a6a135d55510940253c035cd2499a6e0c83b1"
+    },
+    {
+      "bytes": 34611,
+      "path": "topologies/train/cesnet200304-a99ad175.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "9a734a9f427bcfd202fe3f16f747f1ac8cdbedd2de9f8327b7f0eb3e63124d3a"
+    },
+    {
+      "bytes": 43441,
+      "path": "topologies/train/cesnet200603-3ca65c5a.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "6303c4043ae4cd18a9f4c5d9526e8a1c48f67bd730a4153b083b308cfa53efaf"
+    },
+    {
+      "bytes": 54051,
+      "path": "topologies/train/geant2009-521bdb54.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "8d9f67977eef5a442e6e54aa3654ad6e7942435b866ebe3724bde0e46a57cedf"
+    },
+    {
+      "bytes": 18394,
+      "path": "topologies/train/gridnet-73492b2b.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "cd2bef0919cac34682a591a386b48999329070f3cc33aefcc87570120d8db24d"
+    },
+    {
+      "bytes": 19605,
+      "path": "topologies/train/hostwayinternational-55336840.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "be501600c1f90d81cd23526c799cc8b269e199f2108a2dc56fc5016efa25cb28"
+    },
+    {
+      "bytes": 15945,
+      "path": "topologies/train/navigata-8847ec0d.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "c2ed70de523e85e54df69ff42d3dbef4f289c57f63e82a69aebcf5f05bd53be3"
+    },
+    {
+      "bytes": 23319,
+      "path": "topologies/train/noel-48a744d6.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "0f157bfdc4b63d0c0eab8569586af6f51f1fd8af4155c06e694f80c923a84a2e"
+    },
+    {
+      "bytes": 46146,
+      "path": "topologies/validation/bics-6701f1d8.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "8d392eccc8c373e193adbc6fa2745c11a0e8d1eead7659e64cd9361461aef7b9"
+    },
+    {
+      "bytes": 68784,
+      "path": "topologies/validation/garr200912-82a3a8eb.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "b6da6295162cbeca4015919321149712ae1ad51d0824c0bcc1e8602968d54fdf"
+    },
+    {
+      "bytes": 11157,
+      "path": "topologies/validation/nordu2005-675fe3e3.json",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "1f372d76879f4bfd6eaa592459cef94b28a66daa6c7160cfe6c97f43ccf14781"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/test/belnet2006-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "c2d879529e563460cf1ff9476a2e22e5cfe44792440ebc08f9569497b54701e3"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/test/belnet2006-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "5fbbaf937a15279eafa9c4b096de41eddeffdfc78c42227cc2b873a27e370345"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/test/belnet2006-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "315b24d2aec746ebcce2c78e328914fa5a0e2a4b5159b155eccba63bffd11052"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/test/belnet2006-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "9d351c05d26bea9971def24afca9c4856f80ea9754ab6acd651bb48e3e1db54a"
+    },
+    {
+      "bytes": 6400,
+      "path": "traffic/test/darkstrand-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "910002ebac91566384113815514423ac2cd2dae9bba7b1cd4fa8fcefb69b7384"
+    },
+    {
+      "bytes": 6400,
+      "path": "traffic/test/darkstrand-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "455ff122a3fb2bc8a33c9fbd98fb71ff3f62a25c2b2f9e0ac4b0d58266050f5d"
+    },
+    {
+      "bytes": 6400,
+      "path": "traffic/test/darkstrand-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "b21a27bccdaade25e0df0fa37871069e8a3f7cf98ed17d30a1f99bd098581a7c"
+    },
+    {
+      "bytes": 6400,
+      "path": "traffic/test/darkstrand-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "4027cd74e79317a226d6aecc24cb4595e21eb4ce095b4b0b4ea55afec6238e77"
+    },
+    {
+      "bytes": 25216,
+      "path": "traffic/test/garr-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "e9e8d9a3dcae29d458277f5699378a2608fae365e4500ea8c0c45145ea23aaec"
+    },
+    {
+      "bytes": 25216,
+      "path": "traffic/test/garr-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "e649cfaffecea903635436e109733002eb8260757fc11c97e57967ec88da3a40"
+    },
+    {
+      "bytes": 25216,
+      "path": "traffic/test/garr-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "5c18051fbab82bd3a6dca6c449cf6de404fa78ccdf41e66e85c5eb7a91f9c972"
+    },
+    {
+      "bytes": 25216,
+      "path": "traffic/test/garr-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "2a2b12c2a802368f1f3cc756ef8f42ac8c964eeae101ca405dac05ec1b939b24"
+    },
+    {
+      "bytes": 24328,
+      "path": "traffic/test/garr201005-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "6f4ec3f0851574151c2911414cea72289153d2cbdacd5546894aba9dc310c9cd"
+    },
+    {
+      "bytes": 24328,
+      "path": "traffic/test/garr201005-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "6e2d517cb8249cc521670daf37c32c054450a3219ab9aac6749ff2f4a487af98"
+    },
+    {
+      "bytes": 24328,
+      "path": "traffic/test/garr201005-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "ed79b66981089e52d7b1688e6fbf0e04061ea07715f91fb4979e3741ae6b2006"
+    },
+    {
+      "bytes": 24328,
+      "path": "traffic/test/garr201005-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "13f7ff4b647fd38f54dcf75971220d9bfe616acf6f14e971676ef4e7eff2db6e"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/train/arpanet19706-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "e874549b5d6df2bd7ee3c7406dd86c514b28a6b3662ce8fd1c14575b82e4649d"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/train/arpanet19706-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "2ce6f28bdf8536e8573dee318d9892168ff56f981d8a9162b61d00eb2e9ce1fb"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/train/arpanet19706-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "2a438ef913eb3930d93681dffc4b773d55e41ce99d3ba6986acf7f4ee04c8b5a"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/train/arpanet19706-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "b9f35a8a286533c246a9e4e3e639a94a6da080bde969d90adc7b108446766563"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/train/belnet2003-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "d154b1f222ab4534b558aa667d41f5f1b29b738a7ccf206c88e18b1ad41ccfb4"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/train/belnet2003-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "c5d2be49e84180227cfea2194ffdd09bf523fa2ec89ff61d9801d4fed8e196f6"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/train/belnet2003-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "3c37dd141e35bc6eaa352261f5786e8862de296de50b5d48df7113fdec9e5c90"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/train/belnet2003-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "3cc3e67c5c2fc399304795695e9d028787d5cc206953dc471024815c60371230"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/train/belnet2004-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "1012616f2f68c70055933bf6c796c8dc32d97e1a84f737a9c1e9a4a9fe2ba452"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/train/belnet2004-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "b28dcb1d4246ed9a0dec866d438d0edf9a6e60fe541ea0fc2c0d41fc094384bf"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/train/belnet2004-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "19967f2375559fc0ced8eac4a9c180286eba30f3becf7fb36c8fd8d9ddbc865a"
+    },
+    {
+      "bytes": 4360,
+      "path": "traffic/train/belnet2004-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "139b395b2d1f10c5afb596ee23c2fd9d056b40a37997ad89f2cd012de2c15651"
+    },
+    {
+      "bytes": 11080,
+      "path": "traffic/train/bren-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "b232230413681ac553236fe70cb6f63c9ac2c1cec65d165668183ce135ff1f25"
+    },
+    {
+      "bytes": 11080,
+      "path": "traffic/train/bren-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "07194735cc4714bfccbe0bb56e19528c6a3deb6693fcbeb2f50d6175f1529611"
+    },
+    {
+      "bytes": 11080,
+      "path": "traffic/train/bren-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "30f26ac8c633f82ad7dcc039a3fd33a59644e2644d146555f55f9d213e1df4ac"
+    },
+    {
+      "bytes": 11080,
+      "path": "traffic/train/bren-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "de03935d6d6d59d2ec33cd36d927a672a020ff8ca9dcd70605642ca3287cba44"
+    },
+    {
+      "bytes": 10496,
+      "path": "traffic/train/btnorthamerica-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "f44a80b66757b324edab72a0330a3c738f3d0a87981e544c0641163fa47c0512"
+    },
+    {
+      "bytes": 10496,
+      "path": "traffic/train/btnorthamerica-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "975b45c5f51e37e5082122b4cfb1dae6338c973255d527583cf398e99b06be56"
+    },
+    {
+      "bytes": 10496,
+      "path": "traffic/train/btnorthamerica-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "189efbfdaf737007a82c13ab1c8be58c9235e5cbeafce01a6892f05127bbf085"
+    },
+    {
+      "bytes": 10496,
+      "path": "traffic/train/btnorthamerica-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "57b43b7fa0ad62b52bf33af30fdba18eddfb2aaf81c554456c21d177f3f89d93"
+    },
+    {
+      "bytes": 6856,
+      "path": "traffic/train/cesnet200304-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "a731812e241248009fa4faee5d6c1cb03479c341e455bd551afc77e734cd99ed"
+    },
+    {
+      "bytes": 6856,
+      "path": "traffic/train/cesnet200304-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "13b84561bb8ea4a5ddaea947afe3d09dc0638da1e4b5b552a26c55ceb524a591"
+    },
+    {
+      "bytes": 6856,
+      "path": "traffic/train/cesnet200304-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "8f0773534533d9decd96342531940a93fdee981d495441e126c6d133ca6db75b"
+    },
+    {
+      "bytes": 6856,
+      "path": "traffic/train/cesnet200304-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "a30a169fbc5f299e29673ea114d4562284c5a20e40863b56fc67b713cbebd66c"
+    },
+    {
+      "bytes": 12296,
+      "path": "traffic/train/cesnet200603-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "ead13636804bbbf3a74b097ee13ece8f2506e216fae59667943a51fa45d7561e"
+    },
+    {
+      "bytes": 12296,
+      "path": "traffic/train/cesnet200603-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "77cc5dfd1652b452f4a2a6ac59fc38bdaed31853dd61df55b07cf8f71b15419d"
+    },
+    {
+      "bytes": 12296,
+      "path": "traffic/train/cesnet200603-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "9b3643155dc0a9cff13d79b17dcbbd6f30c5cfbe5d19bf9cfcf354abdbfe2c5e"
+    },
+    {
+      "bytes": 12296,
+      "path": "traffic/train/cesnet200603-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "82151d24f7034a4b1aa9ca7ea9d64dcede876a68968116a7cc9eaa1880734c88"
+    },
+    {
+      "bytes": 9376,
+      "path": "traffic/train/geant2009-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "91cf639034fd76dc5baddd42f233dc1702048e39f8a1524f9dda50b68d7f9d57"
+    },
+    {
+      "bytes": 9376,
+      "path": "traffic/train/geant2009-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "91316cfb6981ae1f7ee27600844bbd900e072dab2b4504700509f0d5181b3323"
+    },
+    {
+      "bytes": 9376,
+      "path": "traffic/train/geant2009-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "76d401d902f446987479d10276049d80c7dda7aa4452783b7672c3a4e78154cc"
+    },
+    {
+      "bytes": 9376,
+      "path": "traffic/train/geant2009-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "caaa2f36d8ea17598daaf3435e70600fdc1a17765a66aa9ae3da12c50ac0cd89"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/train/gridnet-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "d4979629d6c6dbd067062e959d8a15216e0a4561e1abcbb909a7e197fa859f3b"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/train/gridnet-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "6a3c878e4fe20cbafae2ea0176d4aeae961355cad16cde6dec9d8a19c1c8ee61"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/train/gridnet-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "04e973f76c3c89d2b1e81feb9f5e26a18706ca7fa3a4c75eb6f58b9d7697f81f"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/train/gridnet-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "d666ef50bdacd7f8e398a9dd479346da0458ba7fe7a03efcf3a2d143b6d2a7d5"
+    },
+    {
+      "bytes": 2176,
+      "path": "traffic/train/hostwayinternational-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "4f4610ffcc5e7f28f8b0436abc996d1dc5c81536f66ea1fa5938c9156c8ba779"
+    },
+    {
+      "bytes": 2176,
+      "path": "traffic/train/hostwayinternational-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "eeb7ea5c2b5a625c981ef369db965ae4ee2e26af6ce065c43a9d13954aa873db"
+    },
+    {
+      "bytes": 2176,
+      "path": "traffic/train/hostwayinternational-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "d70d10188dcf17133108131460d95fd959bfa3c9f168f40b64df2e9d73ae5b69"
+    },
+    {
+      "bytes": 2176,
+      "path": "traffic/train/hostwayinternational-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "a22ae74240755521f17a02218ef546ce4af52b8ceeb1a6b69f5aff9a05edcbe4"
+    },
+    {
+      "bytes": 1480,
+      "path": "traffic/train/navigata-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "415d159a4555a28e7180402a834d7c23706f89527fe4d75979c5402c33e90b4d"
+    },
+    {
+      "bytes": 1480,
+      "path": "traffic/train/navigata-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "4d30195ce75c0946936e8c59db17f1ae45a3b4ceb8675a2e0824e0c80440efb8"
+    },
+    {
+      "bytes": 1480,
+      "path": "traffic/train/navigata-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "636a59afb31cb97cbac99a8767710f1f39df1445e576d58682a6f5751bdfb06e"
+    },
+    {
+      "bytes": 1480,
+      "path": "traffic/train/navigata-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "bb21da917e9c40e5b3a51c6370d88ea6bfbf9fb9028f5aeb3ae614431b02b470"
+    },
+    {
+      "bytes": 3016,
+      "path": "traffic/train/noel-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "dc66c06cfc0f734affed44440883afc2e3062e64727a29324b7040e08ebd81cc"
+    },
+    {
+      "bytes": 3016,
+      "path": "traffic/train/noel-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "b8cc35978409ecb8a744c2018789c251438edf51864fbb70e73dbc6733d629d8"
+    },
+    {
+      "bytes": 3016,
+      "path": "traffic/train/noel-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "72f9f4716f7f15e56bbe75e702cd05383a22a3fe6b2763a09d469f2a8ab4866e"
+    },
+    {
+      "bytes": 3016,
+      "path": "traffic/train/noel-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "745329c9d1b545756229a23d78a64cb07fd206a0aae867d21ea3d93168f293a6"
+    },
+    {
+      "bytes": 8840,
+      "path": "traffic/validation/bics-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "ab30ca806dd68c0d4fe3f7ea6f41e961442c0350c70674cf1956bbda0e872620"
+    },
+    {
+      "bytes": 8840,
+      "path": "traffic/validation/bics-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "06d0eb32103640e952dca5efddf70f515bed6cf8c4e54da8d3593b20fbc44d15"
+    },
+    {
+      "bytes": 8840,
+      "path": "traffic/validation/bics-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "9cb0d266e37e65fe4ba3f4fe8c765504dfcfefc2b8fc89d947ba911c68c10fd3"
+    },
+    {
+      "bytes": 8840,
+      "path": "traffic/validation/bics-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "4f6be3f00f19b5d00a3019eda58700e5dd9c98d912f26324c40a1f89b77eccc5"
+    },
+    {
+      "bytes": 23456,
+      "path": "traffic/validation/garr200912-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "d531a6f9038c8f8b7e3fd2fa2b425c881d7526fb956e8354c375d9e489f7b743"
+    },
+    {
+      "bytes": 23456,
+      "path": "traffic/validation/garr200912-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "4d47474b86d632f44b8960066253c02c060eff2d497f9c237accdb1afb13a703"
+    },
+    {
+      "bytes": 23456,
+      "path": "traffic/validation/garr200912-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "8c6e9ea701bd37de4d3883751d73dea33a88b7f7ee05371d08e6e64e29b0d365"
+    },
+    {
+      "bytes": 23456,
+      "path": "traffic/validation/garr200912-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "950ab21b861cdd2bf4051d0ac412df3154246010179b4f45d4fcf69cb9f5ddd8"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/validation/nordu2005-burst.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "02f6122eb3d0b3f0998738b286cae29de9a2b38685904f54290e1fce0edd9f04"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/validation/nordu2005-diurnal.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "c5cce5c290bfa751252e710e54376578e4dee9bcc9e7b8adab75520237a84a12"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/validation/nordu2005-gravity.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "71e787cc324a06f1cfbc90d4a937e6859fc0eadd06cebbecbd60ccc5cc254900"
+    },
+    {
+      "bytes": 776,
+      "path": "traffic/validation/nordu2005-hotspot.npy",
+      "schema_version": "netkeeper-sim.schema.v1",
+      "sha256": "7ed0146b6c06f39fb11bff47142eec0eaf0ec8f78b81c2480f6605002361d6bd"
+    }
+  ],
+  "schema_version": "netkeeper-sim.schema.v1",
+  "self_hash_rule": "metadata/manifest.json is excluded from files to avoid recursive hashing"
+}

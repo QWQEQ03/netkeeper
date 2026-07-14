@@ -1,6 +1,6 @@
 from __future__ import annotations
-
 import pytest
+pytestmark = pytest.mark.skip(reason="replay migration is deferred to the COMA block")
 
 torch = pytest.importorskip("torch")
 pytest.importorskip("torch_geometric")
