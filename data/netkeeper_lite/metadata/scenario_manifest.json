@@ -1,5 +1,5 @@
 {
-  "dataset_version": "netkeeper-lite.static-scenarios.v1",
+  "dataset_version": "netkeeper-lite.static-scenarios.v2",
   "difficulty_ratios": {
     "test": {
       "Easy": 0.35,
@@ -22,7 +22,7 @@
     "train": 3000,
     "validation": 400
   },
-  "generator_version": "1.0.0",
+  "generator_version": "2.0.0",
   "load_ratios": {
     "High": 0.3333333333333333,
     "Low": 0.3333333333333333,

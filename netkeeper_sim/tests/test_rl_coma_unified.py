@@ -8,7 +8,7 @@ from netkeeper_sim.rl.algorithms.coma import coma_actor_loss, coma_counterfactua
 from netkeeper_sim.rl.config import GraphNetworkConfig
 from netkeeper_sim.rl.multi_agent_env import MultiAgentNetworkEnvironment
 from netkeeper_sim.rl.networks.centralized_critic import CentralizedCritic
-from netkeeper_sim.rl.networks.multi_agent_actor import MultiAgentActor
+from netkeeper_sim.rl.networks.multi_agent_actor import CandidateHead, MultiAgentActor, _cardinality_correct
 from netkeeper_sim.rl.networks.target_network import clone_target_network
 from netkeeper_sim.rl.networks.graph_encoder import SharedGraphTransformerEncoder
 from netkeeper_sim.rl.schema_adapter import masked_policy
@@ -18,7 +18,7 @@ ROOT=Path(__file__).resolve().parents[2]/"data"/"netkeeper_lite"
 def env():
     s=scenario_from_record(ROOT,json.loads((ROOT/"scenarios/train.jsonl").read_text().splitlines()[0]))
     return MultiAgentNetworkEnvironment(scenario=s,seed=7)
-def cfg(): return GraphNetworkConfig(17,11,hidden_dim=64,gcn_layers=2,transformer_layers=2,transformer_heads=4,dropout=.1)
+def cfg(): return GraphNetworkConfig(18,11,hidden_dim=64,gcn_layers=2,transformer_layers=2,transformer_heads=4,dropout=.1)
 
 def test_toy_coma_baseline_advantage_loss_and_chosen_not_argmax():
     logits=torch.tensor([[2.,0.,7.]],requires_grad=True); q=torch.tensor([[1.,3.,99.]],requires_grad=True); mask=torch.tensor([[True,True,False]])
@@ -42,6 +42,16 @@ def test_actor_entity_logits_are_distinct_and_ownership_isolated():
     assert actor_ids.isdisjoint(critic_ids) and len(actor_ids)==len(list(actor.parameters()))
     target=clone_target_network(critic); assert all(not p.requires_grad for p in target.parameters())
 
+def test_actor_noop_prior_is_cardinality_corrected_but_raw_head_is_not():
+    entities=torch.zeros(3,8); graph=torch.zeros(8)
+    head=CandidateHead(8,2)
+    for parameter in head.parameters(): torch.nn.init.zeros_(parameter)
+    raw=head(graph,entities); mask=torch.ones_like(raw,dtype=torch.bool)
+    actor_probability=torch.softmax(_cardinality_correct(raw,mask),0)[0]
+    critic_probability=torch.softmax(raw,0)[0]
+    assert actor_probability.item()==pytest.approx(0.5)
+    assert critic_probability.item()==pytest.approx(1/(1+3*2*64))
+
 def test_encoder_transformer_concat_and_multi_graph_batch_shape():
     e=env(); one,_,_=e.reset(); other,_,_=MultiAgentNetworkEnvironment(dataset_root=ROOT,split="train",seed=9).reset()
     encoder=SharedGraphTransformerEncoder(cfg())
@@ -50,9 +60,12 @@ def test_encoder_transformer_concat_and_multi_graph_batch_shape():
     assert result.node_embeddings.shape == (x.size(0),64) and result.graph_embedding.shape == (2,64)
 
 def test_critic_holds_other_actions_fixed_and_target_update_boundary():
-    e=env(); graph,_,masks=e.reset(); critic=CentralizedCritic(cfg());
+    e=env(); graph,_,masks=e.reset(); critic=CentralizedCritic(cfg()); critic.eval()
     q_a=critic.forward_graph(graph,torch.tensor([0,0,0]),"ospf"); q_b=critic.forward_graph(graph,torch.tensor([0,4,0]),"ospf")
     assert q_a.shape==q_b.shape==masks["ospf"].shape and not torch.allclose(q_a,q_b)
+    # The queried agent's own sampled action must be absent from u_-i.
+    q_own=critic.forward_graph(graph,torch.tensor([7,0,0]),"ospf")
+    assert torch.allclose(q_a,q_own)
     trainer=COMATrainer(e,cfg(),target_interval=2); item=trainer.collect_one(); before=next(trainer.target_critic.parameters()).detach().clone(); trainer.update([item]); assert torch.allclose(before,next(trainer.target_critic.parameters()))
     trainer.update([item]); assert not torch.allclose(before,next(trainer.target_critic.parameters()))
 

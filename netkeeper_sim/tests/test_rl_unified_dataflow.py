@@ -38,7 +38,7 @@ def test_schema_graph_is_stable_batched_and_has_fixed_dimensions():
     for index in (0, 1):
         env = UnifiedNetworkEnvironment(); snapshot, _ = env.reset(_scenario("train", index), seed=7); snapshots.append(snapshot)
     first, second = (snapshot_to_graph(item) for item in snapshots)
-    assert first.node_features.shape[1] == 17 and first.edge_features.shape[1] == 11
+    assert first.node_features.shape[1] == 18 and first.edge_features.shape[1] == 11
     assert first.node_ids == tuple(sorted(first.node_ids, key=lambda x: int(x[1:])))
     assert len(first.edge_ids) == 2 * len(first.link_ids)
     assert torch.isfinite(first.node_features).all() and torch.isfinite(first.edge_features).all()
@@ -59,6 +59,15 @@ def test_agent_masks_and_roundtrip_joint_actions_use_only_owned_parameters():
             allowed = {"ospf": {"ospf_weight"}, "bgp": {"local_preference", "as_path_length", "med"}, "performance": {"bandwidth_bps", "capacity_bps", "queue_packets"}}
             assert atomic.parameter_type in allowed[agent]
     assert candidate_to_joint_action(snapshot, graph, {"ospf": 0, "bgp": 0, "performance": 0}).actions == ()
+
+
+def test_masks_remove_actions_that_set_the_current_value():
+    env = UnifiedNetworkEnvironment(); snapshot, _ = env.reset(_scenario(), seed=3); graph = snapshot_to_graph(snapshot); masks = action_masks(snapshot, graph)
+    for entity, link_id in enumerate(graph.link_ids):
+        current = snapshot.configuration.ospf_weights[link_id]
+        if 1 <= current <= ACTION_VALUES:
+            candidate = 1 + entity * ACTION_VALUES + current - 1
+            assert not masks["ospf"][candidate]
 
 
 def test_down_and_all_masked_leave_only_no_update():

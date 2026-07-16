@@ -17,7 +17,7 @@ from netkeeper_sim.dataset.scenarios import (
     validate_scenarios,
 )
 from netkeeper_sim.dataset.traffic import generate_traffic_dataset, initial_configuration
-from netkeeper_sim.schemas import JointAction, Link, LinkAttributes, Node, Policy, Topology, TrafficMatrix
+from netkeeper_sim.schemas import AtomicAction, JointAction, Link, LinkAttributes, NetworkScenario, Node, Policy, Topology, TrafficMatrix
 from netkeeper_sim.simulator import UnifiedNetworkEnvironment
 
 
@@ -52,6 +52,8 @@ def test_policy_sampler_has_exact_three_kind_counts_and_nontrivial_initial_state
     assert {kind: sum(policy.kind == kind for policy in policies) for kind in ("reachable", "forward_pass", "isolation")} == {"reachable": per_kind, "forward_pass": per_kind, "isolation": per_kind}
     assert 0 < metadata["initial_policy_consistency"] < 1
     assert len({(policy.kind, tuple(sorted(policy.fields.items()))) for policy in policies}) == len(policies)
+    bgp=[policy for policy in policies if policy.kind=="forward_pass" and policy.fields.get("destination_type")=="prefix"]
+    assert len(bgp)==1
 
 
 def test_policy_sampler_has_bounded_structured_failure():
@@ -60,6 +62,17 @@ def test_policy_sampler_has_bounded_structured_failure():
     with pytest.raises(ScenarioGenerationError) as raised:
         sample_policies(topology, configuration, "Easy", seed=1, max_attempts=0)
     assert raised.value.to_dict()["code"] == "policy_sampling_exhausted"
+
+def test_synthetic_bgp_candidate_can_improve_prefix_policy():
+    topology=_topology("bgp-action"); configuration,metadata=initial_configuration(topology)
+    policies,_=sample_policies(topology,configuration,"Easy",seed=17)
+    traffic=TrafficMatrix("TM:empty",tuple(node.node_id for node in topology.nodes),())
+    environment=UnifiedNetworkEnvironment(); snapshot,_=environment.reset(NetworkScenario("S:bgp-action",topology,traffic,policies,configuration=configuration))
+    alternate=next(route for route in configuration.bgp.routes if route.next_hop==metadata["design"]["alternate_next_hop"])
+    action=AtomicAction("bgp","local_preference",{"router_id":alternate.router_id,"prefix":alternate.prefix,"next_hop":alternate.next_hop},"set",64)
+    result=environment.step(snapshot,JointAction((action,),snapshot_id=snapshot.snapshot_id))
+    assert result.metrics.policy_consistency > snapshot.metrics.policy_consistency
+    assert result.rewards.per_agent["bgp"] > 0
 
 
 def test_explicit_policy_conflict_detector_catches_duplicates_and_pass_avoid():

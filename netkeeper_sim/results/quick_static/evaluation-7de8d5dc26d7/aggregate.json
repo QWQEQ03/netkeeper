@@ -1,0 +1,587 @@
+{
+  "evaluator_version": "netkeeper-evaluation-v3",
+  "group_by": [
+    "method_name"
+  ],
+  "groups": [
+    {
+      "action_count": {
+        "count": 40,
+        "max": 3.0,
+        "mean": 1.325,
+        "median": 1.0,
+        "min": 1.0,
+        "std": 0.5723321610429581
+      },
+      "attempted": 40,
+      "censored": 40,
+      "configuration_change_count": {
+        "count": 40,
+        "max": 3.0,
+        "mean": 1.325,
+        "median": 1.0,
+        "min": 1.0,
+        "std": 0.5723321610429581
+      },
+      "configuration_change_ratio": {
+        "count": 40,
+        "max": 0.010238907849829351,
+        "mean": 0.003920405924686358,
+        "median": 0.003952569169960474,
+        "min": 0.001976284584980237,
+        "std": 0.0021076929058950135
+      },
+      "convergence_step": {
+        "count": 0,
+        "max": null,
+        "mean": null,
+        "median": null,
+        "min": null,
+        "std": null
+      },
+      "decision_time_ms": {
+        "count": 40,
+        "max": 58354.570849,
+        "mean": 34347.953628375,
+        "median": 34436.107469,
+        "min": 10826.076314,
+        "std": 21962.80085067307
+      },
+      "dynamic_recovery": {
+        "attempted": 0,
+        "censored": 0,
+        "recovered": 0,
+        "recovery_steps": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "std": null
+        }
+      },
+      "failed": 0,
+      "lookahead_candidate_evaluations": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "lookahead_simulator_calls": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "method_name": "coma_dispatcher",
+      "mlu_best": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.26519172961403115,
+        "median": 0.14280062829638834,
+        "min": 0.07427077678335979,
+        "std": 0.21729855510186888
+      },
+      "mlu_final": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.26519172961403115,
+        "median": 0.14280062829638834,
+        "min": 0.07427077678335979,
+        "std": 0.21729855510186888
+      },
+      "mlu_initial": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.31249999999999994,
+        "median": 0.1875,
+        "min": 0.1249999999999999,
+        "std": 0.2609769613566958
+      },
+      "mlu_worst": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.31249999999999994,
+        "median": 0.1875,
+        "min": 0.1249999999999999,
+        "std": 0.2609769613566958
+      },
+      "policy_consistency_best": {
+        "count": 40,
+        "max": 0.8333333333333334,
+        "mean": 0.6114583333333333,
+        "median": 0.6041666666666667,
+        "min": 0.4583333333333333,
+        "std": 0.11259196146406185
+      },
+      "policy_consistency_final": {
+        "count": 40,
+        "max": 0.8333333333333334,
+        "mean": 0.6114583333333333,
+        "median": 0.6041666666666667,
+        "min": 0.4583333333333333,
+        "std": 0.11259196146406185
+      },
+      "policy_consistency_initial": {
+        "count": 40,
+        "max": 0.75,
+        "mean": 0.49895833333333334,
+        "median": 0.5,
+        "min": 0.3333333333333333,
+        "std": 0.10737059892177427
+      },
+      "replication": {
+        "independent_scenarios": 40,
+        "policy_random_seed_within_mean_std": null,
+        "policy_scenario_between": {
+          "count": 40,
+          "max": 0.8333333333333334,
+          "mean": 0.6114583333333333,
+          "median": 0.6041666666666667,
+          "min": 0.4583333333333333,
+          "std": 0.11259196146406185
+        },
+        "runs": 40
+      },
+      "simulator_time_ms": {
+        "count": 40,
+        "max": 11177.411028,
+        "mean": 5711.527458425,
+        "median": 4530.8088585000005,
+        "min": 1147.93601,
+        "std": 4173.20232639285
+      },
+      "succeeded": 0,
+      "traffic_shift_step_paper_final": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "traffic_shift_step_project_final": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "traffic_shift_total_paper_final": {
+        "count": 40,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "traffic_shift_total_project_final": {
+        "count": 40,
+        "max": 0.0019723865877712033,
+        "mean": 0.0009886368758369258,
+        "median": 0.0008287954853766951,
+        "min": 0.0003245699448231094,
+        "std": 0.0007060880485004745
+      },
+      "wall_time_ms": {
+        "count": 40,
+        "max": 68468.964619,
+        "mean": 40129.6677683,
+        "median": 40036.573667,
+        "min": 12354.861939,
+        "std": 26124.339961929185
+      }
+    },
+    {
+      "action_count": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "attempted": 40,
+      "censored": 40,
+      "configuration_change_count": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "configuration_change_ratio": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "convergence_step": {
+        "count": 0,
+        "max": null,
+        "mean": null,
+        "median": null,
+        "min": null,
+        "std": null
+      },
+      "decision_time_ms": {
+        "count": 40,
+        "max": 0.34125,
+        "mean": 0.24259745,
+        "median": 0.2467725,
+        "min": 0.178512,
+        "std": 0.04093398263743144
+      },
+      "dynamic_recovery": {
+        "attempted": 0,
+        "censored": 0,
+        "recovered": 0,
+        "recovery_steps": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "std": null
+        }
+      },
+      "failed": 0,
+      "lookahead_candidate_evaluations": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "lookahead_simulator_calls": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "method_name": "no_update",
+      "mlu_best": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.31249999999999994,
+        "median": 0.1875,
+        "min": 0.1249999999999999,
+        "std": 0.2609769613566958
+      },
+      "mlu_final": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.31249999999999994,
+        "median": 0.1875,
+        "min": 0.1249999999999999,
+        "std": 0.2609769613566958
+      },
+      "mlu_initial": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.31249999999999994,
+        "median": 0.1875,
+        "min": 0.1249999999999999,
+        "std": 0.2609769613566958
+      },
+      "mlu_worst": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.31249999999999994,
+        "median": 0.1875,
+        "min": 0.1249999999999999,
+        "std": 0.2609769613566958
+      },
+      "policy_consistency_best": {
+        "count": 40,
+        "max": 0.75,
+        "mean": 0.49895833333333334,
+        "median": 0.5,
+        "min": 0.3333333333333333,
+        "std": 0.10737059892177427
+      },
+      "policy_consistency_final": {
+        "count": 40,
+        "max": 0.75,
+        "mean": 0.49895833333333334,
+        "median": 0.5,
+        "min": 0.3333333333333333,
+        "std": 0.10737059892177427
+      },
+      "policy_consistency_initial": {
+        "count": 40,
+        "max": 0.75,
+        "mean": 0.49895833333333334,
+        "median": 0.5,
+        "min": 0.3333333333333333,
+        "std": 0.10737059892177427
+      },
+      "replication": {
+        "independent_scenarios": 40,
+        "policy_random_seed_within_mean_std": null,
+        "policy_scenario_between": {
+          "count": 40,
+          "max": 0.75,
+          "mean": 0.49895833333333334,
+          "median": 0.5,
+          "min": 0.3333333333333333,
+          "std": 0.10737059892177427
+        },
+        "runs": 40
+      },
+      "simulator_time_ms": {
+        "count": 40,
+        "max": 11565.456841,
+        "mean": 6052.546102375,
+        "median": 6144.044653,
+        "min": 1262.265114,
+        "std": 4326.593386810066
+      },
+      "succeeded": 0,
+      "traffic_shift_step_paper_final": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "traffic_shift_step_project_final": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "traffic_shift_total_paper_final": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "traffic_shift_total_project_final": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "wall_time_ms": {
+        "count": 40,
+        "max": 11654.428974,
+        "mean": 6114.565429125,
+        "median": 6195.3717275,
+        "min": 1285.280468,
+        "std": 4363.070812204873
+      }
+    },
+    {
+      "action_count": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "attempted": 40,
+      "censored": 40,
+      "configuration_change_count": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "configuration_change_ratio": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "convergence_step": {
+        "count": 0,
+        "max": null,
+        "mean": null,
+        "median": null,
+        "min": null,
+        "std": null
+      },
+      "decision_time_ms": {
+        "count": 40,
+        "max": 3322.769647,
+        "mean": 2003.305391725,
+        "median": 1949.709474,
+        "min": 925.119016,
+        "std": 1050.7037154249224
+      },
+      "dynamic_recovery": {
+        "attempted": 0,
+        "censored": 0,
+        "recovered": 0,
+        "recovery_steps": {
+          "count": 0,
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "std": null
+        }
+      },
+      "failed": 0,
+      "lookahead_candidate_evaluations": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "lookahead_simulator_calls": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "method_name": "ospf_default",
+      "mlu_best": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.31249999999999994,
+        "median": 0.1875,
+        "min": 0.1249999999999999,
+        "std": 0.2609769613566958
+      },
+      "mlu_final": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.31249999999999994,
+        "median": 0.1875,
+        "min": 0.1249999999999999,
+        "std": 0.2609769613566958
+      },
+      "mlu_initial": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.31249999999999994,
+        "median": 0.1875,
+        "min": 0.1249999999999999,
+        "std": 0.2609769613566958
+      },
+      "mlu_worst": {
+        "count": 40,
+        "max": 0.7500000000000003,
+        "mean": 0.31249999999999994,
+        "median": 0.1875,
+        "min": 0.1249999999999999,
+        "std": 0.2609769613566958
+      },
+      "policy_consistency_best": {
+        "count": 40,
+        "max": 0.75,
+        "mean": 0.49895833333333334,
+        "median": 0.5,
+        "min": 0.3333333333333333,
+        "std": 0.10737059892177427
+      },
+      "policy_consistency_final": {
+        "count": 40,
+        "max": 0.75,
+        "mean": 0.49895833333333334,
+        "median": 0.5,
+        "min": 0.3333333333333333,
+        "std": 0.10737059892177427
+      },
+      "policy_consistency_initial": {
+        "count": 40,
+        "max": 0.75,
+        "mean": 0.49895833333333334,
+        "median": 0.5,
+        "min": 0.3333333333333333,
+        "std": 0.10737059892177427
+      },
+      "replication": {
+        "independent_scenarios": 40,
+        "policy_random_seed_within_mean_std": null,
+        "policy_scenario_between": {
+          "count": 40,
+          "max": 0.75,
+          "mean": 0.49895833333333334,
+          "median": 0.5,
+          "min": 0.3333333333333333,
+          "std": 0.10737059892177427
+        },
+        "runs": 40
+      },
+      "simulator_time_ms": {
+        "count": 40,
+        "max": 10737.653131,
+        "mean": 5972.3240266,
+        "median": 5983.4738744999995,
+        "min": 1338.217231,
+        "std": 4226.759596689801
+      },
+      "succeeded": 0,
+      "traffic_shift_step_paper_final": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "traffic_shift_step_project_final": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "traffic_shift_total_paper_final": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "traffic_shift_total_project_final": {
+        "count": 40,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "wall_time_ms": {
+        "count": 40,
+        "max": 14156.797836,
+        "mean": 8042.07704905,
+        "median": 8053.7036705,
+        "min": 2297.515837,
+        "std": 5314.8171562614625
+      }
+    }
+  ]
+}

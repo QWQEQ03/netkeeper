@@ -1,0 +1,45 @@
+{
+  "checkpoint": "runs/rl-bbbd299874/best.pt",
+  "checkpoint_manifest": "runs/rl-bbbd299874/checkpoint_manifest.json",
+  "checkpoint_status": "formal_validation_selected",
+  "deterministic_seed": 20260714,
+  "device": "cuda",
+  "evaluation_manifest": "configs/frozen_evaluation_manifest.json",
+  "hold_steps": 3,
+  "local_search_budget": 64,
+  "local_search_deltas": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "max_steps": 50,
+  "methods": [
+    "no_update",
+    "ospf_default",
+    "checkpoint"
+  ],
+  "mode": "dynamic",
+  "random_seeds": [
+    20260714,
+    20260715,
+    20260716
+  ],
+  "recovery_budget": 30,
+  "require_formal_checkpoint": true,
+  "scenario_ids": [],
+  "sequence_ids": [
+    "DS:test:0000",
+    "DS:test:0001",
+    "DS:test:0002",
+    "DS:test:0003",
+    "DS:test:0004",
+    "DS:test:0005",
+    "DS:test:0006",
+    "DS:test:0007",
+    "DS:test:0008",
+    "DS:test:0009"
+  ],
+  "traffic_shift_primary": "paper_v1",
+  "traffic_shift_secondary": "project_v1"
+}

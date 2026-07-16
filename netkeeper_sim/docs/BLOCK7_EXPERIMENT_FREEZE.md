@@ -1,6 +1,13 @@
 # Block 7 experiment freeze
 
-Evaluator protocol: `netkeeper-evaluation-v2`. Frozen evaluation manifest:
+Correctness amendment: formal execution now uses `netkeeper-evaluation-v3`
+and checkpoint adapter `rl-coma-v2-adapter.2`; see
+`BLOCK7_EVALUATOR_V3_CORRECTION.md`.  All v2 outputs are invalidated.  This
+version change affects persistence and experiment identity only; all frozen
+methods, checkpoint, seeds, thresholds, recovery budget, and Local Search
+settings below remain unchanged.
+
+Evaluator protocol: `netkeeper-evaluation-v3`. Frozen evaluation manifest:
 `configs/frozen_evaluation_manifest.json`. Formal configuration:
 `configs/evaluation_formal.yaml`.
 

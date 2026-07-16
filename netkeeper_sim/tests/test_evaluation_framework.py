@@ -1,10 +1,11 @@
 from __future__ import annotations
 import json
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import pytest
 from netkeeper_sim.evaluation import EvaluationRunner, LocalSearchOSPFMethod, MethodDecision, MethodMetadata, NoUpdateMethod, OSPFDefaultMethod, RandomMethod, ResultStore, aggregate_runs, configuration_change, generate_evaluation_manifest
-from netkeeper_sim.evaluation.results import run_key
-from netkeeper_sim.evaluation.methods import DispatcherMethodAdapter
+from netkeeper_sim.evaluation.results import EVALUATOR_VERSION, run_key
+from netkeeper_sim.evaluation.methods import DispatcherMethodAdapter, canonical_hash
 from netkeeper_sim.evaluation.batch import plan
 from netkeeper_sim.schemas import AtomicAction, BGPConfiguration, BGPRoute, JointAction, Link, LinkAttributes, NetworkConfiguration, NetworkScenario, Node, Policy, Topology, TrafficDemand, TrafficMatrix
 
@@ -91,6 +92,20 @@ def test_store_nan_rejection_resume_and_stats(tmp_path):
     persisted=EvaluationRunner(hold_steps=9).run_static(NoUpdate(),toy(max_steps=1),seed=1)
     assert EvaluationRunner().persist(store,persisted) and not EvaluationRunner().persist(store,persisted)
 
+def test_run_commit_replaces_interrupted_rows_and_serializes_workers(tmp_path):
+    outcome=EvaluationRunner(hold_steps=9,evaluator_config_hash="cfg").run_static(NoUpdate(),toy(max_steps=3),seed=1)
+    key=outcome.summary["run_key"]
+    store=ResultStore(tmp_path)
+    # Simulate a killed old worker which wrote one corrupt pre-terminal row.
+    store.append_unique("steps.jsonl",{"run_key":f"{key}:0","step":9,"before_snapshot_id":"bad","after_snapshot_id":"bad"},key=f"{key}:0")
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        committed=list(pool.map(lambda _:EvaluationRunner().persist(store,outcome),range(2)))
+    assert sorted(committed)==[False,True]
+    rows=store.read("steps.jsonl")
+    assert [row["step"] for row in rows]==[0,1,2]
+    assert all(row["run_key"]==f"{key}:{index}" for index,row in enumerate(rows))
+    assert len(store.read("episodes.jsonl"))==1
+
 def test_manifest_and_missing_checkpoint_are_stable():
     root=Path(__file__).resolve().parents[2]/"data"/"netkeeper_lite"
     first=generate_evaluation_manifest(root,seeds=(1,2)); second=generate_evaluation_manifest(root,seeds=(1,2))
@@ -102,6 +117,12 @@ def test_manifest_and_missing_checkpoint_are_stable():
     dispatched=EvaluationRunner().run_static(method,toy(max_steps=1),seed=3)
     assert dispatched.summary["status"]=="unavailable" and dispatched.summary["failure_code"]=="checkpoint_unavailable"
 
+def test_checkpoint_method_identity_excludes_evaluation_plan_fields():
+    first=DispatcherMethodAdapter("/not/a/checkpoint.pt",config={"mode":"static","max_steps":50})
+    second=DispatcherMethodAdapter("/not/a/checkpoint.pt",config={"mode":"dynamic","max_steps":240})
+    assert first.metadata.version == "legacy-inference-adapter"
+    assert first.metadata.config_hash == second.metadata.config_hash
+
 def test_formal_manifest_load_groups_and_method_specific_seeds():
     root=Path(__file__).resolve().parents[2]/"data"/"netkeeper_lite"
     manifest=generate_evaluation_manifest(root)
@@ -109,8 +130,10 @@ def test_formal_manifest_load_groups_and_method_specific_seeds():
     assert {key:len(value) for key,value in groups.items()} == {"Normal":166,"Hotspot":125,"Burst":42,"High-load":167}
     assert len({item for values in groups.values() for item in values}) == 500
     config={"methods":["no_update","random"],"deterministic_seed":20260714,"random_seeds":[20260714,20260715,20260716],"mode":"static","max_steps":50,"hold_steps":3,"local_search_budget":64,"local_search_deltas":[1,2,4,8],"checkpoint":None,"checkpoint_status":"debug_unconverged","scenario_ids":[],"sequence_ids":[],"device":"cpu","recovery_budget":30}
-    _run,tasks=plan(root,config)
+    run,tasks=plan(root,config)
     assert len(tasks) == 2000
+    assert run["evaluator_version"] == EVALUATOR_VERSION
+    assert run["evaluator_config_hash"] == canonical_hash({"evaluator_version":EVALUATOR_VERSION,"config":config})
     assert {x["seed"] for x in tasks if x["method"]=="no_update"} == {20260714}
     assert {x["seed"] for x in tasks if x["method"]=="random"} == {20260714,20260715,20260716}
 

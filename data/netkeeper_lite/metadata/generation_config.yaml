@@ -12,9 +12,9 @@ dynamic:
   recovery_budget_steps: 30
 generator_versions:
   dynamic: 1.0.0
-  scenarios: 1.0.0
+  scenarios: 2.0.0
   topology: 1.0.0
-  traffic: 1.0.0
+  traffic: 2.0.0
 policies:
   difficulty_counts_per_kind:
     Easy: 2
@@ -94,6 +94,7 @@ traffic:
     diurnal_amplitude: 0.35
     diurnal_period_steps: 24
     hotspot_multiplier: 4.0
+    initial_capacity_fraction: 0.5
     load_levels:
       High: 3.0
       Low: 0.5

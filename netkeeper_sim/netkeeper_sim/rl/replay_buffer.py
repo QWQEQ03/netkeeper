@@ -2,20 +2,22 @@ from __future__ import annotations
 import random
 from collections import deque
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, Mapping
 
 @dataclass(frozen=True)
 class Transition:
     graph: Any
     masks: dict[str, Any]
     actions: dict[str, int]
-    reward: float
+    reward: float | Mapping[str, float]
     next_graph: Any
     next_masks: dict[str, Any]
     terminated: bool
     truncated: bool
     snapshot_id: str
     next_snapshot_id: str
+    advantages: Mapping[str, float] | None = None
+    actor_weight: float = 1.0
 
 class ReplayBuffer:
     def __init__(self, capacity: int = 1000, seed: int | None = None) -> None:

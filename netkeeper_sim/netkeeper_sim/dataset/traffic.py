@@ -4,19 +4,20 @@ from __future__ import annotations
 import hashlib
 import json
 import math
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Literal, Mapping
 
 import numpy as np
+import networkx as nx
 
 from netkeeper_sim.schemas import BGPConfiguration, BGPRoute, NetworkConfiguration, Topology, TrafficDemand, TrafficMatrix
 from netkeeper_sim.schemas.ids import slug
 from netkeeper_sim.simulator.deterministic import simulate_deterministic
 
 
-TRAFFIC_GENERATOR_VERSION = "1.0.0"
-TRAFFIC_DATASET_VERSION = "netkeeper-lite.traffic.v1"
+TRAFFIC_GENERATOR_VERSION = "2.0.0"
+TRAFFIC_DATASET_VERSION = "netkeeper-lite.traffic.v2"
 DEFAULT_TRAFFIC_SEED = 20260713
 LOAD_LEVELS: Mapping[str, float] = {"Low": 0.5, "Normal": 1.0, "High": 3.0}
 PATTERNS = ("gravity", "diurnal", "hotspot", "burst")
@@ -29,6 +30,7 @@ class TrafficGenerationConfig:
     diurnal_amplitude: float = 0.35
     hotspot_multiplier: float = 4.0
     burst_multiplier: float = 8.0
+    initial_capacity_fraction: float = 0.5
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -37,6 +39,7 @@ class TrafficGenerationConfig:
             "diurnal_amplitude": self.diurnal_amplitude,
             "hotspot_multiplier": self.hotspot_multiplier,
             "burst_multiplier": self.burst_multiplier,
+            "initial_capacity_fraction": self.initial_capacity_fraction,
             "load_levels": dict(LOAD_LEVELS),
             "unit": "bps",
         }
@@ -48,35 +51,52 @@ def derive_seed(root_seed: int, namespace: Literal["topology", "scenario", "traf
     return int.from_bytes(hashlib.sha256(material.encode("utf-8")).digest()[:8], "big")
 
 
-def initial_configuration(topology: Topology, *, root_seed: int = DEFAULT_TRAFFIC_SEED) -> tuple[NetworkConfiguration, dict[str, Any]]:
+def initial_configuration(topology: Topology, *, root_seed: int = DEFAULT_TRAFFIC_SEED, capacity_fraction: float = 0.5) -> tuple[NetworkConfiguration, dict[str, Any]]:
     """Build a legal deterministic configuration and a provenance record.
 
-    Zoo supplies no BGP semantics.  We add exactly one supported synthetic
-    route, from R0 to its lexicographically first reachable neighbour, so no
-    router/prefix/next-hop reference is dangling.
+    Zoo supplies no BGP semantics.  We add two deterministic candidates for
+    one prefix, with a policy-distinguishable alternate path.  Initial link
+    capacity deliberately retains physical headroom so Performance actions
+    can improve MLU instead of only reducing capacity.
     """
+    if not 0 < capacity_fraction < 1: raise ValueError("capacity_fraction must be in (0,1)")
     base = NetworkConfiguration.initial(topology)
-    nodes = tuple(node.node_id for node in topology.nodes)
-    neighbours: dict[str, list[str]] = {node: [] for node in nodes}
-    for link in topology.links:
-        neighbours[link.source].append(link.target)
-        neighbours[link.target].append(link.source)
-    router = nodes[0]
-    next_hop = sorted(neighbours[router])[0]
+    design = synthetic_bgp_design(topology)
+    router, primary, alternate = design["router_id"], design["primary_next_hop"], design["alternate_next_hop"]
     route_seed = derive_seed(root_seed, "topology", topology.topology_id, "synthetic-bgp")
     prefix = f"198.18.{route_seed % 256}.0/24"
-    route = BGPRoute(router, prefix, next_hop, 100, (64512 + int(route_seed % 1024),), 0)
+    asn = 64512 + int(route_seed % 1024)
+    routes = (BGPRoute(router, prefix, primary, 48, (asn,), 0), BGPRoute(router, prefix, alternate, 32, (asn,), 0))
+    performance={link_id:replace(attributes,capacity_bps=max(1,round(attributes.capacity_max_bps*capacity_fraction))) for link_id,attributes in base.performance.items()}
     configuration = NetworkConfiguration(
         topology_id=base.topology_id,
         version=0,
         step=0,
         ospf_weights=base.ospf_weights,
-        bgp=BGPConfiguration((route,)),
-        performance=base.performance,
+        bgp=BGPConfiguration(routes),
+        performance=performance,
         link_states=base.link_states,
         node_states=base.node_states,
     )
-    return configuration, {"synthetic": True, "reason": "Topology Zoo has no BGP route semantics", "seed": route_seed, "routes": [route.to_dict()]}
+    return configuration, {"synthetic": True, "reason": "Topology Zoo has no BGP route semantics", "seed": route_seed, "design":{**design,"prefix":prefix}, "routes": [route.to_dict() for route in routes], "initial_capacity_fraction":capacity_fraction}
+
+
+def synthetic_bgp_design(topology: Topology) -> dict[str, str]:
+    """Choose a stable primary/alternate pair with a distinguishing waypoint."""
+    graph=nx.Graph(); graph.add_nodes_from(node.node_id for node in topology.nodes)
+    for link in topology.links:
+        weight=float(link.attributes.ospf_weight)
+        if graph.has_edge(link.source,link.target): graph[link.source][link.target]["weight"]=min(graph[link.source][link.target]["weight"],weight)
+        else: graph.add_edge(link.source,link.target,weight=weight)
+    for router in sorted(graph):
+        paths={target:tuple(nx.all_shortest_paths(graph,router,target,weight="weight")) for target in sorted(graph) if target!=router}
+        for alternate,alternate_paths in paths.items():
+            waypoints=sorted({node for path in alternate_paths for node in path[1:-1]})
+            for waypoint in waypoints:
+                for primary,primary_paths in paths.items():
+                    if primary!=alternate and primary!=waypoint and all(waypoint not in path[1:-1] for path in primary_paths):
+                        return {"router_id":router,"primary_next_hop":primary,"alternate_next_hop":alternate,"alternate_waypoint":waypoint}
+    raise ValueError(f"topology {topology.topology_id} has no policy-distinguishable synthetic BGP candidates")
 
 
 def generate_base_matrix(
@@ -146,7 +166,7 @@ def generate_traffic_dataset(dataset_root: str | Path, *, root_seed: int = DEFAU
     for split_name, records in split["splits"].items():
         for topology_record in records:
             topology = Topology.from_dict(json.loads((root / topology_record["normalized_file"]).read_text(encoding="utf-8")))
-            configuration, configuration_meta = initial_configuration(topology, root_seed=root_seed)
+            configuration, configuration_meta = initial_configuration(topology, root_seed=root_seed,capacity_fraction=config.initial_capacity_fraction)
             config_file = Path("configurations") / split_name / f"{slug(topology.normalized_name)}.json"
             encoded_config = _canonical_json(configuration.to_dict())
             _write(root / config_file, encoded_config)

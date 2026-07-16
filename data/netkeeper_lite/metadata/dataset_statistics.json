@@ -36,8 +36,8 @@
       },
       "initial_policy_consistency": {
         "count": 500,
-        "max": 0.9166666666666666,
-        "mean": 0.53125,
+        "max": 0.8333333333333334,
+        "mean": 0.5180833333333333,
         "min": 0.3333333333333333
       },
       "load_levels": {
@@ -75,15 +75,15 @@
       },
       "policy_resample_attempts": {
         "count": 500,
-        "max": 1,
-        "mean": 0.002,
+        "max": 0,
+        "mean": 0.0,
         "min": 0
       },
       "total_input_bps": {
         "count": 500,
-        "max": 21355819704.974174,
-        "mean": 3284695565.5587187,
-        "min": 57919935.53131204
+        "max": 10677909852.487087,
+        "mean": 1642347782.7793593,
+        "min": 28959967.76565602
       },
       "traffic_demand_count": {
         "count": 500,
@@ -121,7 +121,7 @@
       "initial_policy_consistency": {
         "count": 3000,
         "max": 0.9166666666666666,
-        "mean": 0.5776111111111111,
+        "mean": 0.5602222222222223,
         "min": 0.3333333333333333
       },
       "load_levels": {
@@ -159,15 +159,15 @@
       },
       "policy_resample_attempts": {
         "count": 3000,
-        "max": 1,
-        "mean": 0.004666666666666667,
+        "max": 0,
+        "mean": 0.0,
         "min": 0
       },
       "total_input_bps": {
         "count": 3000,
-        "max": 31139643019.39079,
-        "mean": 2953111422.0145946,
-        "min": 47636904.30326441
+        "max": 15569821509.695395,
+        "mean": 1476555711.0072973,
+        "min": 23818452.151632205
       },
       "traffic_demand_count": {
         "count": 3000,
@@ -205,7 +205,7 @@
       "initial_policy_consistency": {
         "count": 400,
         "max": 0.9166666666666666,
-        "mean": 0.5939583333333334,
+        "mean": 0.5734375,
         "min": 0.3333333333333333
       },
       "load_levels": {
@@ -243,15 +243,15 @@
       },
       "policy_resample_attempts": {
         "count": 400,
-        "max": 1,
-        "mean": 0.015,
+        "max": 0,
+        "mean": 0.0,
         "min": 0
       },
       "total_input_bps": {
         "count": 400,
-        "max": 37797527245.29623,
-        "mean": 6124849500.749916,
-        "min": 109946787.58030067
+        "max": 18898763622.648113,
+        "mean": 3062424750.374958,
+        "min": 54973393.79015034
       },
       "traffic_demand_count": {
         "count": 400,

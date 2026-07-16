@@ -23,6 +23,7 @@ class RewardConfig:
     illegal_action_penalty: float = 1.0
     dropped_traffic_penalty: float = 1.0
     include_traffic_shift: bool = True
+    component_clip: float = 1.0
 
 
 class UnifiedNetworkEnvironment:
@@ -165,11 +166,25 @@ def _observation(snapshot):
 
 
 def _reward(previous, current, changed, error_count, weights: RewardConfig):
-    policy = weights.policy_improvement * (current.metrics.policy_consistency - previous.metrics.policy_consistency)
-    mlu = weights.mlu_improvement * (previous.metrics.maximum_link_utilization - current.metrics.maximum_link_utilization)
+    clip = lambda value: max(-weights.component_clip, min(weights.component_clip, value))
+    policy = weights.policy_improvement * clip(current.metrics.policy_consistency - previous.metrics.policy_consistency)
+    # MLU deltas can be orders of magnitude larger than the bounded policy
+    # signal.  Clipping prevents congestion outliers from erasing that goal.
+    mlu = weights.mlu_improvement * clip(previous.metrics.maximum_link_utilization - current.metrics.maximum_link_utilization)
     shift = -weights.traffic_shift_penalty * (current.metrics.traffic_shift_step_project_v1 or 0.0) if weights.include_traffic_shift else 0.0
     config_penalty = -weights.configuration_change_penalty * len(changed)
     illegal = -weights.illegal_action_penalty * error_count
     dropped = -weights.dropped_traffic_penalty * (current.metrics.dropped_bps / current.metrics.total_input_bps) if current.metrics.total_input_bps else 0.0
     total = policy + mlu + shift + config_penalty + illegal + dropped
-    return RewardBreakdown(policy, mlu, shift, config_penalty, illegal, dropped, total, {"ospf": total, "bgp": total, "performance": total})
+    changed_names=tuple(str(name) for name in changed)
+    own_changes={
+        "ospf":sum(name.startswith("ospf_weight") for name in changed_names),
+        "bgp":sum(name.startswith("bgp") for name in changed_names),
+        "performance":sum(name.startswith("performance") for name in changed_names),
+    }
+    local={
+        "ospf":policy+mlu+shift-weights.configuration_change_penalty*own_changes["ospf"]+illegal/3,
+        "bgp":policy-weights.configuration_change_penalty*own_changes["bgp"]+illegal/3,
+        "performance":mlu+shift+dropped-weights.configuration_change_penalty*own_changes["performance"]+illegal/3,
+    }
+    return RewardBreakdown(policy, mlu, shift, config_penalty, illegal, dropped, total, local)

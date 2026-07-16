@@ -47,7 +47,16 @@ class BalancedScenarioSampler:
         for values in self._by_key.values(): self._rng.shuffle(values)
         for values in self._by_topology.values(): self._rng.shuffle(values)
         self._topology_positions = {key: 0 for key in self._topologies}
-        self._validation_order = list(self.rows); random.Random(seed).shuffle(self._validation_order)
+        # Round-robin deterministic strata so a small fixed validation budget
+        # still covers topology, traffic pattern, load and difficulty.
+        validation_groups = {key:list(values) for key,values in self._by_key.items()}
+        validation_rng = random.Random(seed)
+        for values in validation_groups.values(): validation_rng.shuffle(values)
+        self._validation_order = []
+        for position in range(max(map(len,validation_groups.values()),default=0)):
+            for key in sorted(validation_groups):
+                values=validation_groups[key]
+                if position < len(values): self._validation_order.append(values[position])
         self._validation_position = 0
 
     def next_record(self) -> dict:

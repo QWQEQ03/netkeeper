@@ -6,6 +6,8 @@ schema simulator and tensor code.  It never reads scheduled future events.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from dataclasses import replace
+from math import inf
 from math import log1p
 from typing import Iterable, Mapping
 
@@ -34,10 +36,11 @@ class RouteTarget:
 class SnapshotGraph:
     """Tensor state plus stable schema target mappings.
 
-    Node features (17): type router/prefix/external/other, active, normalized
+    Node features (18): type router/prefix/external/other, active, normalized
     degree, policy endpoint, mean incident OSPF, bandwidth/physical-bandwidth,
     capacity/bandwidth, log queue, loss, incident utilization, BGP-route
-    presence, mean local-pref, AS-path length and MED.  Edge features (11):
+    presence, mean local-pref, AS-path length, MED and global policy
+    consistency.  Edge features (11):
     link/type, endpoint-up, OSPF, bandwidth/physical, capacity/bandwidth,
     log queue, loss, utilization, delay, source-up and target-up.
     """
@@ -95,6 +98,7 @@ def snapshot_to_graph(snapshot: NetworkSnapshot) -> SnapshotGraph:
             mean(attr.loss_rate for attr in attrs), min(1.0, mean(loads.get(link.link_id, 0.0) for link in incident)),
             float(bool(routes_here)), min(1.0, mean(route.local_preference / 64.0 for route in routes_here)),
             min(1.0, mean(len(route.as_path) / 255.0 for route in routes_here)), min(1.0, mean(route.med / 65535.0 for route in routes_here)),
+            float(snapshot.metrics.policy_consistency),
         ])
     edge_pairs: list[tuple[int, int]] = []; edge_rows: list[list[float]] = []; edge_ids: list[str] = []
     for link in snapshot.topology.links:
@@ -131,7 +135,7 @@ def _policy_nodes(snapshot: NetworkSnapshot) -> set[str]:
     return result
 
 
-def action_masks(snapshot: NetworkSnapshot, graph: SnapshotGraph | None = None) -> dict[str, torch.Tensor]:
+def action_masks(snapshot: NetworkSnapshot, graph: SnapshotGraph | None = None, *, mask_equivalent: bool = True) -> dict[str, torch.Tensor]:
     """Candidate masks with first column as permanent no_update.
 
     Rows are agent macro-actions: `[1 + entities * parameters * 64]`; all
@@ -146,19 +150,35 @@ def action_masks(snapshot: NetworkSnapshot, graph: SnapshotGraph | None = None) 
             for parameter in PARAMETERS[agent]:
                 for index in range(1, ACTION_VALUES + 1):
                     legal = ok
+                    target = _candidate_target(graph, agent, entity)
+                    candidate_value = _value(snapshot, parameter, target, index)
                     if agent == "performance":
                         attr = snapshot.configuration.performance[graph.link_ids[entity]]
-                        # A bandwidth update may not invalidate the unchanged
-                        # capacity; all other generated values are bounded by
-                        # schema maxima in `_value`.
-                        if parameter == "bandwidth_bps": legal = legal and _value(snapshot, parameter, {"link_id": graph.link_ids[entity]}, index) >= attr.capacity_bps
+                        current=_current_value(snapshot,parameter,target)
+                        # Capacity/bandwidth reductions cannot improve routing
+                        # or delivery. Queue growth is useful only after drops.
+                        if parameter == "capacity_bps": legal = legal and index in {40,48,56,64} and candidate_value>current
+                        elif parameter == "bandwidth_bps": legal = legal and candidate_value>current and candidate_value>=attr.capacity_bps
+                        else: legal = legal and snapshot.metrics.dropped_bps>0 and candidate_value>current
+                    elif agent == "bgp":
+                        # Attribute edits which preserve the selected next hop
+                        # only incur configuration/shift cost in this model.
+                        legal = legal and _bgp_selection_changes(snapshot,target,parameter,candidate_value)
+                    elif agent == "ospf":
+                        legal = legal and abs(candidate_value-_current_value(snapshot,parameter,target)) in {1,2,4,8}
+                    if legal and mask_equivalent:
+                        # Setting a parameter to its current value is an
+                        # environment-equivalent no-op.  Masking it also stops
+                        # a greedy policy from repeating the same set action on
+                        # every static step.
+                        legal = candidate_value != _current_value(snapshot, parameter, target)
                     values.append(legal)
         return torch.tensor(values, dtype=torch.bool)
     return {"ospf": make("ospf", link_ok), "bgp": make("bgp", route_ok), "performance": make("performance", link_ok)}
 
 
-def candidate_to_joint_action(snapshot: NetworkSnapshot, graph: SnapshotGraph, candidates: Mapping[str, int]) -> JointAction:
-    masks = action_masks(snapshot, graph); actions: list[AtomicAction] = []
+def candidate_to_joint_action(snapshot: NetworkSnapshot, graph: SnapshotGraph, candidates: Mapping[str, int], *, mask_equivalent: bool = True) -> JointAction:
+    masks = action_masks(snapshot, graph, mask_equivalent=mask_equivalent); actions: list[AtomicAction] = []
     for agent, raw in candidates.items():
         index = int(raw)
         if index == NO_UPDATE: continue
@@ -173,6 +193,22 @@ def candidate_to_joint_action(snapshot: NetworkSnapshot, graph: SnapshotGraph, c
         else: target_map = {"link_id": graph.link_ids[entity_index]}
         actions.append(AtomicAction(agent, parameter, target_map, "set", _value(snapshot, parameter, target_map, value_index)))
     return JointAction(tuple(actions), requested_by="rl", snapshot_id=snapshot.snapshot_id)
+
+
+def monotonic_candidate_filter(snapshot: NetworkSnapshot, graph: SnapshotGraph, candidates: Mapping[str,int], *, reward_config=None, tolerance: float = 1e-9) -> dict[str,int]:
+    """Keep only agent proposals whose joint immediate reward improves."""
+    from netkeeper_sim.schemas import NetworkScenario
+    from netkeeper_sim.simulator import UnifiedNetworkEnvironment
+    accepted={name:0 for name in PARAMETERS}; best=0.0
+    scenario=NetworkScenario(f"S:shield:{snapshot.topology.topology_id}",snapshot.topology,snapshot.traffic,snapshot.policies,configuration=snapshot.configuration,max_steps=max(snapshot.step+2,2))
+    for agent in PARAMETERS:
+        candidate=int(candidates.get(agent,0))
+        if candidate==0: continue
+        trial={**accepted,agent:candidate}; kernel=UnifiedNetworkEnvironment(reward_config); kernel.reset(scenario)
+        outcome=kernel.step(snapshot,candidate_to_joint_action(snapshot,graph,trial))
+        score=float(outcome.rewards.total_reward)
+        if not outcome.errors and score>best+tolerance: accepted[agent]=candidate; best=score
+    return accepted
 
 
 def masked_policy(logits: torch.Tensor, mask: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
@@ -212,3 +248,42 @@ def _value(snapshot: NetworkSnapshot, parameter: str, target: Mapping[str, str],
     if parameter == "bandwidth_bps": return max(1, round(attr.physical_bandwidth_bps * fraction))
     if parameter == "capacity_bps": return max(1, round(min(attr.bandwidth_bps, attr.capacity_max_bps) * fraction))
     return round(1_000_000 * fraction)
+
+
+def _candidate_target(graph: SnapshotGraph, agent: str, entity: int) -> dict[str, str]:
+    if agent == "bgp":
+        route = graph.route_targets[entity]
+        return {"router_id": route.router_id, "prefix": route.prefix, "next_hop": route.next_hop}
+    return {"link_id": graph.link_ids[entity]}
+
+
+def _current_value(snapshot: NetworkSnapshot, parameter: str, target: Mapping[str, str]) -> int:
+    if parameter == "ospf_weight":
+        return int(snapshot.configuration.ospf_weights[target["link_id"]])
+    if parameter in {"bandwidth_bps", "capacity_bps", "queue_packets"}:
+        return int(getattr(snapshot.configuration.performance[target["link_id"]], parameter))
+    route = next(
+        item for item in snapshot.configuration.bgp.routes
+        if (item.router_id, item.prefix, item.next_hop)
+        == (target["router_id"], target["prefix"], target["next_hop"])
+    )
+    if parameter == "local_preference": return int(route.local_preference)
+    if parameter == "med": return int(route.med)
+    return len(route.as_path)
+
+
+def _bgp_selection_changes(snapshot: NetworkSnapshot, target: Mapping[str,str], parameter: str, value: int) -> bool:
+    router,prefix,next_hop=(target[key] for key in ("router_id","prefix","next_hop"))
+    routes=[route for route in snapshot.configuration.bgp.routes if route.enabled and route.router_id==router and route.prefix==prefix]
+    if len(routes)<2 or parameter!="local_preference": return False
+    costs={(entry.router_id,entry.destination):entry.cost for entry in snapshot.routing_state if entry.destination_type=="node" and entry.reachable}
+    def key(route): return (-route.local_preference,len(route.as_path),route.med,costs.get((router,route.next_hop),inf),route.next_hop)
+    before=min(routes,key=key).next_hop
+    def winner(candidate_value):
+        changed=[replace(route,local_preference=int(candidate_value)) if route.next_hop==next_hop else route for route in routes]
+        return min(changed,key=key).next_hop
+    outcome=winner(value)
+    if outcome==before: return False
+    current=next(route.local_preference for route in routes if route.next_hop==next_hop)
+    canonical=min((candidate for candidate in range(1,ACTION_VALUES+1) if winner(candidate)==outcome),key=lambda candidate:(abs(candidate-current),candidate))
+    return value==canonical

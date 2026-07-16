@@ -15,8 +15,8 @@ local_search_deltas: [1, 2, 4, 8]
 traffic_shift_primary: paper_v1
 traffic_shift_secondary: project_v1
 evaluation_manifest: configs/frozen_evaluation_manifest.json
-checkpoint: runs/rl-f27e74f349/best.pt
-checkpoint_manifest: runs/rl-f27e74f349/checkpoint_manifest.json
+checkpoint: runs/rl-bbbd299874/best.pt
+checkpoint_manifest: runs/rl-bbbd299874/checkpoint_manifest.json
 checkpoint_status: formal_validation_selected
 require_formal_checkpoint: true
-device: cpu
+device: cuda

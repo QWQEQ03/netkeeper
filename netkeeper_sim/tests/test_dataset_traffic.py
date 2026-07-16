@@ -14,7 +14,7 @@ from netkeeper_sim.dataset.traffic import (
     load_traffic_record,
     traffic_matrix_from_array,
 )
-from netkeeper_sim.schemas import Link, LinkAttributes, NetworkConfiguration, NetworkScenario, Node, Topology, TrafficMatrix
+from netkeeper_sim.schemas import AtomicAction, JointAction, Link, LinkAttributes, NetworkConfiguration, NetworkScenario, Node, Topology, TrafficMatrix
 from netkeeper_sim.simulator import UnifiedNetworkEnvironment
 
 
@@ -78,6 +78,9 @@ def test_configuration_references_are_valid_and_environment_resets():
     link_ids, node_ids = {link.link_id for link in topology.links}, {node.node_id for node in topology.nodes}
     assert set(configuration.ospf_weights) == set(configuration.performance) == set(configuration.link_states) == link_ids
     assert set(configuration.node_states) == node_ids and metadata["synthetic"] is True
+    assert len(configuration.bgp.routes)==2
+    assert len({(route.router_id,route.prefix) for route in configuration.bgp.routes})==1
+    assert all(attributes.capacity_bps < attributes.capacity_max_bps for attributes in configuration.performance.values())
     for route in configuration.bgp.routes:
         assert route.router_id in node_ids and route.next_hop in node_ids and route.router_id != route.next_hop
     values, _ = generate_base_matrix(topology, configuration, "gravity", seed=8)
@@ -85,6 +88,26 @@ def test_configuration_references_are_valid_and_environment_resets():
     recovered = NetworkConfiguration.from_dict(configuration.to_dict())
     snapshot, _ = UnifiedNetworkEnvironment().reset(NetworkScenario("S:traffic", topology, traffic, configuration=recovered), seed=8)
     assert snapshot.topology.topology_id == topology.topology_id
+
+def test_bgp_and_performance_actions_have_improvable_initial_targets():
+    topology=_topology(); configuration,metadata=initial_configuration(topology)
+    design=metadata["design"]; routes=list(configuration.bgp.routes)
+    primary=next(route for route in routes if route.next_hop==design["primary_next_hop"])
+    alternate=next(route for route in routes if route.next_hop==design["alternate_next_hop"])
+    assert primary.local_preference > alternate.local_preference
+    assert any(attributes.capacity_bps*2==attributes.capacity_max_bps for attributes in configuration.performance.values())
+
+def test_capacity_headroom_produces_positive_performance_reward():
+    topology=_topology(); configuration,_=initial_configuration(topology)
+    values,_=generate_base_matrix(topology,configuration,"gravity",seed=8)
+    traffic=traffic_matrix_from_array(topology,values,matrix_id="TM:high",pattern="gravity",seed=8,load_multiplier=3.0)
+    environment=UnifiedNetworkEnvironment(); snapshot,_=environment.reset(NetworkScenario("S:capacity",topology,traffic,configuration=configuration,max_steps=20))
+    positive=[]
+    for link in topology.links:
+        attributes=snapshot.configuration.performance[link.link_id]
+        action=AtomicAction("performance","capacity_bps",{"link_id":link.link_id},"set",attributes.capacity_max_bps)
+        result=environment.step(snapshot,JointAction((action,),snapshot_id=snapshot.snapshot_id)); positive.append(result.rewards.per_agent["performance"]); snapshot=result.next_snapshot
+    assert max(positive)>0
 
 
 def test_file_manifest_hashes_and_loaded_matrix_are_valid(tmp_path):

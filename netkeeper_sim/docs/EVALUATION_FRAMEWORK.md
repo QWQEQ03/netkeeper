@@ -1,4 +1,4 @@
-# Evaluation framework (Block 6, evaluator v2)
+# Evaluation framework (Block 6/7, evaluator v3)
 
 `netkeeper_sim.evaluation` is a schema-only evaluator: every formal state
 transition is `UnifiedNetworkEnvironment.step(JointAction)`.  Methods implement
@@ -42,6 +42,13 @@ Output directory is `evaluation-<config-hash>/` and contains resolved config,
 run manifest, steps/episodes/failures JSONL, aggregate JSON/CSV and mean±std.
 Writes are atomic and run keys include method metadata, scenario/sequence,
 seed and evaluator config hash. Resume skips only terminal keys.
+
+Evaluator v3 makes the evaluator version part of the config hash and commits a
+run under an inter-process lock with the terminal record written last.  A
+resume replaces any orphan pre-terminal step/event rows for that run.  This
+prevents overlapping or interrupted workers from mixing trajectories or
+reusing a v2 output directory.  All v2 formal outputs are invalidated by this
+correctness change and must not be combined with v3 results.
 
 ## CLI
 

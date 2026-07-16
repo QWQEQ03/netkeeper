@@ -3,6 +3,7 @@
   "diurnal_amplitude": 0.35,
   "diurnal_period_steps": 24,
   "hotspot_multiplier": 4.0,
+  "initial_capacity_fraction": 0.5,
   "load_levels": {
     "High": 3.0,
     "Low": 0.5,

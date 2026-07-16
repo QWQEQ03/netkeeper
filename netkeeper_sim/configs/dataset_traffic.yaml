@@ -5,6 +5,7 @@ diurnal_period_steps: 24
 diurnal_amplitude: 0.35
 hotspot_multiplier: 4.0
 burst_multiplier: 8.0
+initial_capacity_fraction: 0.5
 load_levels:
   Low: 0.5
   Normal: 1.0

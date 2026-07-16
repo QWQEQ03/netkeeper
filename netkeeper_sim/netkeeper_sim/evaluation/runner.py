@@ -1,9 +1,11 @@
 """Schema-only static/dynamic episode runners; no routing logic lives here."""
 from __future__ import annotations
-import random, traceback
+import random, sys, traceback
 from dataclasses import dataclass
 from time import perf_counter_ns
 from typing import Any, Mapping
+
+from tqdm import tqdm
 
 from netkeeper_sim.evaluation.methods import EvaluationContext, EvaluationMethod, MethodDecision
 from netkeeper_sim.evaluation.results import EVALUATOR_VERSION, ResultStore, configuration_change, run_key
@@ -25,40 +27,46 @@ def _success(snapshot, target_mlu, hold):
 class EvaluationRunner:
     def __init__(self, *, hold_steps: int = 3, evaluator_config_hash: str = "evaluation-v1") -> None:
         self.hold_steps,self.evaluator_config_hash=hold_steps,evaluator_config_hash
-    def run_static(self, method: EvaluationMethod, scenario: NetworkScenario, *, seed: int, run_id: str = "run", max_steps: int | None = None, sequence_id: str | None = None, recovery_budget_steps: int | None = None, run_full_horizon: bool = False) -> RunOutcome:
+    def run_static(self, method: EvaluationMethod, scenario: NetworkScenario, *, seed: int, run_id: str = "run", max_steps: int | None = None, sequence_id: str | None = None, recovery_budget_steps: int | None = None, run_full_horizon: bool = False, show_step_progress: bool = False) -> RunOutcome:
         environment=UnifiedNetworkEnvironment(); started=perf_counter_ns(); snapshot, observation=environment.reset(scenario, seed=seed); initial=snapshot
         context=EvaluationContext(run_id, scenario, scenario.scenario_id, seed, initial, min(max_steps or scenario.max_steps, scenario.max_steps), sequence_id, recovery_budget_steps, {"hold_steps":self.hold_steps})
         try: method.reset(context)
         except Exception as exc: return self._failed(method, context, initial, (), started, "method_reset_error", exc)
         records=[]; consecutive=0; convergence=None; actions=0; status="completed"; failure=None
-        for index in range(context.max_steps):
-            before=snapshot; wall_before=perf_counter_ns(); decision_before=perf_counter_ns()
-            try:
-                raw=method.act(snapshot, observation, context)
-                decision=raw if isinstance(raw, MethodDecision) else MethodDecision(raw, perf_counter_ns()-decision_before)
-                if not isinstance(decision.action, JointAction): raise TypeError("method did not return JointAction")
-                if decision.status != "ok":
-                    status=decision.status; failure=decision.failure_code or "method_unavailable"; break
-                if decision.action.snapshot_id not in (None, snapshot.snapshot_id): raise ValueError("stale_action")
-                illegal = [item.parameter_type for item in decision.action.actions if item.mode != "no_update" and item.parameter_type not in method.metadata.allowed_parameter_types]
-                if illegal: raise ValueError("method_permission_violation:" + ",".join(sorted(set(illegal))))
-                actions += sum(a.mode != "no_update" for a in decision.action.actions)
-                simulator_before=perf_counter_ns(); result=environment.step(snapshot, decision.action); simulator=perf_counter_ns()-simulator_before
-            except MemoryError as exc: return self._failed(method, context, initial, tuple(records), started, "oom", exc)
-            except Exception as exc: return self._failed(method, context, initial, tuple(records), started, "exception", exc)
-            snapshot, observation=result.next_snapshot, result.observations
-            ok=_success(snapshot, scenario.target_mlu, self.hold_steps); consecutive=consecutive+1 if ok else 0
-            if consecutive >= self.hold_steps and convergence is None: convergence=snapshot.step
-            cumulative_change=configuration_change(initial.configuration, snapshot.configuration)
-            record={"step":index,"before_snapshot_id":before.snapshot_id,"after_snapshot_id":snapshot.snapshot_id,"action":decision.action.to_dict(),"method_diagnostics":dict(decision.diagnostics),"configuration_diff":dict(result.changed_config),"configuration_change_from_initial_count":cumulative_change["count"],"configuration_change_from_initial_ratio":cumulative_change["ratio"],"rewards":result.rewards.to_dict(),"metrics":result.metrics.to_dict(),"terminated":result.terminated,"truncated":result.truncated,"done_reason":result.done_reason,"errors":[e.to_dict() for e in result.errors],"decision_time_ms":decision.decision_time_ns/1e6,"simulator_time_ms":simulator/1e6,"wall_time_ms":(perf_counter_ns()-wall_before)/1e6}
-            records.append(record)
-            if result.errors:
-                status="environment_rejected"; failure=result.errors[0].code; break
-            # Environment termination denotes that the instantaneous target is
-            # met.  The evaluator still verifies the frozen hold window; a
-            # dynamic run must additionally consume its complete event horizon.
-            if result.truncated: status="truncated"; break
-            if convergence is not None and not run_full_horizon: status="terminated" if result.terminated else "completed"; break
+        step_pbar=None
+        if show_step_progress: step_pbar=tqdm(total=context.max_steps,desc=f"  {method.metadata.name}",unit="step",leave=False,file=sys.stderr,dynamic_ncols=True)
+        try:
+            for index in range(context.max_steps):
+                before=snapshot; wall_before=perf_counter_ns(); decision_before=perf_counter_ns()
+                try:
+                    raw=method.act(snapshot, observation, context)
+                    decision=raw if isinstance(raw, MethodDecision) else MethodDecision(raw, perf_counter_ns()-decision_before)
+                    if not isinstance(decision.action, JointAction): raise TypeError("method did not return JointAction")
+                    if decision.status != "ok":
+                        status=decision.status; failure=decision.failure_code or "method_unavailable"; break
+                    if decision.action.snapshot_id not in (None, snapshot.snapshot_id): raise ValueError("stale_action")
+                    illegal = [item.parameter_type for item in decision.action.actions if item.mode != "no_update" and item.parameter_type not in method.metadata.allowed_parameter_types]
+                    if illegal: raise ValueError("method_permission_violation:" + ",".join(sorted(set(illegal))))
+                    actions += sum(a.mode != "no_update" for a in decision.action.actions)
+                    simulator_before=perf_counter_ns(); result=environment.step(snapshot, decision.action); simulator=perf_counter_ns()-simulator_before
+                except MemoryError as exc: return self._failed(method, context, initial, tuple(records), started, "oom", exc)
+                except Exception as exc: return self._failed(method, context, initial, tuple(records), started, "exception", exc)
+                snapshot, observation=result.next_snapshot, result.observations
+                ok=_success(snapshot, scenario.target_mlu, self.hold_steps); consecutive=consecutive+1 if ok else 0
+                if consecutive >= self.hold_steps and convergence is None: convergence=snapshot.step
+                cumulative_change=configuration_change(initial.configuration, snapshot.configuration)
+                record={"step":index,"before_snapshot_id":before.snapshot_id,"after_snapshot_id":snapshot.snapshot_id,"action":decision.action.to_dict(),"method_diagnostics":dict(decision.diagnostics),"configuration_diff":dict(result.changed_config),"configuration_change_from_initial_count":cumulative_change["count"],"configuration_change_from_initial_ratio":cumulative_change["ratio"],"rewards":result.rewards.to_dict(),"metrics":result.metrics.to_dict(),"terminated":result.terminated,"truncated":result.truncated,"done_reason":result.done_reason,"errors":[e.to_dict() for e in result.errors],"decision_time_ms":decision.decision_time_ns/1e6,"simulator_time_ms":simulator/1e6,"wall_time_ms":(perf_counter_ns()-wall_before)/1e6}
+                records.append(record)
+                if step_pbar: step_pbar.update(1); step_pbar.set_postfix_str(f"pc={snapshot.metrics.policy_consistency:.2f} mlu={snapshot.metrics.maximum_link_utilization:.2f}")
+                if result.errors:
+                    status="environment_rejected"; failure=result.errors[0].code; break
+                # Environment termination denotes that the instantaneous target is
+                # met.  The evaluator still verifies the frozen hold window; a
+                # dynamic run must additionally consume its complete event horizon.
+                if result.truncated: status="truncated"; break
+                if convergence is not None and not run_full_horizon: status="terminated" if result.terminated else "completed"; break
+        finally:
+            if step_pbar: step_pbar.close()
         final=snapshot; change=configuration_change(initial.configuration, final.configuration)
         success=status in {"completed", "terminated", "truncated"} and (convergence is not None or (_success(final, scenario.target_mlu, self.hold_steps) and self.hold_steps <= 1))
         summary={"evaluator_version":EVALUATOR_VERSION,"run_id":run_id,"method_name":method.metadata.name,"method_version":method.metadata.version,"method_metadata":method.metadata.__dict__,"scenario_id":scenario.scenario_id,"sequence_id":sequence_id,"topology_id":scenario.topology.topology_id,"seed":seed,"status":status,"failure_code":failure,"initial_snapshot_id":initial.snapshot_id,"final_snapshot_id":final.snapshot_id,"policy_consistency_initial":initial.metrics.policy_consistency,"policy_consistency_final":final.metrics.policy_consistency,"policy_consistency_best":max([initial.metrics.policy_consistency]+[r["metrics"]["policy_consistency"] for r in records]),"mlu_initial":initial.metrics.maximum_link_utilization,"mlu_final":final.metrics.maximum_link_utilization,"mlu_best":min([initial.metrics.maximum_link_utilization]+[r["metrics"]["maximum_link_utilization"] for r in records]),"mlu_worst":max([initial.metrics.maximum_link_utilization]+[r["metrics"]["maximum_link_utilization"] for r in records]),"traffic_shift_step_project_final":final.metrics.traffic_shift_step_project_v1,"traffic_shift_total_project_final":final.metrics.traffic_shift_total_project_v1,"traffic_shift_step_paper_final":final.metrics.traffic_shift_step_paper_v1,"traffic_shift_total_paper_final":final.metrics.traffic_shift_total_paper_v1,"configuration_change_count":change["count"],"configuration_change_ratio":change["ratio"],"configuration_change_fields":change["changed_fields"],"action_count":actions,"success":success,"convergence_step":convergence,"censored":not success,"decision_time_ms":sum(r["decision_time_ms"] for r in records),"simulator_time_ms":sum(r["simulator_time_ms"] for r in records),"wall_time_ms":(perf_counter_ns()-started)/1e6}
@@ -67,23 +75,23 @@ class EvaluationRunner:
         summary["lookahead_simulator_calls"]=sum(int(r["method_diagnostics"].get("simulator_calls",0)) for r in records)
         return RunOutcome(summary, tuple(records))
     def persist(self, store: ResultStore, outcome: RunOutcome) -> bool:
-        """Write portable step/episode/failure JSONL atomically and resume safely."""
+        """Commit a run transactionally so interrupted resumes cannot mix trajectories."""
         key = str(outcome.summary["run_key"])
+        steps=[]
         for index, row in enumerate(outcome.steps):
-            item=dict(row); item["run_key"]=f"{key}:{index}"
-            store.append_unique("steps.jsonl", item, key=item["run_key"])
+            item=dict(row); item["run_key"]=f"{key}:{index}"; steps.append(item)
+        events=[]
         for event in outcome.event_recovery:
-            item=dict(event); item["run_key"]=key
-            store.append_unique("event_recovery.jsonl", item, key=f"{key}:{item['event_id']}")
+            item=dict(event); item["run_key"]=key; events.append(item)
         target="episodes.jsonl" if outcome.summary.get("status") in {"completed", "terminated", "truncated"} else "failures.jsonl"
-        return store.append_unique(target, outcome.summary, key=key)
+        return store.commit_run(run_key=key, summary=outcome.summary, steps=steps, events=events, terminal_file=target)
     def run_static_dataset(self, method: EvaluationMethod, dataset: ScenarioDataset, *, seed: int, scenario_id: str, run_id: str = "run") -> RunOutcome:
         """Materialize exactly the requested lazy dataset record, not the whole split."""
         scenario = next((item for item in dataset if item.scenario_id == scenario_id), None)
         if scenario is None: raise KeyError(f"unknown_scenario_id:{scenario_id}")
         return self.run_static(method, scenario, seed=seed, run_id=run_id)
-    def run_dynamic(self, method, scenario, *, seed:int, sequence_id:str, recovery_budget_steps:int=30, run_id:str="run", logical_events: tuple[Mapping[str, Any], ...] | None = None) -> RunOutcome:
-        outcome=self.run_static(method, scenario, seed=seed, run_id=run_id, sequence_id=sequence_id, recovery_budget_steps=recovery_budget_steps, run_full_horizon=True)
+    def run_dynamic(self, method, scenario, *, seed:int, sequence_id:str, recovery_budget_steps:int=30, run_id:str="run", logical_events: tuple[Mapping[str, Any], ...] | None = None, show_step_progress: bool = False) -> RunOutcome:
+        outcome=self.run_static(method, scenario, seed=seed, run_id=run_id, sequence_id=sequence_id, recovery_budget_steps=recovery_budget_steps, run_full_horizon=True, show_step_progress=show_step_progress)
         events=[]; by_id={event.event_id:event for event in scenario.events}
         units = logical_events or tuple({"kind": event.kind, "event_ids": [event.event_id]} for event in scenario.events)
         # Events take effect at the result of the step whose pre-snapshot has the matching step.
@@ -113,10 +121,10 @@ class EvaluationRunner:
         summary=dict(outcome.summary); summary["dynamic_recovered"]=all(x["recovered"] for x in events) if events else True; summary["dynamic_recovery_count"]=sum(x["recovered"] for x in events); summary["success"]=summary["dynamic_recovered"] and len(outcome.steps)==scenario.max_steps; summary["censored"]=not summary["success"]
         summary["event_recovery"]=events
         return RunOutcome(summary, outcome.steps, tuple(events))
-    def run_dynamic_sequence(self, method, dataset_root, sequence: Mapping[str, Any], *, seed: int, run_id: str = "run") -> RunOutcome:
+    def run_dynamic_sequence(self, method, dataset_root, sequence: Mapping[str, Any], *, seed: int, run_id: str = "run", show_step_progress: bool = False) -> RunOutcome:
         from netkeeper_sim.dataset.dynamic_sequences import dynamic_scenario
         scenario=dynamic_scenario(dataset_root, sequence)
-        return self.run_dynamic(method, scenario, seed=seed, sequence_id=str(sequence["sequence_id"]), recovery_budget_steps=int(sequence["recovery_budget_steps"]), run_id=run_id, logical_events=tuple(sequence["logical_events"]))
+        return self.run_dynamic(method, scenario, seed=seed, sequence_id=str(sequence["sequence_id"]), recovery_budget_steps=int(sequence["recovery_budget_steps"]), run_id=run_id, logical_events=tuple(sequence["logical_events"]), show_step_progress=show_step_progress)
     def _failed(self, method, context, initial, records, started, code, exc):
         summary={"evaluator_version":EVALUATOR_VERSION,"run_id":context.run_id,"method_name":method.metadata.name,"method_version":method.metadata.version,"method_metadata":method.metadata.__dict__,"scenario_id":context.scenario_id,"sequence_id":context.sequence_id,"seed":context.seed,"status":"failed","failure_code":code,"failure_detail":str(exc),"initial_snapshot_id":initial.snapshot_id,"final_snapshot_id":initial.snapshot_id,"policy_consistency_initial":initial.metrics.policy_consistency,"policy_consistency_final":initial.metrics.policy_consistency,"mlu_initial":initial.metrics.maximum_link_utilization,"mlu_final":initial.metrics.maximum_link_utilization,"configuration_change_count":0,"configuration_change_ratio":0.0,"action_count":0,"success":False,"convergence_step":None,"censored":True,"decision_time_ms":0.0,"simulator_time_ms":0.0,"wall_time_ms":(perf_counter_ns()-started)/1e6}
         summary["run_key"]=run_key(method.metadata.__dict__, context.scenario_id, context.sequence_id, context.seed, self.evaluator_config_hash)

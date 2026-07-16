@@ -11,15 +11,15 @@ from typing import Any, Iterable, Iterator, Mapping
 import networkx as nx
 import numpy as np
 
-from netkeeper_sim.dataset.traffic import derive_seed, load_traffic_record
+from netkeeper_sim.dataset.traffic import derive_seed, load_traffic_record, synthetic_bgp_design
 from netkeeper_sim.policies.schema_evaluator import evaluate_schema_policies
 from netkeeper_sim.schemas import NetworkConfiguration, NetworkScenario, Policy, Topology, TrafficMatrix
 from netkeeper_sim.schemas.ids import SCHEMA_VERSION
 from netkeeper_sim.simulator.deterministic import simulate_deterministic
 
 
-SCENARIO_GENERATOR_VERSION = "1.0.0"
-SCENARIO_DATASET_VERSION = "netkeeper-lite.static-scenarios.v1"
+SCENARIO_GENERATOR_VERSION = "2.0.0"
+SCENARIO_DATASET_VERSION = "netkeeper-lite.static-scenarios.v2"
 DIFFICULTY_COUNTS = {"Easy": 2, "Medium": 4, "Hard": 8}
 TARGET_SCENARIO_COUNTS = {"train": 3000, "validation": 400, "test": 500}
 SMOKE_SCENARIO_COUNTS = {"train": 12, "validation": 12, "test": 12}
@@ -58,7 +58,7 @@ def sample_policies(topology: Topology, configuration: NetworkConfiguration, dif
     routing = routing_result or simulate_deterministic(topology, configuration, TrafficMatrix("TM:empty", tuple(node.node_id for node in topology.nodes), ()))
     for attempt in range(max_attempts):
         rng = np.random.default_rng(derive_seed(seed, "policy", topology.topology_id, difficulty, attempt))
-        policies = _sample_once(topology, graph, count, rng, attempt)
+        policies = _sample_once(topology, configuration, graph, count, rng, attempt)
         if detect_policy_conflicts(policies):
             continue
         report = evaluate_schema_policies(policies, routing.routing_table, configuration, topology, routing.selected_bgp_routes)
@@ -71,12 +71,16 @@ def sample_policies(topology: Topology, configuration: NetworkConfiguration, dif
     raise ScenarioGenerationError("policy_sampling_exhausted", "unable to sample a non-degenerate policy set", {"topology_id": topology.topology_id, "difficulty": difficulty, "seed": seed, "max_attempts": max_attempts})
 
 
-def _sample_once(topology: Topology, graph: nx.Graph, count: int, rng: np.random.Generator, attempt: int) -> tuple[Policy, ...]:
+def _sample_once(topology: Topology, configuration: NetworkConfiguration, graph: nx.Graph, count: int, rng: np.random.Generator, attempt: int) -> tuple[Policy, ...]:
     nodes = [node.node_id for node in topology.nodes]
     used_reachable: set[tuple[str, str]] = set()
     used_forward: set[tuple[str, str, str]] = set()
     used_isolation: set[tuple[str, str, str, str]] = set()
     policies: list[Policy] = []
+    design=synthetic_bgp_design(topology)
+    prefix=next(route.prefix for route in configuration.bgp.routes if route.router_id==design["router_id"] and route.next_hop==design["alternate_next_hop"])
+    policies.append(Policy(f"P:forward:bgp:{attempt}:0","forward_pass",{"source":design["router_id"],"destination":prefix,"destination_type":"prefix","waypoint":design["alternate_waypoint"],"path_mode":"any_path"}))
+    used_forward.add((design["router_id"],prefix,design["alternate_waypoint"]))
     for index in range(count):
         for _ in range(256):
             source, destination = _pair(rng, nodes)
@@ -85,7 +89,7 @@ def _sample_once(topology: Topology, graph: nx.Graph, count: int, rng: np.random
                 policies.append(Policy(f"P:reachable:{attempt}:{index}", "reachable", {"source": source, "destination": destination}))
                 break
         else: raise ScenarioGenerationError("reachable_sampling_exhausted", "no unique reachable pair", {"count": count})
-    for index in range(count):
+    for index in range(1,count):
         for _ in range(256):
             source, destination = _pair(rng, nodes)
             waypoint = str(rng.choice([node for node in nodes if node not in {source, destination}]))
@@ -269,8 +273,13 @@ def _validate_policy_entities(scenario: NetworkScenario) -> None:
         if policy.kind == "reachable":
             if fields.get("source") not in nodes or fields.get("destination") not in nodes or fields["source"] == fields["destination"]: raise ValueError("invalid_reachable_entity")
         elif policy.kind == "forward_pass":
-            values = (fields.get("source"), fields.get("destination"), fields.get("waypoint"))
-            if not set(values) <= nodes or len(set(values)) != 3: raise ValueError("invalid_forward_entity")
+            if fields.get("destination_type","node")=="prefix":
+                source,destination,waypoint=fields.get("source"),fields.get("destination"),fields.get("waypoint")
+                candidates=[route for route in scenario.configuration.bgp.routes if route.router_id==source and route.prefix==destination] if scenario.configuration else []
+                if source not in nodes or waypoint not in nodes or waypoint==source or len(candidates)<2: raise ValueError("invalid_bgp_forward_entity")
+            else:
+                values = (fields.get("source"), fields.get("destination"), fields.get("waypoint"))
+                if not set(values) <= nodes or len(set(values)) != 3: raise ValueError("invalid_forward_entity")
         elif policy.kind == "isolation":
             values = (fields.get("first_source"), fields.get("first_destination"), fields.get("second_source"), fields.get("second_destination"))
             if not set(values) <= nodes or len(set(values)) != 4: raise ValueError("invalid_isolation_entity")

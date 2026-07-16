@@ -1,9 +1,11 @@
 """Deterministic serial batch execution, validation and presentation helpers."""
 from __future__ import annotations
-import hashlib, json, shutil
+import hashlib, json, shutil, sys
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any, Callable, Mapping
+
+from tqdm import tqdm
 
 from netkeeper_sim.dataset.dynamic_sequences import dynamic_scenario
 from netkeeper_sim.dataset.scenarios import scenario_from_record
@@ -33,10 +35,12 @@ def _verify_formal_checkpoint(root: Path, config: Mapping[str, Any]) -> None:
     if bundle.get("checkpoint_sha256") != digest or bundle.get("checkpoint_status") != "formal_validation_selected": raise ValueError("formal_checkpoint_hash_or_status_mismatch")
     resolved=Path(str(bundle.get("resolved_config_path") or ""))
     if not resolved.is_file() or bundle.get("resolved_config_sha256") != hashlib.sha256(resolved.read_bytes()).hexdigest(): raise ValueError("formal_checkpoint_resolved_config_mismatch")
-    if bundle.get("model_version") != "rl-coma-v2" or bundle.get("schema_version") != "netkeeper-sim.schema.v1": raise ValueError("formal_checkpoint_model_schema_mismatch")
+    if bundle.get("model_version") != "rl-coma-v3" or bundle.get("training_semantics_version") != "coma-counterfactual-v4" or bundle.get("checkpoint_state_version") != "training-state-v2" or bundle.get("schema_version") != "netkeeper-sim.schema.v1": raise ValueError("formal_checkpoint_model_schema_mismatch")
     if bundle.get("dataset_manifest_sha256") != hashlib.sha256((root/"metadata/manifest.json").read_bytes()).hexdigest(): raise ValueError("formal_checkpoint_dataset_mismatch")
     provenance=bundle.get("provenance") or {}; formalization=bundle.get("formalization") or {}
-    if provenance.get("training_split") != "scenarios/train.jsonl" or provenance.get("validation_split") != "scenarios/validation.jsonl" or provenance.get("selection_metric") != "validation_total_reward" or formalization.get("test_split_accessed") is not False or formalization.get("strict_load") is not True or formalization.get("greedy_dispatch") is not True: raise ValueError("formal_checkpoint_selection_provenance_invalid")
+    selection_metric=provenance.get("selection_metric")
+    summary=bundle.get("validation_summary") or {}; agents=summary.get("agents") or {}
+    if provenance.get("training_split") != "scenarios/train.jsonl" or provenance.get("validation_split") != "scenarios/validation.jsonl" or selection_metric != "validation_reward_delta_vs_no_update" or float(summary.get("reward_delta_vs_no_update",float("-inf"))) <= 0 or any(int((agents.get(name) or {}).get("action_count",0)) < 1 for name in ("ospf","bgp","performance")) or formalization.get("test_split_accessed") is not False or formalization.get("strict_load") is not True or formalization.get("greedy_dispatch") is not True: raise ValueError("formal_checkpoint_selection_provenance_invalid")
     method=DispatcherMethodAdapter(checkpoint,config=config,checkpoint_status="formal_validation_selected")
     if method._load_error is not None: raise ValueError(f"formal_checkpoint_strict_load_failed:{method._load_error[1]}")
 
@@ -69,7 +73,9 @@ def plan(dataset_root: str | Path, config: Mapping[str, Any]) -> tuple[dict[str,
     selected_dynamic=[x for x in manifest["dynamic"] if x["sequence_id"] in set(config.get("sequence_ids") or [x["sequence_id"] for x in manifest["dynamic"]])]
     if config.get("mode","static") == "static": selected_dynamic=[]
     if config.get("mode") == "dynamic": selected_static=[]
-    tasks=[]; cfg_hash=canonical_hash(config)
+    # The evaluator version is part of the experiment identity.  A correctness
+    # fix must never reuse an older version's output directory or run keys.
+    tasks=[]; cfg_hash=canonical_hash({"evaluator_version":EVALUATOR_VERSION,"config":config})
     for method_name in methods:
         metadata=method_factory(method_name,config).metadata.__dict__
         for item in selected_static:
@@ -83,7 +89,7 @@ def plan(dataset_root: str | Path, config: Mapping[str, Any]) -> tuple[dict[str,
             for seed in (random_seeds if method_name=="random" else (deterministic_seed,)):
                 tasks.append({"kind":"dynamic","method":method_name,"metadata":metadata,"sequence_id":item["sequence_id"],"scenario_id":item["scenario_id"],"seed":seed,"attributes":{"topology_id":row["topology_id"],"event_type":"|".join(x["kind"] for x in row["logical_events"])}})
     for item in tasks: item["run_key"]=run_key(item["metadata"],item["scenario_id"],item.get("sequence_id"),item["seed"],cfg_hash)
-    run_manifest={"evaluator_version":EVALUATOR_VERSION,"evaluation_manifest":manifest,"resolved_config":dict(config),"evaluator_config_hash":cfg_hash,"tasks":tasks,"run_manifest_hash":canonical_hash({"config":config,"dataset_manifest":manifest["manifest_hash"],"tasks":tasks})}
+    run_manifest={"evaluator_version":EVALUATOR_VERSION,"evaluation_manifest":manifest,"resolved_config":dict(config),"evaluator_config_hash":cfg_hash,"tasks":tasks,"run_manifest_hash":canonical_hash({"evaluator_version":EVALUATOR_VERSION,"config":config,"dataset_manifest":manifest["manifest_hash"],"tasks":tasks})}
     return run_manifest,tasks
 
 def prepare_output(output: str | Path, run_manifest: Mapping[str,Any], *, resume: bool=False, overwrite: bool=False) -> ResultStore:
@@ -92,22 +98,32 @@ def prepare_output(output: str | Path, run_manifest: Mapping[str,Any], *, resume
     if root.exists() and overwrite: shutil.rmtree(root)
     store=ResultStore(root); store.write_json("run_manifest.json",run_manifest); store.write_json("resolved_evaluation_config.json",run_manifest["resolved_config"]); return store
 
-def execute(dataset_root: str | Path, config: Mapping[str,Any], store: ResultStore, run_manifest: Mapping[str,Any], *, progress: Callable[[str],None]=print) -> dict[str,int]:
+def execute(dataset_root: str | Path, config: Mapping[str,Any], store: ResultStore, run_manifest: Mapping[str,Any], *, progress: Callable[[str],None] | None = None, show_step_progress: bool = False) -> dict[str,int]:
     root=Path(dataset_root); cfg_hash=run_manifest["evaluator_config_hash"]; terminal={row["run_key"] for filename in ("episodes.jsonl","failures.jsonl") for row in store.read(filename)}; counts={"planned":len(run_manifest["tasks"]),"skipped":0,"completed":0,"failed":0}
     scenario_records={row["scenario_id"]:row for row in _jsonl(root/"scenarios/validation.jsonl")+_jsonl(root/"scenarios/test.jsonl")}; sequence_records={row["sequence_id"]:row for row in _jsonl(root/"dynamic_sequences/test.jsonl")}
+    use_tqdm=progress is None; pbar=tqdm(total=counts["planned"],desc="Evaluating",unit="task",disable=not use_tqdm,file=sys.stderr,dynamic_ncols=True)
     for number,task in enumerate(run_manifest["tasks"],1):
-        if task["run_key"] in terminal: counts["skipped"]+=1; continue
+        if task["run_key"] in terminal:
+            counts["skipped"]+=1
+            if use_tqdm: pbar.update(1); pbar.set_postfix_str(f"skip {task['method']}")
+            continue
         method=method_factory(task["method"],config); runner=EvaluationRunner(hold_steps=int(config.get("hold_steps",3)),evaluator_config_hash=cfg_hash)
         try:
             if task["kind"]=="static":
-                scenario=scenario_from_record(root,scenario_records[task["scenario_id"]]); outcome=runner.run_static(method,scenario,seed=int(task["seed"]),run_id=run_manifest["run_manifest_hash"],max_steps=config.get("max_steps"))
+                scenario=scenario_from_record(root,scenario_records[task["scenario_id"]]); outcome=runner.run_static(method,scenario,seed=int(task["seed"]),run_id=run_manifest["run_manifest_hash"],max_steps=config.get("max_steps"),show_step_progress=show_step_progress and use_tqdm)
             else:
-                record=sequence_records[task["sequence_id"]]; outcome=runner.run_dynamic_sequence(method,root,record,seed=int(task["seed"]),run_id=run_manifest["run_manifest_hash"])
+                record=sequence_records[task["sequence_id"]]; outcome=runner.run_dynamic_sequence(method,root,record,seed=int(task["seed"]),run_id=run_manifest["run_manifest_hash"],show_step_progress=show_step_progress and use_tqdm)
             summary=dict(outcome.summary); summary.update(task["attributes"]); summary["run_key"]=task["run_key"]; outcome=type(outcome)(summary,outcome.steps,outcome.event_recovery); runner.persist(store,outcome)
             counts["completed" if summary["status"] in {"completed","terminated","truncated"} else "failed"]+=1
-            progress(f"[{number}/{counts['planned']}] {task['method']} {task['scenario_id']} seed={task['seed']} {summary['status']} {summary['wall_time_ms']:.1f}ms")
+            if use_tqdm: pbar.update(1); pbar.set_postfix_str(f"{task['method']} seed={task['seed']} {summary['status']} {summary['wall_time_ms']:.1f}ms")
+            else: progress(f"[{number}/{counts['planned']}] {task['method']} {task['scenario_id']} seed={task['seed']} {summary['status']} {summary['wall_time_ms']:.1f}ms")
         except Exception as exc:
-            failure={"run_key":task["run_key"],"status":"failed","failure_code":"batch_exception","failure_detail":str(exc),"method_name":task["method"],"method_version":task["metadata"]["version"],"scenario_id":task["scenario_id"],"sequence_id":task.get("sequence_id"),"seed":task["seed"],**task["attributes"]}; store.append_unique("failures.jsonl",failure,key=task["run_key"]); counts["failed"]+=1; progress(f"[{number}/{counts['planned']}] FAILED {task['method']} {exc}")
+            failure={"run_key":task["run_key"],"evaluator_version":EVALUATOR_VERSION,"status":"failed","failure_code":"batch_exception","failure_detail":str(exc),"method_name":task["method"],"method_version":task["metadata"]["version"],"method_metadata":task["metadata"],"scenario_id":task["scenario_id"],"sequence_id":task.get("sequence_id"),"seed":task["seed"],"success":False,"censored":True,**task["attributes"]}
+            store.commit_run(run_key=task["run_key"],summary=failure,steps=(),events=(),terminal_file="failures.jsonl")
+            counts["failed"]+=1
+            if use_tqdm: pbar.update(1); pbar.set_postfix_str(f"FAIL {task['method']} {exc!s:.40}")
+            else: progress(f"[{number}/{counts['planned']}] FAILED {task['method']} {exc}")
+    if use_tqdm: pbar.close()
     return counts
 
 def aggregate_output(store: ResultStore, *, group_by: tuple[str,...]=( "method_name",)) -> list[dict[str,Any]]:
@@ -123,6 +139,7 @@ def _finite(value):
 
 def validate_output(store: ResultStore) -> dict[str,Any]:
     manifest=store.read("run_manifest.json") if False else json.loads((store.root/"run_manifest.json").read_text(encoding="utf-8")); tasks={x["run_key"]:x for x in manifest["tasks"]}; terminals=store.read("episodes.jsonl")+store.read("failures.jsonl"); errors=[]; seen=set()
+    if manifest.get("evaluator_version") != EVALUATOR_VERSION: errors.append({"code":"evaluator_version_mismatch","expected":EVALUATOR_VERSION,"actual":manifest.get("evaluator_version")})
     for row in terminals:
         key=row.get("run_key")
         if not _finite(row): errors.append({"code":"non_finite_value","run_key":key})
@@ -136,10 +153,38 @@ def validate_output(store: ResultStore) -> dict[str,Any]:
     for row in store.read("steps.jsonl"):
         key=str(row.get("run_key","")).rsplit(":",1)[0]; by_run.setdefault(key,[]).append(row)
     for key,rows in by_run.items():
-        for index,row in enumerate(sorted(rows,key=lambda x:x["step"])):
+        if key not in tasks: errors.append({"code":"orphan_step_run","run_key":key})
+        if key not in seen: errors.append({"code":"step_run_without_terminal","run_key":key})
+        ordered=sorted(rows,key=lambda x:x["step"])
+        for index,row in enumerate(ordered):
             if row["step"]!=index: errors.append({"code":"non_contiguous_step","run_key":key})
-            if index and row["before_snapshot_id"]!=sorted(rows,key=lambda x:x["step"])[index-1]["after_snapshot_id"]: errors.append({"code":"snapshot_chain_mismatch","run_key":key})
+            if str(row.get("run_key")) != f"{key}:{index}": errors.append({"code":"step_key_mismatch","run_key":key,"step":row.get("step")})
+            if index and row["before_snapshot_id"]!=ordered[index-1]["after_snapshot_id"]: errors.append({"code":"snapshot_chain_mismatch","run_key":key})
             if not _finite(row): errors.append({"code":"non_finite_step","run_key":key})
+        terminal=next((row for row in terminals if row.get("run_key")==key),None)
+        if terminal and ordered and terminal.get("final_snapshot_id") != ordered[-1].get("after_snapshot_id"): errors.append({"code":"terminal_final_snapshot_mismatch","run_key":key})
+    for key in seen:
+        terminal=next((row for row in terminals if row.get("run_key")==key),None)
+        if terminal and terminal.get("status") in {"completed","terminated","truncated"} and key not in by_run: errors.append({"code":"terminal_without_steps","run_key":key})
+
+    dynamic_expected={item["sequence_id"]:len(item.get("event_types",())) for item in manifest.get("evaluation_manifest",{}).get("dynamic",())}
+    events_by_run={}
+    for row in store.read("event_recovery.jsonl"):
+        key=str(row.get("run_key", "")); events_by_run.setdefault(key,[]).append(row)
+        if key not in tasks: errors.append({"code":"orphan_event_run","run_key":key})
+        if not _finite(row): errors.append({"code":"non_finite_event","run_key":key})
+    schedules={}
+    for row in terminals:
+        if not row.get("sequence_id") or row.get("status") not in {"completed","terminated","truncated"}: continue
+        key=row["run_key"]; events=events_by_run.get(key,[]); expected=dynamic_expected.get(row["sequence_id"])
+        if expected is not None and len(events)!=expected: errors.append({"code":"logical_event_count_mismatch","run_key":key,"expected":expected,"actual":len(events)})
+        if len({event.get("event_id") for event in events}) != len(events): errors.append({"code":"duplicate_logical_event","run_key":key})
+        projected=[{field:value for field,value in event.items() if field!="run_key"} for event in events]
+        if row.get("event_recovery") != projected: errors.append({"code":"event_recovery_projection_mismatch","run_key":key})
+        signature=tuple((event.get("event_id"),event.get("event_type"),event.get("event_step"),event.get("recovery_start_step"),event.get("recovery_budget_steps")) for event in events)
+        group=(row.get("sequence_id"),row.get("seed")); schedules.setdefault(group,set()).add(signature)
+    for group,values in schedules.items():
+        if len(values)>1: errors.append({"code":"event_schedule_mismatch","group":group})
     initial={}
     for row in terminals:
         if row.get("initial_snapshot_id"):

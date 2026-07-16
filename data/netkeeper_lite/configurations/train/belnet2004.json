@@ -6,9 +6,20 @@
           65000
         ],
         "enabled": true,
-        "local_preference": 100,
+        "local_preference": 32,
         "med": 0,
-        "next_hop": "R4",
+        "next_hop": "R1",
+        "prefix": "198.18.232.0/24",
+        "router_id": "R0"
+      },
+      {
+        "as_path": [
+          65000
+        ],
+        "enabled": true,
+        "local_preference": 48,
+        "med": 0,
+        "next_hop": "R6",
         "prefix": "198.18.232.0/24",
         "router_id": "R0"
       }
@@ -133,7 +144,7 @@
   "performance": {
     "L:R0--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.28776025585151416,
       "loss_rate": 0.0,
@@ -146,7 +157,7 @@
     },
     "L:R0--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.28776025585151416,
       "loss_rate": 0.0,
@@ -159,7 +170,7 @@
     },
     "L:R1--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.2049879312623073,
       "loss_rate": 0.0,
@@ -172,7 +183,7 @@
     },
     "L:R1--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.2049879312623073,
       "loss_rate": 0.0,
@@ -185,7 +196,7 @@
     },
     "L:R10--R14:0": {
       "bandwidth_bps": 1000000000,
-      "capacity_bps": 1000000000,
+      "capacity_bps": 500000000,
       "capacity_max_bps": 1000000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,
@@ -198,7 +209,7 @@
     },
     "L:R10--R14:1": {
       "bandwidth_bps": 1000000000,
-      "capacity_bps": 1000000000,
+      "capacity_bps": 500000000,
       "capacity_max_bps": 1000000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,
@@ -211,7 +222,7 @@
     },
     "L:R10--R14:2": {
       "bandwidth_bps": 1000000000,
-      "capacity_bps": 1000000000,
+      "capacity_bps": 500000000,
       "capacity_max_bps": 1000000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,
@@ -224,7 +235,7 @@
     },
     "L:R10--R7:0": {
       "bandwidth_bps": 1000000000,
-      "capacity_bps": 1000000000,
+      "capacity_bps": 500000000,
       "capacity_max_bps": 1000000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,
@@ -237,7 +248,7 @@
     },
     "L:R10--R7:1": {
       "bandwidth_bps": 1000000000,
-      "capacity_bps": 1000000000,
+      "capacity_bps": 500000000,
       "capacity_max_bps": 1000000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,
@@ -250,7 +261,7 @@
     },
     "L:R11--R14:0": {
       "bandwidth_bps": 1000000000,
-      "capacity_bps": 1000000000,
+      "capacity_bps": 500000000,
       "capacity_max_bps": 1000000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,
@@ -263,7 +274,7 @@
     },
     "L:R11--R14:1": {
       "bandwidth_bps": 1000000000,
-      "capacity_bps": 1000000000,
+      "capacity_bps": 500000000,
       "capacity_max_bps": 1000000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,
@@ -276,7 +287,7 @@
     },
     "L:R12--R7:0": {
       "bandwidth_bps": 1000000000,
-      "capacity_bps": 1000000000,
+      "capacity_bps": 500000000,
       "capacity_max_bps": 1000000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,
@@ -289,7 +300,7 @@
     },
     "L:R13--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.44569739941774134,
       "loss_rate": 0.0,
@@ -302,7 +313,7 @@
     },
     "L:R13--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.44569739941774134,
       "loss_rate": 0.0,
@@ -315,7 +326,7 @@
     },
     "L:R14--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.0,
       "loss_rate": 0.0,
@@ -328,7 +339,7 @@
     },
     "L:R14--R6:0": {
       "bandwidth_bps": 10000000000,
-      "capacity_bps": 10000000000,
+      "capacity_bps": 5000000000,
       "capacity_max_bps": 10000000000,
       "delay_ms": 0.0,
       "loss_rate": 0.0,
@@ -341,7 +352,7 @@
     },
     "L:R14--R7:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.0,
       "loss_rate": 0.0,
@@ -354,7 +365,7 @@
     },
     "L:R15--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.4408267742562891,
       "loss_rate": 0.0,
@@ -367,7 +378,7 @@
     },
     "L:R15--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.4408267742562891,
       "loss_rate": 0.0,
@@ -380,7 +391,7 @@
     },
     "L:R16--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.24764444841304434,
       "loss_rate": 0.0,
@@ -393,7 +404,7 @@
     },
     "L:R16--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.24764444841304434,
       "loss_rate": 0.0,
@@ -406,7 +417,7 @@
     },
     "L:R17--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.3807583236994904,
       "loss_rate": 0.0,
@@ -419,7 +430,7 @@
     },
     "L:R17--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.3807583236994904,
       "loss_rate": 0.0,
@@ -432,7 +443,7 @@
     },
     "L:R18--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.2609305842469177,
       "loss_rate": 0.0,
@@ -445,7 +456,7 @@
     },
     "L:R18--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.2609305842469177,
       "loss_rate": 0.0,
@@ -458,7 +469,7 @@
     },
     "L:R19--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.24300670870060398,
       "loss_rate": 0.0,
@@ -471,7 +482,7 @@
     },
     "L:R19--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.24300670870060398,
       "loss_rate": 0.0,
@@ -484,7 +495,7 @@
     },
     "L:R2--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.1246279261766946,
       "loss_rate": 0.0,
@@ -497,7 +508,7 @@
     },
     "L:R2--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.1246279261766946,
       "loss_rate": 0.0,
@@ -510,7 +521,7 @@
     },
     "L:R20--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.1377887168759272,
       "loss_rate": 0.0,
@@ -523,7 +534,7 @@
     },
     "L:R20--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.1377887168759272,
       "loss_rate": 0.0,
@@ -536,7 +547,7 @@
     },
     "L:R21--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.2702232439733327,
       "loss_rate": 0.0,
@@ -549,7 +560,7 @@
     },
     "L:R21--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.2702232439733327,
       "loss_rate": 0.0,
@@ -562,7 +573,7 @@
     },
     "L:R22--R4:0": {
       "bandwidth_bps": 155000000,
-      "capacity_bps": 155000000,
+      "capacity_bps": 77500000,
       "capacity_max_bps": 155000000,
       "delay_ms": 0.8325471769740534,
       "loss_rate": 0.0,
@@ -575,7 +586,7 @@
     },
     "L:R22--R6:0": {
       "bandwidth_bps": 155000000,
-      "capacity_bps": 155000000,
+      "capacity_bps": 77500000,
       "capacity_max_bps": 155000000,
       "delay_ms": 0.8325471769740534,
       "loss_rate": 0.0,
@@ -588,7 +599,7 @@
     },
     "L:R3--R4:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.3483409363679099,
       "loss_rate": 0.0,
@@ -601,7 +612,7 @@
     },
     "L:R3--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.3483409363679099,
       "loss_rate": 0.0,
@@ -614,7 +625,7 @@
     },
     "L:R4--R6:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.0,
       "loss_rate": 0.0,
@@ -627,7 +638,7 @@
     },
     "L:R4--R7:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.0,
       "loss_rate": 0.0,
@@ -640,7 +651,7 @@
     },
     "L:R5--R7:0": {
       "bandwidth_bps": 155000000,
-      "capacity_bps": 155000000,
+      "capacity_bps": 77500000,
       "capacity_max_bps": 155000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,
@@ -653,7 +664,7 @@
     },
     "L:R6--R7:0": {
       "bandwidth_bps": 2500000000,
-      "capacity_bps": 2500000000,
+      "capacity_bps": 1250000000,
       "capacity_max_bps": 2500000000,
       "delay_ms": 0.0,
       "loss_rate": 0.0,
@@ -666,7 +677,7 @@
     },
     "L:R7--R8:0": {
       "bandwidth_bps": 1000000000,
-      "capacity_bps": 1000000000,
+      "capacity_bps": 500000000,
       "capacity_max_bps": 1000000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,
@@ -679,7 +690,7 @@
     },
     "L:R7--R9:0": {
       "bandwidth_bps": 155000000,
-      "capacity_bps": 155000000,
+      "capacity_bps": 77500000,
       "capacity_max_bps": 155000000,
       "delay_ms": 1.0,
       "loss_rate": 0.0,

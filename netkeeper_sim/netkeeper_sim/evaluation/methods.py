@@ -80,12 +80,14 @@ class DispatcherMethodAdapter:
             if not path.is_file():
                 raise FileNotFoundError(str(path))
             from netkeeper_sim.rl.dispatcher import TrainedPolicyDispatcher
-            self.dispatcher = TrainedPolicyDispatcher(str(path))
+            self.dispatcher = TrainedPolicyDispatcher(str(path), device=(config or {}).get("device", "cpu"))
         except FileNotFoundError as exc:
             self.dispatcher = None; self._load_error = ("checkpoint_unavailable", str(exc))
         except Exception as exc:  # dispatcher has the authoritative compatibility check
             self.dispatcher = None; self._load_error = ("checkpoint_incompatible", str(exc))
-        self.metadata = MethodMetadata("coma_dispatcher", "rl-coma-v2-adapter.1", canonical_hash(dict(config or {})), digest, True, ("ospf_weight", "local_preference", "as_path_length", "med", "bandwidth_bps", "capacity_bps", "queue_packets"), False, checkpoint_status)
+        revised=getattr(self.dispatcher,"training_semantics_version",None)=="coma-counterfactual-v4"
+        inference_config={"inference":"greedy_eval_no_grad","objectives":["policy_consistency","mlu"],"action_adapter":"block5-candidate-v2" if revised else "block5-candidate-v1"}
+        self.metadata = MethodMetadata("coma_dispatcher", "rl-coma-v3-adapter.1" if revised else "legacy-inference-adapter", canonical_hash(inference_config), digest, True, ("ospf_weight", "local_preference", "as_path_length", "med", "bandwidth_bps", "capacity_bps", "queue_packets"), False, checkpoint_status)
     def reset(self, context: EvaluationContext) -> None: pass
     def act(self, snapshot, observation, context) -> MethodDecision:
         started = perf_counter_ns()

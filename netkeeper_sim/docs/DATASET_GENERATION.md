@@ -27,6 +27,15 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m netkeeper_sim.dataset.cli generate-release 
   --output-root ../data/netkeeper_lite \
   --selection-seed 20260713
 
+# Intents contain snapshot and BGP-route identifiers derived from the release.
+PYTHONDONTWRITEBYTECODE=1 python3 -c \
+  "from netkeeper_sim.dataset.intents import generate_intent_dataset; generate_intent_dataset('../data/netkeeper_lite')"
+
+# Rebuild the release manifest after all derived datasets are current.
+PYTHONDONTWRITEBYTECODE=1 python3 -m netkeeper_sim.dataset.cli generate-metadata \
+  --output-root ../data/netkeeper_lite \
+  --selection-seed 20260713
+
 PYTHONDONTWRITEBYTECODE=1 python3 -m netkeeper_sim.dataset.cli validate-release \
   --output-root ../data/netkeeper_lite
 ```

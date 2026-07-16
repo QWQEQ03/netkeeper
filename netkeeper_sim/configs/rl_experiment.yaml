@@ -4,17 +4,17 @@ training:
   batch_size: 4
   warmup: 4
   updates_per_step: 1
-  actor_lr: 0.0001
-  critic_lr: 0.0002
+  actor_lr: 0.0005
+  critic_lr: 0.0005
   gamma: 0.85
   target_interval: 16
-  entropy_coef: 0.01
+  entropy_coef: 0.001
   epsilon_start: 0.20
   epsilon_end: 0.02
   epsilon_decay: 0.995
   temperature: 1.0
   validation_every: 20
-  validation_scenarios: 3
+  validation_scenarios: 60
   patience: 10
   seed: 20260714
   replay_capacity: 1000
@@ -26,3 +26,10 @@ training:
   gradient_clip: 1.0
   amp: true
   device: auto
+  static_patience: 5
+  improvement_tolerance: 0.000001
+  formal_min_validation_delta: 0.0
+  formal_min_agent_actions: 1
+  counterfactual_replay: true
+  counterfactual_candidate_samples: 8
+  monotonic_shield: true
